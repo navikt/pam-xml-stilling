@@ -1,0 +1,19 @@
+name: pam-ad-api
+team: teampam
+image: repo.adeo.no:5443/pam-ad-api
+replicas:
+    min: 2
+    max: 4
+    cpuThresholdPercentage: 50
+prometheus:
+    enabled: true
+    path: /actuator/prometheus
+port: 9014
+healthcheck:
+    liveness:
+      initialDelay: 60
+      path: /isAlive
+    readiness:
+      initialDelay: 60
+      path: /isReady
+webproxy: true
