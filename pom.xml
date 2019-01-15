@@ -65,8 +65,8 @@
     </dependencyManagement>
 
     <scm>
-        <connection>scm:git:https://github.com/navikt/pam-ad-api.git</connection>
-        <developerConnection>scm:git:https://github.com/navikt/pam-ad-api.git</developerConnection>
+        <connection>scm:git:https://github.com/navikt/pam-xml-stilling.git</connection>
+        <developerConnection>scm:git:https://github.com/navikt/pam-xml-stilling.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
 

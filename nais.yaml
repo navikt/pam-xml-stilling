@@ -1,6 +1,6 @@
-name: pam-ad-api
+name: pam-xml-stilling
 team: teampam
-image: repo.adeo.no:5443/pam-ad-api
+image: repo.adeo.no:5443/pam-xml-stilling
 replicas:
     min: 2
     max: 4
@@ -11,9 +11,9 @@ prometheus:
 port: 9014
 healthcheck:
     liveness:
-      initialDelay: 60
+      initialDelay: 20
       path: /isAlive
     readiness:
-      initialDelay: 60
+      initialDelay: 20
       path: /isAlive
 webproxy: true
