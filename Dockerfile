@@ -1,3 +1,3 @@
 FROM navikt/java:11
-COPY target/pam-xml-stilling-app-*.jar app.jar
+COPY app/target/pam-xml-stilling-app-*.jar /app/app.jar
 EXPOSE 9020

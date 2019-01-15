@@ -1,15 +1,12 @@
 package no.nav.pam.xmlstilling;
 
-import no.nav.security.oidc.test.support.spring.TokenGeneratorConfiguration;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Import;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-@Import(value = TokenGeneratorConfiguration.class)
 @SpringBootApplication(scanBasePackageClasses = DevApplication.class)
 public class DevApplication {
 
