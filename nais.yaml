@@ -8,7 +8,7 @@ replicas:
 prometheus:
     enabled: true
     path: /prometheus
-port: 9014
+port: 9020
 healthcheck:
     liveness:
       initialDelay: 20
