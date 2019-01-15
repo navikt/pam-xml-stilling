@@ -42,14 +42,6 @@
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
         </dependency>
-        <dependency>
-            <groupId>no.nav.security</groupId>
-            <artifactId>oidc-spring-support</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>no.nav.security</groupId>
-            <artifactId>oidc-test-support</artifactId>
-        </dependency>
     </dependencies>
 
 

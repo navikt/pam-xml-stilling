@@ -19,9 +19,3 @@ management:
       path-mapping:
         info: "isAlive"
       base-path: "/"
-no.nav.security.oidc:
-  issuers: loginservice-oidc
-  issuer.loginservice-oidc:
-    discoveryurl: ${LOGINSERVICE_OIDC_DISCOVERYURI}
-    accepted_audience: ${LOGINSERVICE_OIDC_CLIENTID}
-    cookie_name: isso-idtoken

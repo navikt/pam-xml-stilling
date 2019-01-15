@@ -1,7 +1,6 @@
 package no.nav.pam.xmlstilling;
 
 import no.nav.security.oidc.test.support.spring.TokenGeneratorConfiguration;
-import no.nav.security.spring.oidc.api.EnableOIDCTokenValidation;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Import;
@@ -12,7 +11,6 @@ import java.util.List;
 
 @Import(value = TokenGeneratorConfiguration.class)
 @SpringBootApplication(scanBasePackageClasses = DevApplication.class)
-@EnableOIDCTokenValidation(ignore="org.springframework")
 public class DevApplication {
 
     public static void main(String[] args) {
