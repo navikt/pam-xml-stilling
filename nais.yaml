@@ -7,7 +7,7 @@ replicas:
     cpuThresholdPercentage: 50
 prometheus:
     enabled: true
-    path: /actuator/prometheus
+    path: /prometheus
 port: 9014
 healthcheck:
     liveness:
@@ -15,5 +15,5 @@ healthcheck:
       path: /isAlive
     readiness:
       initialDelay: 60
-      path: /isReady
+      path: /isAlive
 webproxy: true
