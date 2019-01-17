@@ -12,16 +12,13 @@ import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
 import kotliquery.HikariCP
 import mu.KotlinLogging
+import no.nav.pam.xmlstilling.Bootstrap.start
 import no.nav.pam.xmlstilling.legacy.Repository
 import no.nav.pam.xmlstilling.platform.naisApi
 
 fun main(args: Array<String>) {
 
-    val env = Environment()
-
-    HikariCP.default(env.xmlStillingDataSourceUrl, env.username, env.password)
-
-    Bootstrap.application().start(wait = true)
+    start(Environment())
 
 }
 
@@ -29,8 +26,17 @@ object Bootstrap {
 
     private val log = KotlinLogging.logger {  }
 
-    fun application() : ApplicationEngine {
-        return embeddedServer(Netty, 9020) {
+    fun start(env: Environment, afterEnvLoaded: () -> Unit = {} ) {
+
+        HikariCP.default(env.xmlStillingDataSourceUrl, env.username, env.password)
+
+        afterEnvLoaded()
+
+        Bootstrap.webApplication().start(wait = true)
+    }
+
+    fun webApplication(port: Int = 9020) : ApplicationEngine {
+        return embeddedServer(Netty, port) {
             install(ContentNegotiation) {
                 gson { setPrettyPrinting() }
             }

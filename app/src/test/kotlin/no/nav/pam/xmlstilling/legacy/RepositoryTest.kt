@@ -80,9 +80,7 @@ class RepositoryTest {
 
     @AfterEach
     fun cleanup() {
-        using(sessionOf(HikariCP.dataSource())) {session ->
-            session.run(queryOf(cleanUpStillingBatch).asExecute)
-        }
+        dropStillingBatch()
     }
 }
 
