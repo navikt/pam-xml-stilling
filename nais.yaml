@@ -17,3 +17,7 @@ healthcheck:
       initialDelay: 20
       path: /isAlive
 webproxy: true
+fasitResources:
+  used:
+    - alias: aetatnoXmlStillingAdminDS
+      resourceType: datasource
