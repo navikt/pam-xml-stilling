@@ -23,12 +23,14 @@ fun Routing.naisApi(
             call.respondText("Wait, not ready yet!", status = HttpStatusCode.InternalServerError)
 
     }
+
     get("isAlive") {
         if (alive())
             call.respondText("Alive and kicking")
         else
             call.respondText("Dead!", status = HttpStatusCode.InternalServerError)
     }
+
     get("/prometheus") {
         val names = call.request.queryParameters.getAll("name[]")?.toSet() ?: setOf()
         call.respondTextWriter(ContentType.parse(TextFormat.CONTENT_TYPE_004)) {
