@@ -27,11 +27,13 @@ object Bootstrap {
     private val log = KotlinLogging.logger {  }
 
     fun start(env: Environment, afterEnvLoaded: () -> Unit = {} ) {
+        log.debug("Initializing database connection pool")
 
         HikariCP.default(env.xmlStillingDataSourceUrl, env.username, env.password)
 
         afterEnvLoaded()
 
+        log.debug("Starting webapp")
         Bootstrap.webApplication().start(wait = true)
     }
 
@@ -45,7 +47,6 @@ object Bootstrap {
                 get("load") {
                     call.respond(Repository().fetchBatch())
                 }
-
             }
         }
     }
