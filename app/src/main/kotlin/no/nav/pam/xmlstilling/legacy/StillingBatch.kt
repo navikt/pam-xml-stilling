@@ -6,9 +6,9 @@ import kotliquery.action.ListResultQueryAction
 private val oracleFetchQuery = """
     select *
     from "SIX_KOMP"."STILLING_BATCH
-    ORDER BY STILLING_BATCH_ID
-    where STILLING_BATCH_ID > ? order by STILLING_BATCH_ID
-    fetch first 10 rows only""".trimIndent()
+    where STILLING_BATCH_ID > ?
+    order by STILLING_BATCH_ID
+    fetch first ? rows only""".trimIndent()
 
 class StillingBatch (
         fetchQuery: String = oracleFetchQuery
@@ -37,17 +37,17 @@ class StillingBatch (
     }
 
 
-    private val fetchbatchQuery = fun(start : Int): ListResultQueryAction<Entry> {
-        return queryOf(fetchQuery, start)
+    private val fetchbatchQuery = fun(start: Int, count: Int): ListResultQueryAction<Entry> {
+        return queryOf(fetchQuery, start, if(count > 10) 10 else count)
                 .map(toStillingBatchEntry)
                 .asList
     }
 
 
-    fun fetchBatch(start: Int = 0, count: Int = 100): List<StillingBatch.Entry>
+    fun fetchBatch(start: Int, count: Int): List<StillingBatch.Entry>
     {
         return using(sessionOf(HikariCP.dataSource())) { session ->
-            return@using session.run(fetchbatchQuery(start))
+            return@using session.run(fetchbatchQuery(start, count))
         }
     }
 }

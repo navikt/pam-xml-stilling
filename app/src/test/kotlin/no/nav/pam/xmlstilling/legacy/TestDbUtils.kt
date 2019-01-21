@@ -39,10 +39,10 @@ val cleanUpStillingBatch: String = """
 
 val h2FetchQuery = """
     select *
-    from "SIX_KOMP"."STILLING_BATCH
-    ORDER BY STILLING_BATCH_ID
-    where STILLING_BATCH_ID > ? order by STILLING_BATCH_ID
-    limit 10""".trimIndent()
+    from "SIX_KOMP"."STILLING_BATCH"
+    where STILLING_BATCH_ID > ?
+    order by STILLING_BATCH_ID
+    limit ?""".trimIndent()
 
 val loadBasicTestData: () -> Unit = {
 
@@ -54,6 +54,25 @@ val loadBasicTestData: () -> Unit = {
     using(sessionOf(HikariCP.dataSource())) { session ->
         session.run(queryOf(insertStillingBatchEntry, 193164, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
         session.run(queryOf(insertStillingBatchEntry, 193165, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+    }
+}
+
+
+val loadExtendedTestData: () -> Unit = {
+
+    using(sessionOf(HikariCP.dataSource())) { session ->
+        session.run(queryOf(insertStillingBatchEntry, 193166, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193167, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193168, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193169, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193170, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193171, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193172, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193173, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193174, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193175, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193176, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchEntry, 193177, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
     }
 }
 

@@ -33,8 +33,8 @@ fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch()) : Ap
             naisApi()
             get("load/{start}/count/{count}") {
                 call.respond(repo.fetchBatch(
-                        start = call.parameters["applicationName"]!!.toInt(),
-                        count = call.parameters["applicationName"]!!.toInt()))
+                        start = call.parameters["start"]!!.toInt(),
+                        count = call.parameters["count"]!!.toInt()))
             }
 
         }

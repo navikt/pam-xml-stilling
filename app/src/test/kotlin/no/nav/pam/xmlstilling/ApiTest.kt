@@ -10,9 +10,7 @@ import io.ktor.client.response.readText
 import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.runBlocking
 import kotliquery.HikariCP
-import no.nav.pam.xmlstilling.legacy.StillingBatch
-import no.nav.pam.xmlstilling.legacy.dropStillingBatch
-import no.nav.pam.xmlstilling.legacy.loadBasicTestData
+import no.nav.pam.xmlstilling.legacy.*
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -24,7 +22,7 @@ import java.util.concurrent.TimeUnit
 class ApiTest {
 
     val randomPort = ServerSocket(0).use { it.localPort }
-    val application = webApplication(randomPort)
+    val application = webApplication(randomPort, StillingBatch(h2FetchQuery))
     val client = HttpClient(CIO)
     val gson = GsonBuilder().create()
 
@@ -32,6 +30,7 @@ class ApiTest {
     fun before() {
         HikariCP.default(testEnvironment.xmlStillingDataSourceUrl, testEnvironment.username, testEnvironment.password)
         loadBasicTestData()
+        loadExtendedTestData()
 
         application.start()
     }
@@ -39,7 +38,7 @@ class ApiTest {
     @Test
     fun testLoad() {
         val response = runBlocking<HttpResponse> {
-            client.get("http://localhost:$randomPort/load")
+            client.get("http://localhost:$randomPort/load/0/count/5")
         }
 
         assertEquals(HttpStatusCode.OK, response.status)
@@ -47,7 +46,7 @@ class ApiTest {
         val stillingBatcher = gson.fromJson<List<StillingBatch>>(
                 runBlocking { response.readText() }, turnsType)
 
-        assertThat(stillingBatcher.size).isEqualTo(2)
+        assertThat(stillingBatcher.size).isEqualTo(5)
     }
 
     @Test
