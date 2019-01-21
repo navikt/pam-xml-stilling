@@ -15,6 +15,7 @@ import mu.KotlinLogging
 import no.nav.pam.xmlstilling.Bootstrap.start
 import no.nav.pam.xmlstilling.legacy.Repository
 import no.nav.pam.xmlstilling.platform.naisApi
+import java.sql.DriverManager
 
 fun main(args: Array<String>) {
 
@@ -28,7 +29,7 @@ object Bootstrap {
 
     fun start(env: Environment, afterEnvLoaded: () -> Unit = {} ) {
         log.debug("Initializing database connection pool")
-
+        log.debug("Database drivers: " + DriverManager.getDrivers())
         HikariCP.default(env.xmlStillingDataSourceUrl, env.username, env.password)
 
         afterEnvLoaded()

@@ -10,7 +10,7 @@
 
     <logger name="no.nav" level="DEBUG"/>
 
-    <root level="INFO">
+    <root level="debug">
         <appender-ref ref="CONSOLE"/>
     </root>
 
