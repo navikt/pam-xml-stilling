@@ -24,7 +24,7 @@ import java.util.concurrent.TimeUnit
 class ApiTest {
 
     val randomPort = ServerSocket(0).use { it.localPort }
-    val application = Bootstrap.webApplication(randomPort)
+    val application = webApplication(randomPort)
     val client = HttpClient(CIO)
     val gson = GsonBuilder().create()
 

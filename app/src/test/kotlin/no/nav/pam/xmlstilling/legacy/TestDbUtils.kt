@@ -37,6 +37,13 @@ val cleanUpStillingBatch: String = """
     Drop table "SIX_KOMP"."STILLING_BATCH"
 """.trimIndent()
 
+val h2FetchQuery = """
+    select *
+    from "SIX_KOMP"."STILLING_BATCH
+    ORDER BY STILLING_BATCH_ID
+    where STILLING_BATCH_ID > ? order by STILLING_BATCH_ID
+    limit 10""".trimIndent()
+
 val loadBasicTestData: () -> Unit = {
 
     using(sessionOf(HikariCP.dataSource())) { session ->

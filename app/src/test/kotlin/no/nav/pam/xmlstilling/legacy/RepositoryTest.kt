@@ -5,8 +5,12 @@ import kotliquery.queryOf
 import kotliquery.sessionOf
 import kotliquery.using
 import org.assertj.core.api.Assertions.assertThat
-import org.junit.jupiter.api.*
+import org.junit.jupiter.api.AfterEach
+import org.junit.jupiter.api.BeforeAll
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 import java.time.LocalDate
+
 class RepositoryTest {
 
     companion object {
@@ -38,7 +42,7 @@ class RepositoryTest {
             session.run(queryOf(insertStillingBatchEntry, 193165, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
         }
 
-        assertThat(Repository().fetchBatch().size).isEqualTo(2)
+        assertThat(StillingBatch().fetchBatch().size).isEqualTo(2)
     }
 
     @Test
@@ -48,7 +52,7 @@ class RepositoryTest {
             session.run(queryOf(insertStillingBatchEntry, 193164, "jobbnorge", """<?xml version="1.0" encoding="UTF-8" standalone="no" ?>""","2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
         }
 
-        val entry = Repository().fetchBatch().first()
+        val entry = StillingBatch().fetchBatch().first()
 
         assertThat(entry.stillingBatchId).isEqualTo(193164)
         assertThat(entry.eksternBrukerRef).isEqualTo("jobbnorge")
@@ -66,7 +70,7 @@ class RepositoryTest {
             session.run(queryOf(insertStillingBatchEntry, 193164, null, null, null, null, null, null).asUpdate)
         }
 
-        val entry = Repository().fetchBatch().first()
+        val entry = StillingBatch().fetchBatch().first()
 
         assertThat(entry.stillingBatchId).isEqualTo(193164)
         assertThat(entry.eksternBrukerRef).isNull()
