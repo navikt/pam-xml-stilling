@@ -21,56 +21,90 @@ import java.util.concurrent.TimeUnit
 
 class ApiTest {
 
+    init {
+        HikariCP.default(testEnvironment.xmlStillingDataSourceUrl, testEnvironment.username, testEnvironment.password)
+    }
+
     val randomPort = ServerSocket(0).use { it.localPort }
-    val application = webApplication(randomPort, StillingBatch(h2FetchQuery))
+    val application = webApplication(randomPort, StillingBatch(h2FetchQuerySql))
     val client = HttpClient(CIO)
     val gson = GsonBuilder().create()
 
+    val mapJsonToEntry: (HttpResponse) -> List<StillingBatch.Entry> = { response ->
+        val turnsType = object : TypeToken<List<StillingBatch.Entry>>() {}.type
+        gson.fromJson<List<StillingBatch.Entry>>(runBlocking { response.readText() }, turnsType)
+    }
+
     @BeforeEach
     fun before() {
-        HikariCP.default(testEnvironment.xmlStillingDataSourceUrl, testEnvironment.username, testEnvironment.password)
-        loadBasicTestData()
-        loadExtendedTestData()
-
+        createStillingBatchTable()
+                .also { loadBasicTestData() }
+                .also { loadExtendedTestData() }
         application.start()
     }
 
+
     @Test
-    fun testLoad() {
-        val response = runBlocking<HttpResponse> {
-            client.get("http://localhost:$randomPort/load/0/count/5")
-        }
+    fun testLoadFirstBatch() {
 
-        assertEquals(HttpStatusCode.OK, response.status)
-        val turnsType = object : TypeToken<List<StillingBatch>>() {}.type
-        val stillingBatcher = gson.fromJson<List<StillingBatch>>(
-                runBlocking { response.readText() }, turnsType)
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/0/count/5") }
+                .also { assertEquals(HttpStatusCode.OK, it.status) }
+                .let(mapJsonToEntry)
+                .also { list ->
+                    assertThat(list.size).isEqualTo(5)
+                    assertThat(list.map { entry -> entry.stillingBatchId }).containsAll(listOf(193164, 193165, 193166, 193167, 193168))
+                }
+    }
 
-        assertThat(stillingBatcher.size).isEqualTo(5)
+    @Test
+    fun testLoadNextBatch() {
+
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/193168/count/5") }
+                .also { assertEquals(HttpStatusCode.OK, it.status) }
+                .let(mapJsonToEntry)
+                .also { list ->
+                    assertThat(list.size).isEqualTo(5)
+                    assertThat(list.map { entry -> entry.stillingBatchId }).containsAll(listOf(193169, 193170, 193171, 193172, 193173))
+                }
+
+    }
+
+    @Test
+    fun testLastBatch() {
+
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/193175/count/5") }
+                .also { assertEquals(HttpStatusCode.OK, it.status) }
+                .let(mapJsonToEntry)
+                .also { list -> assertThat(list.size).isEqualTo(2) }
+
+    }
+
+    @Test
+    fun testEmptyBatch() {
+
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/99999999/count/5") }
+                .also { assertEquals(HttpStatusCode.OK, it.status) }
+                .let(mapJsonToEntry)
+                .also { list -> assertThat(list.size).isEqualTo(0) }
     }
 
     @Test
     fun testIsAlive() {
-        val response = runBlocking<HttpResponse> {
-            client.get("http://localhost:$randomPort/isAlive")
-        }
-        assertEquals(HttpStatusCode.OK, response.status)
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/isAlive") }
+                .also { assertEquals(HttpStatusCode.OK, it.status) }
+
     }
 
     @Test
     fun testIsReady() {
-        val response = runBlocking<HttpResponse> {
-            client.get("http://localhost:$randomPort/isReady")
-        }
-        assertEquals(HttpStatusCode.OK, response.status)
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/isReady") }
+                .also { assertEquals(HttpStatusCode.OK, it.status) }
     }
 
     @Test
     fun testPrometheus() {
-        val response = runBlocking<HttpResponse> {
-            client.get("http://localhost:$randomPort/prometheus")
-        }
-        assertEquals(HttpStatusCode.OK, response.status)
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/prometheus") }
+                .also { assertEquals(HttpStatusCode.OK, it.status) }
     }
 
     @AfterEach

@@ -27,9 +27,9 @@ class RepositoryTest {
 
         using(sessionOf(HikariCP.dataSource())) { session ->
 
-            session.run(queryOf(createSchema).asExecute)
+            session.run(queryOf(createSchemaSql).asExecute)
 
-            session.run(queryOf(createStillingBatchTable).asExecute)
+            session.run(queryOf(createStillingBatchTableSql).asExecute)
 
         }
     }
@@ -38,21 +38,21 @@ class RepositoryTest {
     fun testFetchAll() {
 
         using(sessionOf(HikariCP.dataSource())) {session ->
-            session.run(queryOf(insertStillingBatchEntry, 193164, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-            session.run(queryOf(insertStillingBatchEntry, 193165, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+            session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+            session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
         }
 
-        assertThat(StillingBatch(h2FetchQuery).fetchBatch(0, 10).size).isEqualTo(2)
+        assertThat(StillingBatch(h2FetchQuerySql).fetchBatch(0, 10).size).isEqualTo(2)
     }
 
     @Test
     fun testMapping() {
 
         using(sessionOf(HikariCP.dataSource())) {session ->
-            session.run(queryOf(insertStillingBatchEntry, 193164, "jobbnorge", """<?xml version="1.0" encoding="UTF-8" standalone="no" ?>""","2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+            session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", """<?xml version="1.0" encoding="UTF-8" standalone="no" ?>""","2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
         }
 
-        val entry = StillingBatch(h2FetchQuery).fetchBatch(0, 10).first()
+        val entry = StillingBatch(h2FetchQuerySql).fetchBatch(0, 10).first()
 
         assertThat(entry.stillingBatchId).isEqualTo(193164)
         assertThat(entry.eksternBrukerRef).isEqualTo("jobbnorge")
@@ -67,10 +67,10 @@ class RepositoryTest {
     fun testNullMappings() {
 
         using(sessionOf(HikariCP.dataSource())) {session ->
-            session.run(queryOf(insertStillingBatchEntry, 193164, null, null, null, null, null, null).asUpdate)
+            session.run(queryOf(insertStillingBatchSql, 193164, null, null, null, null, null, null).asUpdate)
         }
 
-        val entry = StillingBatch(h2FetchQuery).fetchBatch(0, 10).first()
+        val entry = StillingBatch(h2FetchQuerySql).fetchBatch(0, 10).first()
 
         assertThat(entry.stillingBatchId).isEqualTo(193164)
         assertThat(entry.eksternBrukerRef).isNull()
