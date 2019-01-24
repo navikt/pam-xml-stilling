@@ -13,42 +13,45 @@ import io.ktor.server.netty.Netty
 import kotliquery.HikariCP
 import mu.KotlinLogging
 import no.nav.pam.xmlstilling.Bootstrap.start
-import no.nav.pam.xmlstilling.legacy.Repository
+import no.nav.pam.xmlstilling.legacy.StillingBatch
 import no.nav.pam.xmlstilling.platform.naisApi
-import java.sql.DriverManager
 
 fun main(args: Array<String>) {
 
-    start(Environment())
+    Bootstrap.initializeDatabase(Environment())
 
+    start(webApplication())
+
+}
+
+fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch()) : ApplicationEngine {
+    return embeddedServer(Netty, port) {
+        install(ContentNegotiation) {
+            gson { setPrettyPrinting() }
+        }
+        routing {
+            naisApi()
+            get("load/{start}/count/{count}") {
+                call.respond(repo.fetchBatch(
+                        start = call.parameters["start"]!!.toInt(),
+                        count = call.parameters["count"]!!.toInt()))
+            }
+
+        }
+    }
 }
 
 object Bootstrap {
 
     private val log = KotlinLogging.logger {  }
 
-    fun start(env: Environment, afterEnvLoaded: () -> Unit = {} ) {
+    fun initializeDatabase(env: Environment) {
         log.debug("Initializing database connection pool")
-        log.debug("Database drivers: " + DriverManager.getDrivers())
         HikariCP.default(env.xmlStillingDataSourceUrl, env.username, env.password)
-
-        afterEnvLoaded()
-
-        log.debug("Starting webapp")
-        Bootstrap.webApplication().start(wait = true)
     }
 
-    fun webApplication(port: Int = 9020) : ApplicationEngine {
-        return embeddedServer(Netty, port) {
-            install(ContentNegotiation) {
-                gson { setPrettyPrinting() }
-            }
-            routing {
-                naisApi()
-                get("load") {
-                    call.respond(Repository().fetchBatch())
-                }
-            }
-        }
+    fun start(webApplication: ApplicationEngine) {
+        log.debug("Starting weg application")
+        webApplication.start(wait = true)
     }
 }

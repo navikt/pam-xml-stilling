@@ -5,11 +5,11 @@ import kotliquery.queryOf
 import kotliquery.sessionOf
 import kotliquery.using
 
-val createSchema: String = """
+val createSchemaSql: String = """
     CREATE SCHEMA IF NOT EXISTS SIX_KOMP;
 """.trimIndent()
 
-val createStillingBatchTable: String = """
+val createStillingBatchTableSql: String = """
     CREATE TABLE "SIX_KOMP"."STILLING_BATCH"
     (	"STILLING_BATCH_ID" NUMBER NOT NULL,
         "EKSTERN_BRUKER_REF" VARCHAR2(150 BYTE),
@@ -21,7 +21,7 @@ val createStillingBatchTable: String = """
         CONSTRAINT "PK_STILLING_BATCH" PRIMARY KEY ("STILLING_BATCH_ID"));
 """.trimIndent()
 
-val insertStillingBatchEntry: String = """
+val insertStillingBatchSql: String = """
     Insert into "SIX_KOMP"."STILLING_BATCH" (
         STILLING_BATCH_ID,
         EKSTERN_BRUKER_REF,
@@ -33,26 +33,52 @@ val insertStillingBatchEntry: String = """
     values (?, ?, ?, ?, ?, ?, ?);
 """.trimIndent()
 
-val cleanUpStillingBatch: String = """
+val dropStillingBatchSql: String = """
     Drop table "SIX_KOMP"."STILLING_BATCH"
 """.trimIndent()
 
-val loadBasicTestData: () -> Unit = {
+val h2FetchQuerySql = """
+    select *
+    from "SIX_KOMP"."STILLING_BATCH"
+    where STILLING_BATCH_ID > ?
+    order by STILLING_BATCH_ID
+    limit ?""".trimIndent()
 
+val createStillingBatchTable = {
     using(sessionOf(HikariCP.dataSource())) { session ->
-        session.run(queryOf(createSchema).asExecute)
-        session.run(queryOf(createStillingBatchTable).asExecute)
-    }
-
-    using(sessionOf(HikariCP.dataSource())) { session ->
-        session.run(queryOf(insertStillingBatchEntry, 193164, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-        session.run(queryOf(insertStillingBatchEntry, 193165, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(createSchemaSql).asExecute)
+        session.run(queryOf(createStillingBatchTableSql).asExecute)
     }
 }
 
-val dropStillingBatch: () -> Unit = {
 
-    using(sessionOf(HikariCP.dataSource())) {session ->
-        session.run(queryOf(cleanUpStillingBatch).asExecute)
+val loadBasicTestData = {
+    using(sessionOf(HikariCP.dataSource())) { session ->
+        session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+    }
+}
+
+
+val loadExtendedTestData = {
+    using(sessionOf(HikariCP.dataSource())) { session ->
+        session.run(queryOf(insertStillingBatchSql, 193166, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193167, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193168, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193169, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193170, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193171, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193172, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193173, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193174, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193175, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193176, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193177, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+    }
+}
+
+val dropStillingBatch = {
+    using(sessionOf(HikariCP.dataSource())) { session ->
+        session.run(queryOf(dropStillingBatchSql).asExecute)
     }
 }

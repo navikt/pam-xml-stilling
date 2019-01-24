@@ -1,9 +1,18 @@
 package no.nav.pam.xmlstilling.legacy
 
-import kotliquery.Row
-import kotliquery.queryOf
+import kotliquery.*
+import kotliquery.action.ListResultQueryAction
 
-class StillingBatch {
+private val oracleFetchQuery = """
+    select *
+    from "SIX_KOMP"."STILLING_BATCH
+    where STILLING_BATCH_ID > ?
+    order by STILLING_BATCH_ID
+    fetch first ? rows only""".trimIndent()
+
+class StillingBatch (
+        fetchQuery: String = oracleFetchQuery
+) {
 
     data class Entry (
         val stillingBatchId: Int,
@@ -28,6 +37,17 @@ class StillingBatch {
     }
 
 
-    val fetchAll = queryOf("""select * from "SIX_KOMP"."STILLING_BATCH"""").map(toStillingBatchEntry).asList
+    private val fetchbatchQuery = fun(start: Int, count: Int): ListResultQueryAction<Entry> {
+        return queryOf(fetchQuery, start, if(count > 10) 10 else count)
+                .map(toStillingBatchEntry)
+                .asList
+    }
 
+
+    fun fetchBatch(start: Int, count: Int): List<StillingBatch.Entry>
+    {
+        return using(sessionOf(HikariCP.dataSource())) { session ->
+            return@using session.run(fetchbatchQuery(start, count))
+        }
+    }
 }
