@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl" xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:m2="http://ns.hr-xml.org/2007-04-15" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <m:LeggInnStillinger>
+      <StillingListe>
+        <m0:PositionOpening>
+          <PositionPostings>
+            <PositionPosting>
+              <Id>
+                <IdValue>275307656</IdValue>
+              </Id>
+            </PositionPosting>
+          </PositionPostings>
+          <PositionSupplier>
+            <SupplierId>
+              <IdValue>Webcruiter</IdValue>
+            </SupplierId>
+            <EntityName>YIT Building Systems AS</EntityName>
+            <ContactMethod>
+              <Telephone>
+                <FormattedNumber>55 15 16 00</FormattedNumber>
+              </Telephone>
+              <Fax>
+                <FormattedNumber>66 77 11 00</FormattedNumber>
+              </Fax>
+            </ContactMethod>
+            <Role />
+          </PositionSupplier>
+          <PositionProfile>
+            <ProfileName>Avdelingsleder prosjekt</ProfileName>
+            <PositionDateInfo>
+              <StartDate>2008-01-01</StartDate>
+              <ExpectedEndDate>2011-12-12</ExpectedEndDate>
+              <MaximumStartDate>2009-02-22</MaximumStartDate>
+              <MaximumEndDate>2010-11-21</MaximumEndDate>
+              <StartAsSoonAsPossible>false</StartAsSoonAsPossible>
+            </PositionDateInfo>
+            <Organization>YIT er Norges ledende leverandoer av tekniske bygginstallasjoner.</Organization>
+            <PositionDetail>
+              <Company />
+              <PhysicalLocation>
+                <Name>Rogaland</Name>
+                <PostalAddress>
+                  <PostalCode>1111</PostalCode>
+                  <Recipient>
+                    <PersonName>
+                      <FormattedName>Oivin Robberstad</FormattedName>
+                    </PersonName>
+                  </Recipient>
+                  <DeliveryAddress>
+                    <AddressLine>Krokatjoennveien 11c</AddressLine>
+                  </DeliveryAddress>
+                </PostalAddress>
+              </PhysicalLocation>
+              <JobCategory>
+                <CategoryDescription />
+              </JobCategory>
+              <PositionTitle />
+              <PositionClassification />
+              <PositionSchedule percentage="100" />
+              <Competency name="" required="" />
+              <JobLevelInfo>
+                <JobPlan />
+                <JobGrade />
+              </JobLevelInfo>
+            </PositionDetail>
+            <FormattedPositionDescription>
+              <Value>Stillingsbeskrivelse</Value>
+            </FormattedPositionDescription>
+            <HowToApply>
+              <PersonName>Oivin Rudstad</PersonName>
+              <ApplicationMethod>
+                <Telephone>
+                  <FormattedNumber>90 89 39 04</FormattedNumber>
+                </Telephone>
+                <InternetEmailAddress>a@b.com</InternetEmailAddress>
+                <InternetWebAddress>http://www.a.com</InternetWebAddress>
+                <PostalAddress>
+                  <PostalCode>5555</PostalCode>
+                  <Recipient>
+                    <PersonName>Oivin Heistad</PersonName>
+                  </Recipient>
+                  <DeliveryAddress>
+                    <AddressLine>Leilighet 11</AddressLine>
+                    <StreetName>Krokatjoennveien 11cde</StreetName>
+                    <PostOfficeBox>Postboks 41</PostOfficeBox>
+                  </DeliveryAddress>
+                  <Region>Bergen</Region>
+                </PostalAddress>
+              </ApplicationMethod>
+            </HowToApply>
+          </PositionProfile>
+          <NumberToFill>1</NumberToFill>
+        </m0:PositionOpening>
+      </StillingListe>
+    </m:LeggInnStillinger>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
