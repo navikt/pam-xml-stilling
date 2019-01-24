@@ -10,6 +10,8 @@ import javax.xml.xpath.XPathFactory
 
 object HrXmlStilingParser {
 
+    private val dateFormat: String = "dd.MM.yyyy";
+
     private val xPath: XPath = XPathFactory.newInstance().newXPath()
 
     fun parse(xml: String): HrXmlStilling {
@@ -45,9 +47,9 @@ object HrXmlStilingParser {
                 stillingsProsent,
                 kontaktPerson,
                 kontaktPersonTlfnr,
-                if (publiseresFra.isNullOrBlank()) null else SimpleDateFormat("dd.MM.yyyy").parse(publiseresFra),
-                if (sistePubliseringsdato.isNullOrBlank()) null else SimpleDateFormat("yyyy-MM-dd").parse(sistePubliseringsdato),
-                if (soknadsFrist.isNullOrBlank()) null else SimpleDateFormat("yyyy-MM-dd").parse(soknadsFrist),
+                if (publiseresFra.isNullOrBlank()) null else SimpleDateFormat(dateFormat).parse(publiseresFra),
+                if (sistePubliseringsdato.isNullOrBlank()) null else SimpleDateFormat(dateFormat).parse(sistePubliseringsdato),
+                if (soknadsFrist.isNullOrBlank()) null else SimpleDateFormat(dateFormat).parse(soknadsFrist),
                 arbeidsgiverAdresse,
                 arbeidsgiverPostNr,
                 url)
@@ -56,6 +58,5 @@ object HrXmlStilingParser {
     private fun getString(expression: String, document: Document): String {
         return xPath.compile(expression).evaluate(document, XPathConstants.STRING) as String
     }
-
 
 }
