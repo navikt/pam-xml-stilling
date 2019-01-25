@@ -8,6 +8,7 @@ import java.io.FileInputStream
 import java.io.InputStreamReader
 import java.io.Reader
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 class StillingMapperTest {
 
@@ -19,9 +20,9 @@ class StillingMapperTest {
         val stillingBatchEntries: MutableList<StillingBatch.Entry> = ArrayList()
         stillingBatchEntries.add(StillingBatch.Entry(
                 100,
-null,
+                null,
                 xml,
-                LocalDate.now(),
+                LocalDateTime.now(),
                 LocalDate.now(),
                 "5",
                 "NAV"
@@ -30,7 +31,7 @@ null,
                 200,
                 null,
                 xml,
-                LocalDate.now(),
+                LocalDateTime.now(),
                 LocalDate.now(),
                 "7",
                 "FINN"
@@ -42,13 +43,3 @@ null,
 
     }
 }
-
-/*
-        val stillingBatchId: Int,
-        val eksternBrukerRef: String?,
-        val stillingXml: String,
-        val mottattDato: java.time.LocalDate?,
-        val behandletDato: java.time.LocalDate?,
-        val behandletStatus: String?,
-        val arbeidsgiver: String?)
- */

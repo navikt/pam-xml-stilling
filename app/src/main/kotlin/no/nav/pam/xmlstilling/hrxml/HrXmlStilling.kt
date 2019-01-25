@@ -1,7 +1,7 @@
 package no.nav.pam.xmlstilling.hrxml
 
 import java.time.LocalDate
-import java.util.*
+import java.time.LocalDateTime
 
 data class HrXmlStilling (
     val stillingId: String?,
@@ -15,11 +15,11 @@ data class HrXmlStilling (
     val stillingsProsent: Float,
     val kontaktPerson: String,
     val kontaktPersonTlfnr: String,
-    val publiseresFra: Date?,
-    val sistePubliseringsdato: Date?,
-    val soknadsFrist: Date?,
+    val publiseresFra: LocalDate?,
+    val sistePubliseringsdato: LocalDate?,
+    val soknadsFrist: LocalDate?,
     val arbeidsgiverAdresse: String,
     val arbeidsgiverPostNr: String,
     val url: String,
-    val mottatt: LocalDate
+    val mottatt: LocalDateTime
 )

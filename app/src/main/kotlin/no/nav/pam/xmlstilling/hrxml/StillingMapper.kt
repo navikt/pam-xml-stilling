@@ -1,9 +1,7 @@
 package no.nav.pam.xmlstilling.hrxml
 
-import io.ktor.util.toLocalDateTime
 import no.nav.pam.xmlstilling.legacy.StillingBatch
 import no.nav.pam.xmlstilling.rest.XmlStillingDto
-import java.time.LocalDateTime
 
 object StillingMapper {
 
@@ -14,11 +12,11 @@ object StillingMapper {
                 hrXmlStilling.bedriftspresentasjon,
                 hrXmlStilling.stillingsBeskrivelse,
                 hrXmlStilling.stillingsTittel,
-                hrXmlStilling.soknadsFrist?.toLocalDateTime(),
+                hrXmlStilling.soknadsFrist?.atStartOfDay(),
                 makeExternalId(hrXmlStilling),
-                hrXmlStilling.publiseresFra?.toLocalDateTime(),
-                hrXmlStilling.sistePubliseringsdato?.toLocalDateTime(),
-                hrXmlStilling.mottatt.atStartOfDay()
+                hrXmlStilling.publiseresFra?.atStartOfDay(),
+                hrXmlStilling.sistePubliseringsdato?.atStartOfDay(),
+                hrXmlStilling.mottatt
         )
     }
 
@@ -29,6 +27,6 @@ object StillingMapper {
     fun toStillingDtos(stillingBatchEntries: List<StillingBatch.Entry>): List<XmlStillingDto> {
         return stillingBatchEntries
                 .map { entry -> HrXmlStilingParser.parse(entry.stillingXml, entry.mottattDato) }
-                .map { hrXmlStilling -> StillingMapper.toStillingDto(hrXmlStilling) }
+                .map { hrXmlStilling -> toStillingDto(hrXmlStilling) }
     }
 }

@@ -2,8 +2,8 @@ package no.nav.pam.xmlstilling.hrxml
 
 import org.w3c.dom.Document
 import java.nio.charset.StandardCharsets
-import java.text.SimpleDateFormat
 import java.time.LocalDate
+import java.time.LocalDateTime
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.xpath.XPath
 import javax.xml.xpath.XPathConstants
@@ -11,11 +11,9 @@ import javax.xml.xpath.XPathFactory
 
 object HrXmlStilingParser {
 
-    private val dateFormat: String = "yyyy-MM-dd";
-
     private val xPath: XPath = XPathFactory.newInstance().newXPath()
 
-    fun parse(xml: String, mottatt: LocalDate): HrXmlStilling {
+    fun parse(xml: String, mottatt: LocalDateTime): HrXmlStilling {
         val document: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml.byteInputStream(StandardCharsets.UTF_8))
 
         val stillingId: String = getString("""//Id/IdValue""", document)
@@ -48,9 +46,9 @@ object HrXmlStilingParser {
                 stillingsProsent,
                 kontaktPerson,
                 kontaktPersonTlfnr,
-                if (publiseresFra.isNullOrBlank()) null else SimpleDateFormat(dateFormat).parse(publiseresFra),
-                if (sistePubliseringsdato.isNullOrBlank()) null else SimpleDateFormat(dateFormat).parse(sistePubliseringsdato),
-                if (soknadsFrist.isNullOrBlank()) null else SimpleDateFormat(dateFormat).parse(soknadsFrist),
+                if (publiseresFra.isNullOrBlank()) null else LocalDate.parse(publiseresFra),
+                if (sistePubliseringsdato.isNullOrBlank()) null else LocalDate.parse(sistePubliseringsdato),
+                if (soknadsFrist.isNullOrBlank()) null else LocalDate.parse(soknadsFrist),
                 arbeidsgiverAdresse,
                 arbeidsgiverPostNr,
                 url,
