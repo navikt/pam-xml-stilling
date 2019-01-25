@@ -3,6 +3,7 @@ package no.nav.pam.xmlstilling.hrxml
 import org.w3c.dom.Document
 import java.nio.charset.StandardCharsets
 import java.text.SimpleDateFormat
+import java.time.LocalDate
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.xpath.XPath
 import javax.xml.xpath.XPathConstants
@@ -10,11 +11,11 @@ import javax.xml.xpath.XPathFactory
 
 object HrXmlStilingParser {
 
-    private val dateFormat: String = "dd.MM.yyyy";
+    private val dateFormat: String = "yyyy-MM-dd";
 
     private val xPath: XPath = XPathFactory.newInstance().newXPath()
 
-    fun parse(xml: String): HrXmlStilling {
+    fun parse(xml: String, mottatt: LocalDate): HrXmlStilling {
         val document: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml.byteInputStream(StandardCharsets.UTF_8))
 
         val stillingId: String = getString("""//Id/IdValue""", document)
@@ -52,7 +53,8 @@ object HrXmlStilingParser {
                 if (soknadsFrist.isNullOrBlank()) null else SimpleDateFormat(dateFormat).parse(soknadsFrist),
                 arbeidsgiverAdresse,
                 arbeidsgiverPostNr,
-                url)
+                url,
+                mottatt)
     }
 
     private fun getString(expression: String, document: Document): String {

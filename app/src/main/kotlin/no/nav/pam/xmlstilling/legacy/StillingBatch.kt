@@ -17,8 +17,8 @@ class StillingBatch (
     data class Entry (
         val stillingBatchId: Int,
         val eksternBrukerRef: String?,
-        val stillingXml: String?,
-        val mottattDato: java.time.LocalDate?,
+        val stillingXml: String,
+        val mottattDato: java.time.LocalDate,
         val behandletDato: java.time.LocalDate?,
         val behandletStatus: String?,
         val arbeidsgiver: String?)
@@ -28,8 +28,8 @@ class StillingBatch (
         Entry(
                 stillingBatchId = row.int("STILLING_BATCH_ID"),
                 eksternBrukerRef = row.stringOrNull("EKSTERN_BRUKER_REF"),
-                stillingXml = row.stringOrNull("STILLING_XML"),
-                mottattDato = row.localDateOrNull("MOTTATT_DATO"),
+                stillingXml = row.string("STILLING_XML"),
+                mottattDato = row.localDate("MOTTATT_DATO"),
                 behandletDato = row.localDateOrNull("BEHANDLET_DATO"),
                 behandletStatus = row.stringOrNull("BEHANDLET_STATUS"),
                 arbeidsgiver = row.stringOrNull("ARBEIDSGIVER")

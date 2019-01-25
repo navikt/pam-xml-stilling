@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Test
 import java.io.FileInputStream
 import java.io.InputStreamReader
 import java.io.Reader
+import java.time.LocalDate
 
 class HrXmlStilingParserTest {
 
@@ -14,7 +15,7 @@ class HrXmlStilingParserTest {
         val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/ok__stillinger_for_ws-innsending_x1.xml"))
         val xml: String = reader.readText()
 
-        val hrXmlStilling: HrXmlStilling = HrXmlStilingParser.parse(xml)
+        val hrXmlStilling: HrXmlStilling = HrXmlStilingParser.parse(xml, LocalDate.now())
         assertThat(hrXmlStilling.stillingId).matches("275307656")
         assertThat(hrXmlStilling.leverandor).matches("Webcruiter")
         assertThat(hrXmlStilling.arbeidsgiver).matches("YIT Building Systems AS")
