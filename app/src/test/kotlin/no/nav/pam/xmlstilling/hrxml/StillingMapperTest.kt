@@ -12,10 +12,13 @@ import java.time.LocalDateTime
 
 class StillingMapperTest {
 
+    private val dateAndTime = "2019-01-22T20:30:00"
+
     @Test
     fun testToStillingDtos() {
         val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/ok__stillinger_for_ws-innsending_x1.xml"))
         val xml: String = reader.readText()
+        val time = LocalDateTime.parse(dateAndTime)
 
         val stillingBatchEntries: MutableList<StillingBatch.Entry> = ArrayList()
         stillingBatchEntries.add(StillingBatch.Entry(
@@ -31,7 +34,7 @@ class StillingMapperTest {
                 200,
                 null,
                 xml,
-                LocalDateTime.now(),
+                time,
                 LocalDate.now(),
                 "7",
                 "FINN"
@@ -40,6 +43,6 @@ class StillingMapperTest {
         val stillingDtos = StillingMapper.toStillingDtos(stillingBatchEntries)
 
         assertThat(stillingDtos[0].title).matches("Avdelingsleder prosjekt")
-
+        assertThat(stillingDtos[1].received).isEqualTo(dateAndTime)
     }
 }
