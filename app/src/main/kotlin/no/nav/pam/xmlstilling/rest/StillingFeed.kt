@@ -4,12 +4,13 @@ import no.nav.pam.xmlstilling.hrxml.HrXmlStilingParser
 import no.nav.pam.xmlstilling.hrxml.HrXmlStilling
 import no.nav.pam.xmlstilling.hrxml.StillingMapper
 import no.nav.pam.xmlstilling.legacy.StillingBatch
+import java.time.LocalDateTime
 
 class StillingFeed {
 
-    fun hentStillinger(start: Int, count: Int): List<XmlStillingDto> {
+    fun hentStillinger(timestamp: LocalDateTime): List<XmlStillingDto> {
         val batch: StillingBatch = StillingBatch()
-        return batch.fetchBatch(start, count)
+        return batch.fetchBatch(0, 30)
                 .map { entry -> HrXmlStilingParser.parse(entry.stillingXml, entry.mottattDato) }
                 .map { hrXmlStilling -> StillingMapper.toStillingDto(hrXmlStilling) }
     }
