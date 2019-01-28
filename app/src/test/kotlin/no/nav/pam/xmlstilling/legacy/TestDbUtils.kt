@@ -54,26 +54,26 @@ val createStillingBatchTable = {
 
 val loadBasicTestData = {
     using(sessionOf(HikariCP.dataSource())) { session ->
-        session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", Leverandor.WEBCRUITER.xml(), "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
     }
 }
 
 
 val loadExtendedTestData = {
     using(sessionOf(HikariCP.dataSource())) { session ->
-        session.run(queryOf(insertStillingBatchSql, 193166, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193167, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193168, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193169, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193170, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193171, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193172, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193173, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193174, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193175, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193176, "jobbnorge", null, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
-        session.run(queryOf(insertStillingBatchSql, 193177, "webcruiter", null, "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193166, "jobbnorge", Leverandor.MYNETWORK.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193167, "webcruiter", Leverandor.HRMANAGER.xml(), "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193168, "jobbnorge", Leverandor.STEPSTONE.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193169, "webcruiter", Leverandor.KARRIERENO.xml(), "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193170, "jobbnorge", Leverandor.JOBBNORGE.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193171, "webcruiter", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193172, "jobbnorge", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193173, "webcruiter", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193174, "jobbnorge", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193175, "webcruiter", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193176, "jobbnorge", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193177, "webcruiter", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
     }
 }
 

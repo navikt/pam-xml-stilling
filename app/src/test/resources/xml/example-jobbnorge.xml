@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<soap:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/">
+<soap:Body>
+<LeggInnStillinger>
+<StillingListe>
+<m0:PositionOpening xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd">
+<PositionPostings xmlns="http://ns.hr-xml.org/2007-04-15">
+<PositionPosting>
+<Id>
+<IdValue name="Jobbnorge stillingID">160946</IdValue>
+</Id>
+</PositionPosting>
+</PositionPostings>
+<PositionSupplier xmlns="http://ns.hr-xml.org/2007-04-15">
+<EntityName>Troms fylkeskommune</EntityName>
+</PositionSupplier>
+<PositionProfile xmlns="http://ns.hr-xml.org/2007-04-15">
+<ProfileName>Skoleleder blÃ¥ fag</ProfileName>
+<PositionDateInfo>
+<MaximumStartDate>2018-12-10</MaximumStartDate>
+<MaximumEndDate>2018-12-10</MaximumEndDate>
+</PositionDateInfo>
+<Organization><p align="LEFT"><strong>Nord-Troms videregÃ¥ende skole</strong></p> <p align="LEFT">Skolen har ca 350 elever fordelt pÃ¥ sju utdanningsprogram. Det er to skolesteder, Storslett i Nordreisa kommune og SkjervÃ¸y. Skolen har et nÃ¦rt samarbeid med nÃ¦ringsliv og forvaltning i Nord Troms.</p> <p align="LEFT">Skolested SkjervÃ¸y har ca 80 elever og fagskolestudenter. Skolested Nordreisa har ca 300 elever. Skolen har landslinje for langrenn og skiskyting.</p> <p align="LEFT">Skolen er ressursskole for samisk i Troms, og tilbyr samiskundervisning til en rekke andre skoler.</p> <p align="LEFT">Nord-Troms har en fantastisk natur og spennende kulturmiljÃ¸. Regionen er tiltakssone med virkemidler som nedskriving av studielÃ¥n, lavere skatt og hÃ¸gere barnetrygd. Les mer her:</p> <p>http://www.nordtromsportalen.no/okonomiske-fortrinn.311663.no.html</p></Organization>
+<PositionDetail>
+<PhysicalLocation>
+<Name>Hovedsaklig skolested SkjervÃ¸y</Name>
+<PostalAddress>
+<CountryCode>NO</CountryCode>
+<PostalCode>9296</PostalCode>
+<DeliveryAddress>
+<AddressLine>Postboks 6600</AddressLine>
+</DeliveryAddress>
+</PostalAddress>
+</PhysicalLocation>
+<PositionSchedule>Temporary</PositionSchedule>
+</PositionDetail>
+<FormattedPositionDescription>
+<Value>
+<![CDATA[
+Jobbnorge ID: 160946<br><br><p><strong>Skoleleder ved Nord-Troms videregÃ¥ende skole</strong></p>
+<p>Nord-Troms videregÃ¥ende skole har ledig en stilling som skoleleder fra 1.1.2019 til 1.5.2019. Stillingen er et vikariat fordi nÃ¥vÃ¦rende avdelingsleder skal jobbe med et prosjekt ved skolen.</p>
+<p><br />Skolen sÃ¸ker tydelige og engasjerte ledere som setter elevenes lÃ¦ring i sentrum, og som vil vÃ¦re med pÃ¥ Ã¥ gjÃ¸re en god skole endaÂ bedre i nÃ¦rt samarbeid med ungdommene, foresatte og lokalsamfunn.</p>
+<p>Skolen er en viktig regional utviklingsaktÃ¸r i Nord-Troms, og Ã¥Â kunne ivareta dette i daglig virksomhet ved skolen er en sentral lederoppgave.</p>
+<p>For mer informasjon om skolen se www.nordtroms.vgs.no</p>
+<p><br /><strong>Arbeidsoppgaver</strong></p>
+<ul>
+<li>leder for naturbruksavdelingen</li>
+<li>overordnet ansvar for Ã¥ fÃ¸lge opp elevene i avdelingen</li>
+<li>faglig leder for naturbruk pÃ¥ VG1 og fiske og fangst og akva pÃ¥ VG2</li>
+<li>medansvar for skolens utviklingsarbeid</li>
+<li>kontakt med eksterne aktÃ¸rerÂ </li>
+<li>ansvar for administrative oppgaver etter nÃ¦rmere avtale</li>
+<li>noe undervisning eller andre oppgaver, 20-40 %</li>
+</ul>
+<p><strong>Kvalifikasjoner:</strong></p>
+<ul>
+<li>utdanning pÃ¥ hÃ¸yskole/universitetsnivÃ¥</li>
+<li>godkjent pedagogisk utdanning og gjerne lederutdanning</li>
+<li>god ikt-kompetanse</li>
+<li>god evne til Ã¥ kommunisere</li>
+</ul>
+<p><strong>Personlige egenskaper:</strong></p>
+<ul>
+<li>evner Ã¥ lede i trÃ¥d med sentrale og lokale mÃ¥lsetninger</li>
+<li>setter tydelige mÃ¥l for seg selv og sine medarbeidere</li>
+<li>arbeider systematisk og har god rutineforstÃ¥else</li>
+<li>viser handlekraft og lojalitet til beslutninger</li>
+<li>evner Ã¥ bygge og arbeide i nettverk</li>
+<li>personlig egnethet vektlegges</li>
+</ul>
+<p><strong>Vi tilbyr:</strong></p>
+<ul>
+<li>en utfordrende stilling med varierte og spennende oppgaver</li>
+<li>et godt sosialt miljÃ¸ og en utviklingsorientert ledergruppe</li>
+<li>arbeids- og lÃ¸nnsbetingelser etter avtale</li>
+<li>god pensjonsordning i overensstemmelse med gjeldende lover og avtaleverk</li>
+</ul>
+<p><strong>SÃ¸knadsfrist:10.12.2018 <br /></strong></p>
+<p><strong>Kontaktinfo:</strong><br />Olaug Bergset, rektor, mobil 920 12 601</p>
+<p style="margin: 0cm 0cm 0pt;">For tilsetting i videregÃ¥ende skole kreves politiattest.</p>
+<p style="margin: 0cm 0cm 0pt;">Opplysninger om sÃ¸kere kan bli offentliggjort selv om det er bedt om unntak fra offentlighet, jfr.</p>
+<p style="margin: 0cm 0cm 0pt;">Offentlighetsloven.</p>
+<p>Stillingen skal sÃ¸kes elektronisk via link denne siden.</p>
+<p>Â </p>
+<p><br /><br /></p><br><br>Se annonsen og sÃ¸k pÃ¥ stillingen <a href="http://www.jobbnorge.no/ledige-stillinger/stilling/160946">www.jobbnorge.no</a>
+]]>
+</Value>
+</FormattedPositionDescription>
+<HowToApply>
+<ApplicationMethod>
+<InternetWebAddress>www.tromsfylke.no</InternetWebAddress>
+</ApplicationMethod>
+</HowToApply>
+</PositionProfile>
+<NumberToFill xmlns="http://ns.hr-xml.org/2007-04-15">1</NumberToFill>
+</m0:PositionOpening>
+</StillingListe>
+</LeggInnStillinger>
+</soap:Body>
+</soap:Envelope>

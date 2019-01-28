@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<SOAP-ENV:Envelope xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:m2="http://ns.hr-xml.org/2007-04-15" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd" xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+<SOAP-ENV:Body>
+<m:LeggInnStillinger>
+<StillingListe>
+<m0:PositionOpening>
+<PositionPostings>
+<PositionPosting>
+<Id>
+<IdValue>12934</IdValue>
+</Id>
+</PositionPosting>
+</PositionPostings>
+<PositionSupplier>
+<SupplierId>
+<IdValue>Globesoft</IdValue>
+</SupplierId>
+<EntityName>Sweco</EntityName>
+<ContactMethod>
+<Telephone>
+<FormattedNumber/>
+</Telephone>
+<Fax>
+<FormattedNumber/>
+</Fax>
+</ContactMethod>
+<Role/>
+</PositionSupplier>
+<PositionProfile>
+<ProfileName>Erfaren samfunnsøkonom med skapertrang</ProfileName>
+<PositionDateInfo>
+<ValidFrom>2018-11-29</ValidFrom>
+<MaximumStartDate>2019-01-07</MaximumStartDate>
+<MaximumEndDate>2019-01-07</MaximumEndDate>
+<StartAsSoonAsPossible> true </StartAsSoonAsPossible>
+</PositionDateInfo>
+<Organization/>
+<PositionDetail>
+<Company/>
+<PhysicalLocation>
+<Name/>
+<PostalAddress>
+<PostalCode>0212</PostalCode>
+<Recipient>
+<PersonName>
+<FormattedName>Sara Polle, </FormattedName>
+</PersonName>
+</Recipient>
+<DeliveryAddress>
+<AddressLine/>
+</DeliveryAddress>
+</PostalAddress>
+</PhysicalLocation>
+<JobCategory>
+<CategoryDescription/>
+</JobCategory>
+<PositionTitle/>
+<PositionClassification/>
+<PositionSchedule percentage="100"/>
+<Competency required="" name=""/>
+<JobLevelInfo>
+<JobPlan/>
+<JobGrade/>
+</JobLevelInfo>
+</PositionDetail>
+<FormattedPositionDescription>
+<Value>
+<![CDATA[
+<p>Du er en handlingens kvinne eller mann som har teft for gode forretninger. Du er kjapp i hodet og tar gode beslutninger basert på analyse av fakta. Engasjement, utholdenhet, samarbeidsevner og din stadige søken etter bedre løsninger, gjør deg i stand til å bygge opp transport- og samfunnsøkonomi som fagområde i Sweco. Du lykkes fordi du har faglig tyngde og et ønske om å skape noe.</p>
+<p>KOMPETANSE</p>
+<p>Sammen med gruppelederen din, finner du de rette kollegene og setter sammen et velfungerende team. Nå skal dere skaffe oppdrag til alle sammen. Hvordan går du frem? </p>
+<p>I tillegg til å utvikle fagområdet samfunnsøkonomi i Sweco, vil du være en ressurs i prosjekter på tvers av fagområder. Det betyr at vi blir mindre avhengige av underleverandører, og at fagfeltet er i trygge hender når vi gjennomfører prosjekter. Du gjør samfunnsøkonomiske analyser, konseptutvalgsutredninger og konsekvensutredninger. I tillegg har du en viktig rolle i arbeidet med å hente inn nye prosjekter</p>
+<p>Du har høyere økonomisk utdanning, helst innen samfunnsøkonomi. Faktisk har du rukket å få minimum syv års relevant erfaring og er kjent med utredninger, analyser og beregninger fra blant annet infrastrukturprosjekter. Du har også oversikt over relevant regelverk og kjenner mange i bransjen.</p>
+<p>OM OSS</p>
+<p>I transport- og trafikkmiljøet i Oslo jobber du med samfunnsøkonomer, samfunnsgeografer, sivilingeniører og doktoringeniører med fordypning innen by-, transport- og trafikkplanlegging. Trafikkgruppen består av 18 rådgivere og er en del av avdeling Samfunnsplanlegging med 45 arkitekter og landskapsarkitekter, vei- og by- og arealplanleggere.</p>
+<p>Du får tilgang til fageksperter, spennende flerfaglige oppdrag og sjansen til å påvirke fremtidens transport og mobilitet.</p>Sweco planlegger og former fremtidens byer og samfunn. Våre prosjekter realiserer bærekraftige bygg, effektiv infrastruktur og gir tilgang til strøm og rent vann. Med 15000 medarbeidere i Europa tilbyr vi kunden etterspurt kompetanse. Hvert år gjennomfører vi spennende prosjekter i drøyt 70 land over hele verden. Sweco er Europas ledende rådgivende arkitekt og ingeniørselskap med en omsetning på EUR 1,8 milliarder. Selskapet er børsnotert på Nasdaq Stockholm.
+]]>
+Link til søknadsskjema: <a href="https://web103.reachmee.com/ext/I017/653/main?site=18&validator=eb946d67c51f3184e9b06d82e91af31d&lang=NO&rmpage=job&rmjob=12934">Send søknad</a>
+</Value>
+</FormattedPositionDescription>
+<HowToApply>
+<PersonName/>
+<ApplicationMethod>
+<Telephone>
+<FormattedNumber>958 41 312</FormattedNumber>
+</Telephone>
+<InternetEmailAddress/>
+<InternetWebAddress/>
+<PostalAddress>
+<PostalCode/>
+<Recipient>
+<PersonName/>
+</Recipient>
+<DeliveryAddress>
+<AddressLine/>
+<StreetName/>
+<PostOfficeBox/>
+</DeliveryAddress>
+</PostalAddress>
+</ApplicationMethod>
+</HowToApply>
+</PositionProfile>
+<NumberToFill>1</NumberToFill>
+</m0:PositionOpening>
+</StillingListe>
+</m:LeggInnStillinger>
+</SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

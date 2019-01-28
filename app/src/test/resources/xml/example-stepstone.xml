@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl"
+           xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+           xmlns:m2="http://ns.hr-xml.org/2007-04-15"
+           xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+           xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <m:LeggInnStillinger>
+            <StillingListe>
+                <m0:PositionOpening>
+                    <PositionPostings>
+                        <PositionPosting>
+                            <Id>
+                                <IdValue>vac1995485dep111378</IdValue>
+                            </Id>
+                        </PositionPosting>
+                    </PositionPostings>
+                    <PositionSupplier>
+                        <SupplierId>
+                            <IdValue>EasyCruit</IdValue>
+                        </SupplierId>
+                        <EntityName>Scandic Destination Scandic Nordkapp</EntityName>
+                        <Role/>
+                    </PositionSupplier>
+                    <PositionProfile>
+                        <ProfileName>Chef - Summer 2018</ProfileName>
+                        <PositionDateInfo>
+                            <StartDate>2018-05-16</StartDate>
+                            <ExpectedEndDate>2018-08-31</ExpectedEndDate>
+                            <MaximumStartDate>2018-03-31</MaximumStartDate>
+                            <MaximumEndDate>2018-03-31</MaximumEndDate>
+                            <StartAsSoonAsPossible></StartAsSoonAsPossible>
+                        </PositionDateInfo>
+                        <Organization>Scandic Hotels is a world class Nordic hotel company! 
+&lt;br /&gt;Our mission is to ¿create great hotel experiences for the many people¿
+&lt;br /&gt;With almost 230 hotels and 15 000 committed employees in seven countries we are the largest hotel chain in the Nordics. 
+&lt;br /&gt;
+&lt;br /&gt;At Scandic you will have the opportunity to develop through inspiring career paths both in Sweden and abroad, and we would like you to have both the will and potential to take on additional roles in our organization. 
+&lt;br /&gt;
+&lt;br /&gt;We offer you a workplace where diversity and sustainability are key focus areas ¿ we hope that you will want to contribute with your commitment and competence to give our future guests even greater hotel experiences.
+&lt;br /&gt;
+&lt;br /&gt;Read more about us on scandichotelsgroup.com</Organization>
+                        <PositionDetail>
+                            <Company/>
+                            <PhysicalLocation>
+                                <Name>Honningsvåg</Name>
+                                <PostalAddress>
+                                    <PostalCode>9750</PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine>Nordkappgate 4, 9750 Honningsvåg</AddressLine>
+                                    </DeliveryAddress>
+                                </PostalAddress>
+                            </PhysicalLocation>
+                            <JobCategory>
+                                <CategoryDescription/>
+                            </JobCategory>
+                            <PositionTitle/>
+                            <PositionClassification/>
+                            <PositionSchedule percentage="100"/>
+                            <Competency name="" required=""/>
+                            <JobLevelInfo>
+                                <JobPlan/>
+                                <JobGrade/>
+                            </JobLevelInfo>
+                        </PositionDetail>
+                        <FormattedPositionDescription>
+                            <Value><![CDATA[Org.nr.:953 149 117 Stillingsident:  Presentasjon av stillingen : <p style="line-height: 14.25pt;"><strong><span style="color: #666666; font-family: &#39;Verdana&#39;,sans-serif; font-size: 8.5pt; mso-ansi-language: EN-US;">Who are we?</span></strong></p><p style="line-height: 14.25pt;"><span style="color: #666666; font-family: &#39;Verdana&#39;,sans-serif; font-size: 8.5pt; mso-ansi-language: EN-US;">Scandic Destination Nordkapp, located on the Island of Magerøya - is one of Norways most visited tourist destinations, high above the Arctic Circle. At our 3 hotels on Magerøya, we have over 500 rooms to accommodate our guests. Two of our Hotels are located in the main town center in the port of Honningsvåg, around 30 km from the North Cape. Our 3rd and northernmost hotel at 71 degrees North, Skipsfjorden, is surrounded by the real arctic landscape on the road to our world famous visitor centre,  Nordkapphallen.</span><span style="color: black; font-family: &#39;Verdana&#39;,sans-serif; font-size: 7.5pt; mso-ansi-language: EN-US;"></span></p><p style="line-height: 14.25pt;"><span style="color: #666666; font-family: &#39;Verdana&#39;,sans-serif; font-size: 8.5pt; mso-ansi-language: EN-US;">North Cape is one of Norway`s most visited tourist attractions, built on the dramatic cliffs on the plateau of the top of Europe. The  visitor centre consists of restaurants, cafeteria, bar, souvenir shop, cinema and a chapel.</span><span style="color: black; font-family: &#39;Verdana&#39;,sans-serif; font-size: 7.5pt; mso-ansi-language: EN-US;"></span></p><p style="line-height: 14.25pt;"><span style="color: #666666; font-family: &#39;Verdana&#39;,sans-serif; font-size: 8.5pt; mso-ansi-language: EN-US;">Here at Scandic Destination Nordkapp, we are looking for positive, hardworking, motivated individuals with good customer service skills. Working experience would be an advantage but basic English communication skills are essential. In return, we will offer you the opportunity of a lifetime to become a part of our international team in this unique Arctic location. The Island offers many beautiful, unique and natural experiences. Our base just outside the town centre of Honningsvåg is the ideal location to all the islands local amenities, making it the great place to meet the residents and truly experience life in the arctic town.</span></p><p align="LEFT"><strong>Chef</strong></p><p align="LEFT"><strong>Are you our new chef?</strong></p><p><span style="color: black; font-family: &#39;Verdana&#39;,sans-serif; font-size: 7.5pt; mso-ansi-language: EN-US;">Are you an experienced chef, looking for the next step with relative experience. With strong hands on approach to teamwork, communication & leadership.</span></p><p><span style="color: black; font-family: &#39;Verdana&#39;,sans-serif; font-size: 7.5pt; mso-ansi-language: EN-US;">Commercially minded regarding food cost, management & weekly purchasing budgets, and ambitious with a strong drive to exceed customer expectations. Enthusiasm for fine local food & menu progression and minimum 2 year hospitality experience in a premium establishment</span></p><p align="LEFT"> </p><p align="LEFT"><strong>What is your role?</strong></p><p align="LEFT">- Previous experience in a similar environment.</p><p align="LEFT">- Flair, enthusiasm, skill and passion to create quality cuisine.</p><p align="LEFT">- Effective communication skills.</p><p align="LEFT">- A strong desire to work closely with owners to achieve business goals.</p><p align="LEFT">- Positive attitude and strong work ethic- Strong attention to detail & presentation.</p><p align="LEFT">- Cleanliness and hygiene is a key.</p><p align="LEFT">- Budget conscious.</p><p align="LEFT">- Passionate & creative about minimising waste.</p><p align="LEFT">- Loyalty.</p><p align="LEFT"><strong>Duties:</strong></p><p align="LEFT">- You must be able to work well under pressure in a fast pace environment ,be part of a team and</p><p align="LEFT"> have good attention to detail. Ability to produce exceptional food in both a la carte and buffet</p><p align="LEFT"> setting.</p><p align="LEFT">- You must have a high standard of Food Hygiene, good knife skills, and have good communication</p><p align="LEFT">  skills.</p><p align="LEFT">- You must be available to work weekends and public holidays.</p><p style="line-height: 14.25pt;"> </p><p align="LEFT"><strong>Qualifications:</strong></p><p align="LEFT">- A qualified chef with post-apprenticeship experience in a commercial kitchen, including training,</p><p align="LEFT">  delegating and supervising team members.</p><p align="LEFT">- Demonstrable experience preparing and plating high-standard, restaurant-quality food.</p><p align="LEFT">- Demonstrable experience and confidence catering for all types of dietary requirements.</p><p align="LEFT">- The highest organisational, hygiene, health and safety standards.</p><p align="LEFT">- Able to work autonomously, take initiative, take care, and get the job done.</p><p align="LEFT">- Able to work under the highest of pressures and meet the highest of expectations.</p><p> </p><p><strong>Join our team at Scandic Destination Nordkapp, at the northernmost edge of Europe, and make memories in the land of the midnight sun this summer.</strong></p><p><strong>We are certain that by the end of the season you will leave with memories and friendship for a lifetime</strong></p><p><strong>If you think this sounds exciting then do not hesitate to apply!</strong></p><p> </p><p style="line-height: 14.25pt;"> </p>  Link til søknadsskjema: <a href="https://scandic.easycruit.com/vacancy/application/1995485/111378?channel=Nav&iso=gb">Send application</a>  ]]>
+                            </Value>
+                        </FormattedPositionDescription>
+                    </PositionProfile>
+                    <NumberToFill>14</NumberToFill>
+                </m0:PositionOpening>
+            </StillingListe>
+        </m:LeggInnStillinger>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+        
