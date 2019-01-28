@@ -46,9 +46,9 @@ object HrXmlStilingParser {
                 stillingsProsent,
                 kontaktPerson,
                 kontaktPersonTlfnr,
-                if (publiseresFra.isNullOrBlank()) null else LocalDate.parse(publiseresFra),
-                if (sistePubliseringsdato.isNullOrBlank()) null else LocalDate.parse(sistePubliseringsdato),
-                if (soknadsFrist.isNullOrBlank()) null else LocalDate.parse(soknadsFrist),
+                getLocalDate(publiseresFra),
+                getLocalDate(sistePubliseringsdato),
+                getLocalDate(soknadsFrist),
                 arbeidsgiverAdresse,
                 arbeidsgiverPostNr,
                 url,
@@ -57,6 +57,10 @@ object HrXmlStilingParser {
 
     private fun getString(expression: String, document: Document): String {
         return xPath.compile(expression).evaluate(document, XPathConstants.STRING) as String
+    }
+
+    private fun getLocalDate(date: String?): LocalDate? {
+        return if (date.isNullOrBlank()) null else LocalDate.parse(date)
     }
 
 }
