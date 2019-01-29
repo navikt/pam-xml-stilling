@@ -1,61 +1,59 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<SOAP-ENV:Envelope SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:m2="http://ns.hr-xml.org/2007-04-15" xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd" xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-<SOAP-ENV:Header/>
-<SOAP-ENV:Body>
-<m:LeggInnStillinger>
-<StillingsListe>
-<m0:PositionOpening>
-<PositionPostings>
-<PositionPosting>
-<Id>
-<IdValue>612456</IdValue>
-</Id>
-</PositionPosting>
-</PositionPostings>
-<PositionSupplier>
-<SupplierId>
-<IdValue>Karriere.no</IdValue>
-</SupplierId>
-<EntityName>Sector Alarm AS</EntityName>
-</PositionSupplier>
-<PositionProfile>
-<ProfileName>Salgskonsulent Hamar</ProfileName>
-<PositionDateInfo>
-<MaximumStartDate/>
-<MaximumEndDate>2018-03-31</MaximumEndDate>
-<StartAsSoonAsPossible>true</StartAsSoonAsPossible>
-</PositionDateInfo>
-<Organization>
-<![CDATA[
-<html><head></head><body>Sector Alarm er et norsk konsern i sterk vekst og hadde i 2016 en omsetning på nesten 4 milliarder. Selskapet ble etablert i 1995 og er i dag en av de ledende aktørene i Europa. Sector Alarm leverer trygghet til sine kunder gjennom alarmløsninger til boliger og bedrifter. Selskapet har mer enn 479 000 kunder og over 1700 medarbeidere i Norge, Sverige, Spania, Finland og Irland. I Norge har selskapet 170 000 kunder og 600 medarbeidere. Både medarbeidere og kunder er i fokus hos oss, noe våre klimaundersøkelser og de mange prisene vi har mottatt for beste kundeservice bekrefter.<br><br>Sector Alarm ble grunnlagt i 1995 og er et 100 prosent norsk selskap. Selskapet, som ble etablert av Jørgen Dahl i Trondheim i 1995, tilbyr boligalarm med tilhørende alarmtjenester til privatmarkedet.<br><br>Sector Alarm har gjennom sin kontinuerlige markedsorientering etablert seg som en av de ledende aktørene i bransjen og er sannsynligvis det selskapet i Norge som har lykkes best med direktesalg.</body></html>
-]]>
-</Organization>
-<PositionDetail>
-<PhysicalLocation>
-<Name>HAMAR</Name>
-<PostalAddress>
-<PostalCode>2318</PostalCode>
-<DeliveryAddress>
-</PostalAddress>
-</PhysicalLocation>
-<PositionSchedule>Deltid</PositionSchedule>
-</PositionDetail>
-<FormattedPositionDescription>
-<Value>
-<![CDATA[
-<html><head></head><body><p><strong>Sector Alarm er i sterk vekst, og vi søker nå etter nye tilskudd til vår avdelin i Hamar! Vil du være med på suksessen?</strong></p><p>Vi ser etter nye salgskonsulenter til vår avdeling i Hamar. Du vil få mulighet til å jobbe heltid eller deltid.</p><p>Sector Alarm er en av de ledende sikkerhetsaktørene i Europa, vi leverer moderne sikkerhetsløsninger som trygger våre kunders hverdag. Som nyansatt i salgsorganisasjonen vil vi investere i deg, og gi deg det du trenger for å lykkes i denne rollen. Vi tilbyr kursing og opplæring gjennom vårt skreddersydde opplærings- og utviklingsprogram; Sector Way Academy. Du blir en del av et inspirerende salgsteam, og du vil få god oppfølging fra din salgssjef.</p><p>Din arbeidsdag starter med et felles oppstartsmøte for teamet, her vil du coaches og veiledes før du skal ut i kundemøter. Som selger i Sector Alarm vil du veilede potensielle kunder rundt våre produkter og tjenester innen brann- og innbruddsikkerhet. Du må påberegne å jobbe ettermiddag og kveld, da arbeidstiden er fra&nbsp;<strong>kl. 15.00 til 21.30</strong>. Du vil ha en svært variert hverdag, og du vil treffe mange hyggelige mennesker.</p><p><strong><br>Vi tilbyr:</strong></p><ul><li>motiverende lønnsbetingelser</li><li>verdifull arbeidserfaring med gode karrieremuligheter </li><li>en dynamisk og spennende arbeidsplass</li><li>fantastiske kollegaer og et godt arbeidsmiljø</li><li>Full opplæring gjennom vårt opplæring- og utviklingsprogram; Sector Way Academy</li></ul><p><br><strong>Vi ser etter deg som:</strong></p><ul><li>ønsker å lykkes med eget salg</li><li>liker en hektisk og variert arbeidshverdag</li><li>har plettfri uttømmende vandel </li><li>har fylt 18 år</li><li>har gode norskkunnskaper</li></ul><p><em>Ettersom Sector Alarm er et vaktselskap krever vi tilfredsstillende vandel, og den vi ansetter må levere en uttømmende vandelsattest før ansettelse. Vi vil bistå deg i denne prosessen</em><em>.  &nbsp; </em></p><p>Som en ekstra bonus har Sector Alarm spennende reisekonkurranser to ganger i året. Tidligere har vi besøkt steder som Las Vegas, Thailand, Sør-Afrika, Dubai og Milano.<br><em>Vår neste tur går til Singapore i november - har du det som trengs for å bli med på neste destinasjon? </em>&nbsp;</p><p>&nbsp;</p><p>&nbsp;Høres dette ut som noe for deg? Send meg en søknad i dag, vi kaller inn til intervjuer fortløpende.</p><p>&nbsp;Søknad kan sendes til: <strong>Jonas.haugerud@sectoralarm.no</strong></p></body></html><br>Kvalifikasjoner: Ingen<br>Arbeidserfaring: Ingen<br><hr><h3>Søknadsinformasjon:</h3>Salg<br>Deltid<br><a href="https://karriere.no/jobb/test-612456.html">SØK JOBBEN HER</a><br><hr>
-]]>
-</Value>
-</FormattedPositionDescription>
-<HowToApply>
-<ApplicationMethod>
-<InternetWebAddress>http://sectoralarm.no/</InternetWebAddress>
-</ApplicationMethod>
-</HowToApply>
-</PositionProfile>
-<NumberToFill>2</NumberToFill>
-</m0:PositionOpening>
-</StillingsListe>
-</m:LeggInnStillinger>
-</SOAP-ENV:Body>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl" xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd"
+                   xmlns:m2="http://ns.hr-xml.org/2007-04-15" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <m:LeggInnStillinger>
+            <StillingsListe>
+                <m0:PositionOpening>
+                    <PositionPostings>
+                        <PositionPosting>
+                            <Id>
+                                <IdValue>612965</IdValue>
+                            </Id>
+                        </PositionPosting>
+                    </PositionPostings>
+                    <PositionSupplier>
+                        <SupplierId>
+                            <IdValue>Karriere.no</IdValue>
+                        </SupplierId>
+                        <EntityName>Trainee Vest</EntityName>
+                    </PositionSupplier>
+                    <PositionProfile>
+                        <ProfileName>Constructa</ProfileName>
+                        <PositionDateInfo>
+                            <MaximumStartDate>2018-01-31</MaximumStartDate>
+                            <MaximumEndDate>2018-02-01</MaximumEndDate>
+                            <StartAsSoonAsPossible>false</StartAsSoonAsPossible>
+                        </PositionDateInfo>
+                        <Organization><![CDATA[<html><head></head><body></body></html>]]></Organization>
+                        <PositionDetail>
+                            <PhysicalLocation>
+                                <Name>BERGEN</Name>
+                                <PostalAddress>
+                                    <PostalCode>5014</PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine/>
+                                    </DeliveryAddress>
+                                </PostalAddress>
+                            </PhysicalLocation>
+                            <PositionSchedule>Trainee (Heltid 12-24 mnd)</PositionSchedule>
+                        </PositionDetail>
+                        <FormattedPositionDescription>
+                            <Value>
+                                <![CDATA[<html><head></head><body><p><div><p><div><p><b>Trainee - Prosjektledelse, prosjekteringsledelse og byggeplassadministrasjon</b></p></div></p><p><em>Constructa Entreprenør AS er en stor lokal entreprenør i Bergen- og Hordalands-regionen med bred og vel fundamentert kompetanse på krevende prosjekter, og en operativ evne som ivaretas av medarbeidere med lang bransjetilknytning. Constructa Entreprenør ivaretar alle faser innen eiendomsutvikling og gjennomfører alle type bygg- og anleggsprosjekter.</em></p><em></em><p><em>Vi vektlegger samspill og dialog med oppdragsgiver og brukere for å oppnå gode resultater og har flere store profesjonelle- og gjentakende oppdragsgivere i Hordalands-regionen.</em></p><p>Hos oss får du muligheten til å utvikle deg selv og karrieren din, være med på spennende prosjekter, og anledning til å bygge nettverk på tvers av organisasjonen. Constructa¿s traineeprogram skal bidra til å sikre vårt fremtidige ledelsesbehov, hvor målet er å gi traineer de beste forutsetningene for å kunne oppfylle fremtidige roller i krevende byggeprosjekter. Vi søker en ambisiøs og fremoverlent trainee til prosjektledelse, prosjekteringsledelse og byggeplassadministrasjon.<br></p></div></p><p><div><p><div><strong><br>Arbeidsoppgaver</strong><ul><li>Utvikling av prosjekt</li><li>Tilbudsarbeid</li><li>Prosjekteringsfasen innen bygg/tekniske fag</li><li>Kontrahering /innkjøp</li><li>Ressursplanlegging /prosjektledelse</li><li>Møteledelse / kommunikasjon / presentasjonsteknikk</li></ul></div></p><p><div><strong><br>Kvalifikasjoner</strong><ul><li>Utdannelse som sivilingeniør innen Bygg / installasjonsteknikk.</li><li>Gjerne med praktisk bakgrunn / fagbrev</li><li>Gode kommunikasjonsevner skriftlig og muntlig</li><li>Språk - Norsk / Engelsk</li></ul></div></p><p><div><strong><br>Personlige egenskaper</strong><ul><li>Dyktig relasjonsbygger som kan arbeide tverrfaglig</li><li>Initiativrik og løsningsorientert</li><li>Gode organisatoriske og koordinerende ferdigheter</li><li>Gode sosiale evner</li></ul></div></p><p><div><strong><br>Vi tilbyr</strong><ul><li>Høyt faglig arbeidsmiljø</li><li>Gode utviklingsmuligheter</li><li>Utviklingsprogram gjennom Trainee Vest</li><li>Medlemskap i U37, Bergen Næringsråds nettverk for unge i næringslivet</li></ul>Se de 19 andre stillingene og les mer om vilkår for å søke en traineestilling i annonsen på Finn eller på våre nettsider: <a href="https://www.finn.no/job/fulltime/ad.html?finnkode=110624646" target="_blank" rel="nofollow">https://www.finn.no/job/fulltime/ad.html?finnkode=110624646</a><br><br><br></div></p></div></p></body></html><br>Kvalifikasjoner: Master<br>Arbeidserfaring: Ikke påkrevet<br><hr><h3>Søknadsinformasjon:</h3>Trainee<br>Trainee (Heltid 12-24 mnd)<br><a href="https://karriere.no/jobb/constructa-612965.html">SØK JOBBEN HER</a><br><hr>]]></Value>
+                        </FormattedPositionDescription>
+                        <HowToApply>
+                            <ApplicationMethod>
+                                <InternetWebAddress>http://traineevest.no/</InternetWebAddress>
+                            </ApplicationMethod>
+                        </HowToApply>
+                    </PositionProfile>
+                    <NumberToFill>1</NumberToFill>
+                </m0:PositionOpening>
+            </StillingsListe>
+        </m:LeggInnStillinger>
+    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>

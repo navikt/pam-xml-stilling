@@ -11,6 +11,7 @@ import io.ktor.http.HttpStatusCode
 import kotlinx.coroutines.runBlocking
 import kotliquery.HikariCP
 import no.nav.pam.xmlstilling.legacy.*
+import no.nav.pam.xmlstilling.rest.StillingFeed
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
@@ -26,7 +27,8 @@ class ApiTest {
     }
 
     val randomPort = ServerSocket(0).use { it.localPort }
-    val application = webApplication(randomPort, StillingBatch(h2FetchQuerySql))
+    val stillingBatch = StillingBatch(h2FetchQuerySql)
+    val application = webApplication(randomPort, stillingBatch, StillingFeed(stillingBatch))
     val client = HttpClient(CIO)
     val gson = GsonBuilder().create()
 
@@ -46,7 +48,6 @@ class ApiTest {
 
     @Test
     fun testLoadFirstBatch() {
-
         runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/0/count/5") }
                 .also { assertEquals(HttpStatusCode.OK, it.status) }
                 .let(mapJsonToEntry)
@@ -104,6 +105,13 @@ class ApiTest {
     @Test
     fun testPrometheus() {
         runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/prometheus") }
+                .also { assertEquals(HttpStatusCode.OK, it.status) }
+    }
+
+
+    @Test
+    fun testStillingFeed() {
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/2019/01/20/13/30/20") }
                 .also { assertEquals(HttpStatusCode.OK, it.status) }
     }
 

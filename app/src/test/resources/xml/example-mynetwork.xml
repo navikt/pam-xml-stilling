@@ -1,109 +1,107 @@
-<?xml version="1.0" encoding="ISO-8859-1"?>
-<SOAP-ENV:Envelope xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd" xmlns:ns3="http://ns.hr-xml.org/2007-04-15" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
-<SOAP-ENV:Body>
-<SOAP-ENV:LeggInnStillinger>
-<StillingListe>
-<m0:PositionOpening>
-<PositionPostings>
-<PositionPosting>
-<Id>
-<IdValue>238656</IdValue>
-</Id>
-</PositionPosting>
-</PositionPostings>
-<PositionSupplier>
-<SupplierId>
-<IdValue>mynetwork</IdValue>
-</SupplierId>
-<EntityName>Aurskog-Høland kommune - Sykehjemstjenester </EntityName>
-<ContactMethod>
-<Telephone>
-<FormattedNumber/>
-</Telephone>
-<Fax>
-<FormattedNumber/>
-</Fax>
-</ContactMethod>
-<Role/>
-</PositionSupplier>
-<PositionProfile>
-<ProfileName>Aurskog-Høland kommune - Helsefagarbeidere, Hemnes sykehjem</ProfileName>
-<PositionDateInfo>
-<StartAsSoonAsPossible>false</StartAsSoonAsPossible>
-<StartDate/>
-<ExpectedEndDate/>
-<MaximumStartDate>2018-12-07</MaximumStartDate>
-<MaximumEndDate>2018-12-07</MaximumEndDate>
-</PositionDateInfo>
-<Organization>
-<Description/>
-</Organization>
-<PositionDetail>
-<Company/>
-<PhysicalLocation>
-<Name/>
-<PostalAddress>
-<CountryCode>NO</CountryCode>
-<PostalCode>1970</PostalCode>
-<DeliveryAddress>
-<AddressLine>Rådhusveien 3</AddressLine>
-</DeliveryAddress>
-<Recipient>
-<PersonName>
-<FormattedName>Linda Jørgensen, Avdelingsleder, 67 20 51 20 / 24</FormattedName>
-</PersonName>
-</Recipient>
-</PostalAddress>
-</PhysicalLocation>
-<JobCategory>
-<CategoryDescription/>
-</JobCategory>
-<PositionTitle/>
-<PositionClassification/>
-<PositionSchedule percentage="100"/>
-<Competency required="false" name=""/>
-<JobLevelInfo>
-<JobPlan/>
-<JobGrade/>
-</JobLevelInfo>
-</PositionDetail>
-<FormattedPositionDescription>
-<Name/>
-<Value>
-<![CDATA[
-HELSEFAGARBEIDERE<br /><br /><br />Hemnes sykehjem ¿ syke og trygghetsavdelingen ønsker medarbeidere i følgende stillinger: <br /><br /> - Helsefagarbeider 50 % fast stilling dag/kveld med arbeid hver 3. helg. Ledig fra 01.02.19. <br /> - Helsefagarbeider, 50 % svangerskapsvikariat dag/kveld med arbeid hver 3. helg. Ledig fra 01.01.19 - 01.03.20<br /> - Helsefagarbeider, 12 % fast helgestilling dag/kveld med arbeid hver 3. helg. Ledig pr. dags dato.<br /><br />Hemnes sykehjem består av en sykeavdeling, en trygghetsavdeling (tilsvarende aldershjem) og en skjermet enhet. Syke og trygghetsavdelingen er 2 avdelinger med til sammen 28 pasienter som har en personalgruppe. Dette gir en spennende og variert hverdag med ulike pasientgrupper. Vi har ett godt samarbeid med sykehus og sykehjemslege noe som gjør at vi ofte behandler pasienten i deres eget miljø. Vi setter fokus på å verdsette pasientene våre i kraft av det de er og har vært. Eldre sine erfaringer, livsvisdom og dømmekraft er egenskaper vi skal respektere. <br /><br />Krav til kompetanse:<br /><br /> -   Norsk autorisasjon som hjelpepleier/helsefagarbeider. <br /> - Gode norskkunnskaper både muntlig og skriftlig. <br /><br />Ønskede kvalifikasjoner:<br /><br /> - Helsefagarbeidere/hjelpepleiere som har erfaring innenfor geriatri.<br /><br />Arbeidsoppgaver:<br /><br /> - Sikre kvaliteten og ivareta pasientenes ressurser.<br /> - Observere og vurdere endret helsetilstand.<br /> - Se hver enkelt pasient og deres behov.<br /> - Samarbeide tverrfaglig og med pårørende.<br /> - Bruke dataverktøy i hverdagen.<br /> - Ta ulike typer målinger.<br /> - Prioritere arbeidsoppgaver. <br /><br />Vi søker en person som: <br /><br /> - Har interesse og engasjement for fagfeltet.<br /> - Har evne til å arbeide selvstendig og i team.<br /> - Er god på kommunikasjon og samarbeid.<br /> - Som kan beherske IKT-verktøy, som nettbrett, smarttelefon og PC.<br /> - Er trygg på seg selv og avgjørelser som skal gjøres.<br /> - Er løsningsorientert, endringsvillig og positiv.<br /> - Representerer stabilitet, forutsigbarhet og kontinuitet.<br /> - Er lojal og har en trygghet i egen profesjon.<br /><br />Vi tilbyr:<br /><br /> - Et inkluderende og trivelig arbeidsmiljø som er preget av høyt engasjement, solid kompetanse, åpenhet og pålitelighet.<br /> - Spennende oppgaver.<br /> - Faglige utfordringer.<br /> - Utvikling i vår profesjon.<br /> - Trimrom.<br /> - Gode forsikrings- og pensjonsordninger.<br /><br />Vi ønsker oss medarbeidere som viser kommunens verdiplattform RAUS i praksis<br /><br />Respekt:           Alle har rett til å bli tatt på alvor<br /><br />Ansvar:               Vi tar ansvar og er til å stole på<br /><br />Utvikling:          Vi ser muligheter og gjør noe med dem<br /><br />Service:             Vi opptrer åpent, ærlig og tydelig <br /><br />Ønskes ytterligere opplysninger, ta gjerne kontakt med avdelingsleder Linda Jørgensen, tlf.: 67 20 51 20 / 24, eller e-post: linda.jorgensen@ahk.no<br /><br />Søknadsfrist: 07.12.2018<br />Gang per uke: Varierende<br /><br /><a href="https://ahk.varbi.com/no/what:job/jobID:238656/type:job/where:2/apply:1" target="_blank">Send søknad</a><br />
-]]>
-</Value>
-</FormattedPositionDescription>
-<HowToApply>
-<PersonName>
-<FormattedName>Aurskog-Høland kommune - Sykehjemstjenester gjennom MyNetwork Pro</FormattedName>
-</PersonName>
-<ApplicationMethod>
-<Telephone>
-<FormattedNumber/>
-</Telephone>
-<InternetEmailAddress/>
-<PostalAddress>
-<CountryCode/>
-<PostalCode/>
-<DeliveryAddress>
-<AddressLine/>
-<StreetName/>
-<PostOfficeBox/>
-</DeliveryAddress>
-<Recipient>
-<PersonName>
-<FormattedName/>
-</PersonName>
-</Recipient>
-</PostalAddress>
-</ApplicationMethod>
-</HowToApply>
-</PositionProfile>
-<NumberToFill>1</NumberToFill>
-</m0:PositionOpening>
-</StillingListe>
-</SOAP-ENV:LeggInnStillinger>
-</SOAP-ENV:Body>
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:ns3="http://ns.hr-xml.org/2007-04-15" xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd">
+    <SOAP-ENV:Body>
+        <SOAP-ENV:LeggInnStillinger>
+            <StillingListe>
+                <m0:PositionOpening>
+                    <PositionPostings>
+                        <PositionPosting>
+                            <Id>
+                                <IdValue>240208</IdValue>
+                            </Id>
+                        </PositionPosting>
+                    </PositionPostings>
+                    <PositionSupplier>
+                        <SupplierId>
+                            <IdValue>mynetwork</IdValue>
+                        </SupplierId>
+                        <EntityName>Actic Norge AS - Actic Hamar</EntityName>
+                        <ContactMethod>
+                            <Telephone>
+                                <FormattedNumber></FormattedNumber>
+                            </Telephone>
+                            <Fax>
+                                <FormattedNumber></FormattedNumber>
+                            </Fax>
+                        </ContactMethod>
+                        <Role></Role>
+                    </PositionSupplier>
+                    <PositionProfile>
+                        <ProfileName>Elsker du trening og helse, og vil skape et sunnere Hamar?</ProfileName>
+                        <PositionDateInfo>
+                            <StartAsSoonAsPossible>false</StartAsSoonAsPossible>
+                            <StartDate></StartDate>
+                            <ExpectedEndDate></ExpectedEndDate>
+                            <MaximumStartDate>2018-12-29</MaximumStartDate>
+                            <MaximumEndDate>2018-12-29</MaximumEndDate>
+                        </PositionDateInfo>
+                        <Organization>
+                            <Description></Description>
+                        </Organization>
+                        <PositionDetail>
+                            <Company/>
+                            <PhysicalLocation>
+                                <Name>Brygga 20, 2317 Hamar</Name>
+                                <PostalAddress>
+                                    <CountryCode>NO</CountryCode>
+                                    <PostalCode>2317</PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine>Brygga 20</AddressLine>
+                                    </DeliveryAddress>
+                                    <Recipient>
+                                        <PersonName>
+                                            <FormattedName>Lars Espen Skogvold, 91589200</FormattedName>
+                                        </PersonName>
+                                    </Recipient>
+                                </PostalAddress>
+                            </PhysicalLocation>
+                            <JobCategory>
+                                <CategoryDescription></CategoryDescription>
+                            </JobCategory>
+                            <PositionTitle></PositionTitle>
+                            <PositionClassification></PositionClassification>
+                            <PositionSchedule percentage="100"></PositionSchedule>
+                            <Competency name="" required="false"/>
+                            <JobLevelInfo>
+                                <JobPlan></JobPlan>
+                                <JobGrade></JobGrade>
+                            </JobLevelInfo>
+                        </PositionDetail>
+                        <FormattedPositionDescription>
+                            <Name></Name>
+                            <Value>
+                                <![CDATA[Motiveres du av å hjelpe mennesker med å finne mestring og trenigngsglede? Da bør du lese videre - for vi vil snakke med deg! <br /><br />På Brygga i Hamar sentrum finner du vårt treningssenter. 50 meter fra togstasjonen. Midt i smørøyet, altså! <br /><br />Du kommer til å få hjelp av de beste i bransjen til å lykkes, grundig kursing i salg, coaching og psykologi. Du har ambisjoner/ønske om å jobbe heltid med det du brenner for - nemlig trening. <br /><br />Ville dine venner beskrevet deg som..?<br /><br /> - Du brenner for å hjelpe mennesker <br /> - Du har glimt i øyet, og byr gjerne på deg selv<br /> - Du er flink i det du gjør, særlig treningfaglig<br /><br />Kan du svare &amp;quot;ja&amp;quot; her? Les videre!<br /><br />Vi skal ha god stemning på jobb, og et veldig hyggelig, folkelig og uformelt miljø, der vi skal kjennemedlemmene våre godt, og de oss! Så er du god på å bygge relasjoner, passer du bra i vårt lag!<br /><br />Hva slags bakgrunn har du?<br /><br />Du har PT-utdanning, helst ett-årig, eller er kanskje en treningsinteressert fysioterapeut, eller idrettsfaglig utdannet? Vi vurderer alle søkere individuelt.<br /><br />Enkel søknad!<br /><br />Vi tror på enkle søknadsprosesser, så alt du trenger er din CV, og som søknad kan du svare på følgende tre spørsmål (maks 200 ord)<br /><br /> - Hva du tenker er de viktigste egenskapene hos en personlig trener?<br /> - Hvordan ville du hjulpet en demotivert kunde?<br /> - Hvilke av dine egenskaper tror du er viktigste bidrag til et team?<br />Vår personlig trener og fysio Silje på Holmlia kan du se mer om her!<br /><br />https://www.youtube.com/watch?v=-d0Woplq5vY<br />Gang per uke: 15-30 timer/uka<br /><br /><a href="https://acticnorge.varbi.com/no/what:job/jobID:240208/type:job/where:2/apply:1" target="_blank">Send søknad</a><br />]]></Value>
+                        </FormattedPositionDescription>
+                        <HowToApply>
+                            <PersonName>
+                                <FormattedName>Actic Norge AS - Actic Hamar gjennom MyNetwork Pro</FormattedName>
+                            </PersonName>
+                            <ApplicationMethod>
+                                <Telephone>
+                                    <FormattedNumber></FormattedNumber>
+                                </Telephone>
+                                <InternetEmailAddress></InternetEmailAddress>
+                                <PostalAddress>
+                                    <CountryCode></CountryCode>
+                                    <PostalCode></PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine></AddressLine>
+                                        <StreetName></StreetName>
+                                        <PostOfficeBox></PostOfficeBox>
+                                    </DeliveryAddress>
+                                    <Recipient>
+                                        <PersonName>
+                                            <FormattedName></FormattedName>
+                                        </PersonName>
+                                    </Recipient>
+                                </PostalAddress>
+                            </ApplicationMethod>
+                        </HowToApply>
+                    </PositionProfile>
+                    <NumberToFill>2</NumberToFill>
+                </m0:PositionOpening>
+            </StillingListe>
+        </SOAP-ENV:LeggInnStillinger>
+    </SOAP-ENV:Body>
 </SOAP-ENV:Envelope>
