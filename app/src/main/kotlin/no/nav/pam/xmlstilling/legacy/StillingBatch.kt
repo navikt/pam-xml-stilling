@@ -2,11 +2,12 @@ package no.nav.pam.xmlstilling.legacy
 
 import kotliquery.*
 import kotliquery.action.ListResultQueryAction
+import java.time.LocalDateTime
 
 private val oracleFetchQuery = """
     select *
     from "SIX_KOMP"."STILLING_BATCH
-    where STILLING_BATCH_ID > ?
+    where MOTTATT_DATO > ?
     order by STILLING_BATCH_ID
     fetch first ? rows only""".trimIndent()
 
@@ -37,17 +38,17 @@ class StillingBatch (
     }
 
 
-    private val fetchbatchQuery = fun(start: Int, count: Int): ListResultQueryAction<Entry> {
-        return queryOf(fetchQuery, start, if(count > 10) 10 else count)
+    private val fetchbatchQuery = fun(mottattDato: LocalDateTime, count: Int): ListResultQueryAction<Entry> {
+        return queryOf(fetchQuery, mottattDato, if(count > 10) 10 else count)
                 .map(toStillingBatchEntry)
                 .asList
     }
 
 
-    fun fetchBatch(start: Int, count: Int): List<StillingBatch.Entry>
+    fun fetchBatch(mottattDato: LocalDateTime, count: Int): List<StillingBatch.Entry>
     {
         return using(sessionOf(HikariCP.dataSource())) { session ->
-            return@using session.run(fetchbatchQuery(start, count))
+            return@using session.run(fetchbatchQuery(mottattDato, count))
         }
     }
 }

@@ -5,13 +5,12 @@ import java.io.InputStreamReader
 
 private object XmlTestFiles {
 
-    private val PATH = "src/test/resources/xml/example-"
     private var FILE_CONTENT: Map<Leverandor, String>
 
     init {
         FILE_CONTENT =
             Leverandor.values()
-                    .map { it to InputStreamReader(FileInputStream(PATH + it.name.toLowerCase() + ".xml")).readText() }
+                    .map { it to InputStreamReader(FileInputStream("src/test/resources/xml/example-" + it.name.toLowerCase() + ".xml")).readText() }
                     .toMap()
     }
 

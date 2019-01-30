@@ -11,13 +11,13 @@ class StillingFeed (
         stillingbatch: StillingBatch = batch
 ) {
 
-    fun hentStillinger(timestamp: LocalDateTime): List<XmlStillingDto> {
-        return hent(0, 5)
+    fun hentStillinger(mottattDato: LocalDateTime): List<XmlStillingDto> {
+        return hent(mottattDato, 5)
                 .map { entry -> HrXmlStilingParser.parse(entry.stillingXml, entry.mottattDato) }
                 .map { hrXmlStilling -> StillingMapper.toStillingDto(hrXmlStilling) }
     }
 
-    private val hent = fun(start: Int, count: Int): List<StillingBatch.Entry> {
-        return stillingbatch.fetchBatch(start, count)
+    private val hent = fun(mottattDato: LocalDateTime, count: Int): List<StillingBatch.Entry> {
+        return stillingbatch.fetchBatch(mottattDato, count)
     }
 }
