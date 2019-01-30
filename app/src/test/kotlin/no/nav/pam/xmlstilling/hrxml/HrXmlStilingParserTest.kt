@@ -1,11 +1,11 @@
 package no.nav.pam.xmlstilling.hrxml
 
 import org.assertj.core.api.Assertions.assertThat
-import org.assertj.core.util.DateUtil.parse
 import org.junit.jupiter.api.Test
 import java.io.FileInputStream
 import java.io.InputStreamReader
 import java.io.Reader
+import java.time.LocalDate
 import java.time.LocalDateTime
 
 class HrXmlStilingParserTest {
@@ -28,8 +28,8 @@ class HrXmlStilingParserTest {
         assertThat(hrXmlStilling.kontaktPerson).matches("Oivin Robberstad")
         assertThat(hrXmlStilling.kontaktPersonTlfnr).matches("90 89 39 04")
         assertThat(hrXmlStilling.publiseresFra).isNull()
-        assertThat(hrXmlStilling.sistePubliseringsdato).isNotNull().isEqualTo(parse("2010-11-21"))
-        assertThat(hrXmlStilling.soknadsFrist).isNotNull().isEqualTo(parse("2009-02-22"))
+        assertThat(hrXmlStilling.sistePubliseringsdato).isNotNull().isEqualTo(LocalDate.parse("2010-11-21"))
+        assertThat(hrXmlStilling.soknadsFrist).isNotNull().isEqualTo(LocalDate.parse("2009-02-22"))
         assertThat(hrXmlStilling.arbeidsgiverAdresse).matches("Krokatjoennveien 11c")
         assertThat(hrXmlStilling.arbeidsgiverPostNr).matches("1111")
         assertThat(hrXmlStilling.url).matches("http://www.a.com")

@@ -118,7 +118,7 @@ class ApiTest {
 
     @Test
     fun testStillingFeed() {
-        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/2019/01/20/13/30/20") }
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/2017/01/20/13/30/20") }
                 .also { assertEquals(HttpStatusCode.OK, it.status) }
                 .let { mapJsonToXmlStillingDto(it) }
                 .also { list ->
