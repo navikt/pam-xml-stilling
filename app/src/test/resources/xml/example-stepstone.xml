@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl"
+                   xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+                   xmlns:m2="http://ns.hr-xml.org/2007-04-15"
+                   xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <m:LeggInnStillinger>
+            <StillingListe>
+                <m0:PositionOpening>
+                    <PositionPostings>
+                        <PositionPosting>
+                            <Id>
+                                <IdValue>vac2000723dep44596</IdValue>
+                            </Id>
+                        </PositionPosting>
+                    </PositionPostings>
+                    <PositionSupplier>
+                        <SupplierId>
+                            <IdValue>EasyCruit</IdValue>
+                        </SupplierId>
+                        <EntityName>Kirkens Bymisjons Barneverntiltak</EntityName>
+                        <Role/>
+                    </PositionSupplier>
+                    <PositionProfile>
+                        <ProfileName>Hvilende Nattevakt</ProfileName>
+                        <PositionDateInfo>
+                            <StartDate>2018-06-01</StartDate>
+                            <ExpectedEndDate></ExpectedEndDate>
+                            <MaximumStartDate>2018-02-15</MaximumStartDate>
+                            <MaximumEndDate>2018-02-15</MaximumEndDate>
+                            <StartAsSoonAsPossible></StartAsSoonAsPossible>
+                        </PositionDateInfo>
+                        <Organization>Kirkens Bymisjon Oslo er en diakonal stiftelse med ca. 1300 ansatte og 1800
+                            frivillige medarbeidere. Arbeidsfeltet omfatter tiltak innen sosial- og helsesektoren;
+                            rusfeltet, eldreomsorg, psykisk helsevern, arbeidsmarkedstiltak, boligutvikling, nærmiljø og
+                            frivillighet, arbeid blant barn, unge og familier, samt kirkelig arbeid.
+                            &lt;br /&gt;
+                            &lt;br /&gt;
+                        </Organization>
+                        <PositionDetail>
+                            <Company/>
+                            <PhysicalLocation>
+                                <Name></Name>
+                                <PostalAddress>
+                                    <PostalCode>1163</PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine></AddressLine>
+                                    </DeliveryAddress>
+                                </PostalAddress>
+                            </PhysicalLocation>
+                            <JobCategory>
+                                <CategoryDescription/>
+                            </JobCategory>
+                            <PositionTitle/>
+                            <PositionClassification/>
+                            <PositionSchedule percentage="57.4"/>
+                            <Competency name="" required=""/>
+                            <JobLevelInfo>
+                                <JobPlan/>
+                                <JobGrade/>
+                            </JobLevelInfo>
+                        </PositionDetail>
+                        <FormattedPositionDescription>
+                            <Value>
+                                <![CDATA[Org.nr.:944 384 448 Stillingsident:  Presentasjon av stillingen : <p><em>Vårt tiltak <strong>Familiehuset Nanna¿Marie (FNM)</strong> ligger på Nordstrand i Oslo og er godkjent som senter for foreldre og barn. Vi</em><em> har rammeavtale med Oslo kommune, men tar også imot familier fra hele landet til utrednings- og veilednings opphold.. </em></p><p>Vi er en gjeng erfarne og dynamiske kollegaer som er opptatt av å være faglig oppdatert på barnevernsfeltet, og å tilby tjenester tilpasset de 10 familiene som kan bo hos oss i kortere eller lengre perioder. Har du lyst til å jobbe i et utviklingsorientert barnevernfaglig miljø? En av våre nattevakter går av med pensjon og vi søker hennes etterfølger.</p><p align="center"><strong>1 HVILENDE NATTEVAKT</strong></p><p align="center">57,4% stilling</p><p align="center">Stillingen er ledig fra 15.05.2018</p><p>Vi ønsker oss en nattevakt som</p><ul><li>har  relevant 3 årig helse- eller sosialfaglig høyskoleutdanning, fortrinnsvis barnevernspedagog eller sosionom </li><li>har erfaring fra tilsvarende virksomhet</li><li>er en trygg person som liker å jobbe alene på natt</li><li>liker turnusarbeid med arbeid hver 4. helg og en kveldsvakt i løpet av 4 uker.</li></ul><p>Den som ansettes må kunne arbeide i overensstemmelse med Kirkens Bymisjons målsetting og ideologi. Personlig egnethet vil bli vektlagt. Det kreves politiattest for stillingen.</p><p>Vi kan tilby et godt arbeidsmiljø med engasjerte kolleger.</p><p>Lønn etter Landsoverenskomst for helse- og sosiale tjenester. Pensjonsordning.</p><p> </p><p>Søknadsfrist:  15.02.2018</p><p>Opplysninger om stillingene fås ved henvendelse kl.9-15 på hverdager til virksomhetsleder Heidi Brynhildsen tlf. 90 15 35 28 eller avdelingsleder Hanne Jørgensen  48 89 05 29. </p><p>For mer informasjon, se vår hjemmeside: www.bymisjon.no</p>  Link til søknadsskjema: <a href="https://bymisjon.easycruit.com/vacancy/application/2000723/44596?channel=Nav&iso=no">Send søknad</a>  ]]>
+                            </Value>
+                        </FormattedPositionDescription>
+                    </PositionProfile>
+                    <NumberToFill>1</NumberToFill>
+                </m0:PositionOpening>
+            </StillingListe>
+        </m:LeggInnStillinger>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
+
+        

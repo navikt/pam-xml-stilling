@@ -1,0 +1,157 @@
+<SOAP-ENV:Envelope xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl" xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/" xmlns:m2="http://ns.hr-xml.org/2007-04-15" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+  <SOAP-ENV:Body>
+    <m:LeggInnStillinger>
+      <StillingListe>
+        <m0:PositionOpening>
+          <PositionPostings>
+            <PositionPosting>
+              <Id>
+                <IdValue>100260</IdValue>
+              </Id>
+            </PositionPosting>
+          </PositionPostings>
+          <PositionSupplier>
+            <SupplierId>
+              <IdValue>HR Manager</IdValue>
+            </SupplierId>
+            <EntityName>Ås kommune</EntityName>
+            <ContactMethod>
+              <Telephone>
+                <FormattedNumber></FormattedNumber>
+              </Telephone>
+              <Fax>
+                <FormattedNumber></FormattedNumber>
+              </Fax>
+            </ContactMethod>
+            <Role />
+          </PositionSupplier>
+          <PositionProfile>
+            <ProfileName>Avdelingssykepleier 100% fast stilling</ProfileName>
+            <PositionDateInfo>
+              <StartDate />
+              <ExpectedEndDate />
+              <MaximumStartDate>2018-01-28</MaximumStartDate>
+              <MaximumEndDate>2018-01-29</MaximumEndDate>
+              <StartAsSoonAsPossible>false</StartAsSoonAsPossible>
+            </PositionDateInfo>
+            <Organization></Organization>
+            <PositionDetail>
+              <Company />
+              <PhysicalLocation>
+                <Name></Name>
+                <PostalAddress>
+                  <PostalCode>1430</PostalCode>
+                  <Recipient>
+                    <PersonName>
+                      <FormattedName></FormattedName>
+                    </PersonName>
+                  </Recipient>
+                  <DeliveryAddress>
+                    <AddressLine />
+                  </DeliveryAddress>
+                </PostalAddress>
+              </PhysicalLocation>
+              <JobCategory>
+                <CategoryDescription />
+              </JobCategory>
+              <PositionTitle />
+              <PositionClassification />
+              <PositionSchedule percentage="100" />
+              <Competency name="required" />
+              <JobLevelInfo>
+                <JobPlan />
+                <JobGrade />
+              </JobLevelInfo>
+            </PositionDetail>
+            <FormattedPositionDescription>
+              <Value><![CDATA[
+<p><strong>Kvalifikasjoner:<br>
+</strong>Norsk
+autorisasjon som sykepleier. Kunnskap og klinisk erfaring fra arbeid med
+personer med demens. Gjerne videreutdanning i
+demens/psykiatri. Ledererfaring /utdanning er ønskelig. </p>
+<p><strong>Opplysninger om arbeidssted og stilling:</strong> <br>
+Vi
+arbeider for at pasienter og pårørende i demensomsorgen skal motta et tilbud
+hvor trygghet, respekt, verdighet og kompetanse oppleves gjennom tjenestene vi
+yter.</p>
+<p>Vi åpent nytt Ås Demenssenter i 2017. Tilbudene i demensomsorgen er samlet og består av: <br>
+Skjermet enhet med 48 plasser, organisert i bogrupper med 6 pasienter.<br>
+Forsterket skjermet enhet med 4 plasser.<br>
+Dagavdeling for personer med demens, 12 plasser organisert i to enheter med 6 pasienter.<br>
+Demenskoordinator og hukommelsesteam.<br>
+<br>
+Avdelingssykepleier vil ha et faglig, økonomisk og personal administrativt
+ansvar for driften av en skjermet enhet som har 13 årsverk.
+Nærmeste overordnede er enhetsleder i demensomsorgen.<br>
+<br>
+Den vi ansetter, må legge frem tilfredsstillende politiattest før tiltredelse. </p>
+<p><strong>Vi ønsker deg som:</strong></p>
+<ul>
+    <li>Har tydelig og inkluderende
+    lederstil</li>
+    <li>Er strukturert
+        </li>
+    <li>Har god muntlig og
+    skriftlig fremstillingsevne</li>
+    <li>Har evne til å myndiggjøre,
+    motivere, veilede og videreutvikle medarbeidere</li>
+    <li>Har erfaring fra arbeid med
+    personer med demens     </li>
+    <li>Er tålmodig og trygg i en
+    krevende arbeidssituasjon</li>
+    <li>Med fordel har kjennskap
+    til programmene Gatsoft, Gerica, P360 og HR manager</li>
+    <li>Personlig egnethet vil bli
+    vektlagt</li>
+</ul>
+<p>
+<strong>Hos oss får du:</strong></p>
+<ul>
+    <li>En faglig utfordrende
+    hverdag i et aktivt og hyggelig arbeidsmiljø med engasjerte medarbeidere
+    som arbeider for at kommunens demensomsorg skal være et godt sted å være
+    for pasienter og personale. Aktiv deltagelse i en prosess med kontinuerlig
+    fokus på kompetanse og kvalitetsutvikling.</li>
+    <li>Muligheten til å arbeide i en kommune med stort samfunnsansvar</li>
+    <li>Faglig utvikling</li>
+    <li> Lønn i henhold til tariffavtale og Ås kommunes lokale lønnspolitikk, bl.a. med tillegg for utvidet kompetanse og ansvar for enkelte stillinger</li>
+    <li>Gode forsikrings- og pensjonsordninger, blant annet gruppelivs- og fritidsforsikring</li>
+</ul>
+<p>Ås kommune er en IA- virksomhet og ønsker å gjenspeile mangfoldet i befolkningen. Alle kvalifiserte kandidater oppfordres til å søke stilling uavhengig av kjønn, alder, funksjonsevne eller etnisk bakgrunn.
+<br>
+I henhold til offentleglova kan søknaden offentliggjøres selv om du har bedt om å ikke bli oppført på offentlig søkerliste. Du vil i så fall bli varslet.
+<br>
+<br>
+<strong>Ås kommune ønsker ikke tilbud fra rekrutteringsfirma eller annonsører.</strong></p>
+
+<div class='NavHrManagerApplicationFormLinkWrapper'><a href='https://candidate.hr-manager.net/ApplicationInit.aspx?cid=1049&ProjectId=144532&DepartmentId=19065&MediaId=4611&SkipAdvertisement=true' target='_blank'>Søk på stillingen</a></div>]]></Value>
+            </FormattedPositionDescription>
+            <HowToApply>
+              <PersonName></PersonName>
+              <ApplicationMethod>
+                <Telephone>
+                  <FormattedNumber></FormattedNumber>
+                </Telephone>
+                <InternetEmailAddress></InternetEmailAddress>
+                <InternetWebAddress></InternetWebAddress>
+                <PostalAddress>
+                  <PostalCode />
+                  <Recipient>
+                    <PersonName />
+                  </Recipient>
+                  <DeliveryAddress>
+                    <AddressLine />
+                    <StreetName />
+                    <PostOfficeBox />
+                  </DeliveryAddress>
+                </PostalAddress>
+              </ApplicationMethod>
+            </HowToApply>
+          </PositionProfile>
+          <NumberToFill>1</NumberToFill>
+        </m0:PositionOpening>
+      </StillingListe>
+    </m:LeggInnStillinger>
+  </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

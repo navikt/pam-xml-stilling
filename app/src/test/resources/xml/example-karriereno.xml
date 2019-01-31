@@ -1,0 +1,59 @@
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl" xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd"
+                   xmlns:m2="http://ns.hr-xml.org/2007-04-15" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   SOAP-ENV:encodingStyle="http://schemas.xmlsoap.org/soap/encoding/">
+    <SOAP-ENV:Header/>
+    <SOAP-ENV:Body>
+        <m:LeggInnStillinger>
+            <StillingsListe>
+                <m0:PositionOpening>
+                    <PositionPostings>
+                        <PositionPosting>
+                            <Id>
+                                <IdValue>612965</IdValue>
+                            </Id>
+                        </PositionPosting>
+                    </PositionPostings>
+                    <PositionSupplier>
+                        <SupplierId>
+                            <IdValue>Karriere.no</IdValue>
+                        </SupplierId>
+                        <EntityName>Trainee Vest</EntityName>
+                    </PositionSupplier>
+                    <PositionProfile>
+                        <ProfileName>Constructa</ProfileName>
+                        <PositionDateInfo>
+                            <MaximumStartDate>2018-01-31</MaximumStartDate>
+                            <MaximumEndDate>2018-02-01</MaximumEndDate>
+                            <StartAsSoonAsPossible>false</StartAsSoonAsPossible>
+                        </PositionDateInfo>
+                        <Organization><![CDATA[<html><head></head><body></body></html>]]></Organization>
+                        <PositionDetail>
+                            <PhysicalLocation>
+                                <Name>BERGEN</Name>
+                                <PostalAddress>
+                                    <PostalCode>5014</PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine/>
+                                    </DeliveryAddress>
+                                </PostalAddress>
+                            </PhysicalLocation>
+                            <PositionSchedule>Trainee (Heltid 12-24 mnd)</PositionSchedule>
+                        </PositionDetail>
+                        <FormattedPositionDescription>
+                            <Value>
+                                <![CDATA[<html><head></head><body><p><div><p><div><p><b>Trainee - Prosjektledelse, prosjekteringsledelse og byggeplassadministrasjon</b></p></div></p><p><em>Constructa Entreprenør AS er en stor lokal entreprenør i Bergen- og Hordalands-regionen med bred og vel fundamentert kompetanse på krevende prosjekter, og en operativ evne som ivaretas av medarbeidere med lang bransjetilknytning. Constructa Entreprenør ivaretar alle faser innen eiendomsutvikling og gjennomfører alle type bygg- og anleggsprosjekter.</em></p><em></em><p><em>Vi vektlegger samspill og dialog med oppdragsgiver og brukere for å oppnå gode resultater og har flere store profesjonelle- og gjentakende oppdragsgivere i Hordalands-regionen.</em></p><p>Hos oss får du muligheten til å utvikle deg selv og karrieren din, være med på spennende prosjekter, og anledning til å bygge nettverk på tvers av organisasjonen. Constructa¿s traineeprogram skal bidra til å sikre vårt fremtidige ledelsesbehov, hvor målet er å gi traineer de beste forutsetningene for å kunne oppfylle fremtidige roller i krevende byggeprosjekter. Vi søker en ambisiøs og fremoverlent trainee til prosjektledelse, prosjekteringsledelse og byggeplassadministrasjon.<br></p></div></p><p><div><p><div><strong><br>Arbeidsoppgaver</strong><ul><li>Utvikling av prosjekt</li><li>Tilbudsarbeid</li><li>Prosjekteringsfasen innen bygg/tekniske fag</li><li>Kontrahering /innkjøp</li><li>Ressursplanlegging /prosjektledelse</li><li>Møteledelse / kommunikasjon / presentasjonsteknikk</li></ul></div></p><p><div><strong><br>Kvalifikasjoner</strong><ul><li>Utdannelse som sivilingeniør innen Bygg / installasjonsteknikk.</li><li>Gjerne med praktisk bakgrunn / fagbrev</li><li>Gode kommunikasjonsevner skriftlig og muntlig</li><li>Språk - Norsk / Engelsk</li></ul></div></p><p><div><strong><br>Personlige egenskaper</strong><ul><li>Dyktig relasjonsbygger som kan arbeide tverrfaglig</li><li>Initiativrik og løsningsorientert</li><li>Gode organisatoriske og koordinerende ferdigheter</li><li>Gode sosiale evner</li></ul></div></p><p><div><strong><br>Vi tilbyr</strong><ul><li>Høyt faglig arbeidsmiljø</li><li>Gode utviklingsmuligheter</li><li>Utviklingsprogram gjennom Trainee Vest</li><li>Medlemskap i U37, Bergen Næringsråds nettverk for unge i næringslivet</li></ul>Se de 19 andre stillingene og les mer om vilkår for å søke en traineestilling i annonsen på Finn eller på våre nettsider: <a href="https://www.finn.no/job/fulltime/ad.html?finnkode=110624646" target="_blank" rel="nofollow">https://www.finn.no/job/fulltime/ad.html?finnkode=110624646</a><br><br><br></div></p></div></p></body></html><br>Kvalifikasjoner: Master<br>Arbeidserfaring: Ikke påkrevet<br><hr><h3>Søknadsinformasjon:</h3>Trainee<br>Trainee (Heltid 12-24 mnd)<br><a href="https://karriere.no/jobb/constructa-612965.html">SØK JOBBEN HER</a><br><hr>]]></Value>
+                        </FormattedPositionDescription>
+                        <HowToApply>
+                            <ApplicationMethod>
+                                <InternetWebAddress>http://traineevest.no/</InternetWebAddress>
+                            </ApplicationMethod>
+                        </HowToApply>
+                    </PositionProfile>
+                    <NumberToFill>1</NumberToFill>
+                </m0:PositionOpening>
+            </StillingsListe>
+        </m:LeggInnStillinger>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

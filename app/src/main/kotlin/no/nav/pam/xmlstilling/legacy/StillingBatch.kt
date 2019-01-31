@@ -2,11 +2,12 @@ package no.nav.pam.xmlstilling.legacy
 
 import kotliquery.*
 import kotliquery.action.ListResultQueryAction
+import java.time.LocalDateTime
 
 private val oracleFetchQuery = """
     select *
     from "SIX_KOMP"."STILLING_BATCH
-    where STILLING_BATCH_ID > ?
+    where MOTTATT_DATO > ?
     order by STILLING_BATCH_ID
     fetch first ? rows only""".trimIndent()
 
@@ -17,8 +18,8 @@ class StillingBatch (
     data class Entry (
         val stillingBatchId: Int,
         val eksternBrukerRef: String?,
-        val stillingXml: String?,
-        val mottattDato: java.time.LocalDate?,
+        val stillingXml: String,
+        val mottattDato: java.time.LocalDateTime,
         val behandletDato: java.time.LocalDate?,
         val behandletStatus: String?,
         val arbeidsgiver: String?)
@@ -28,8 +29,8 @@ class StillingBatch (
         Entry(
                 stillingBatchId = row.int("STILLING_BATCH_ID"),
                 eksternBrukerRef = row.stringOrNull("EKSTERN_BRUKER_REF"),
-                stillingXml = row.stringOrNull("STILLING_XML"),
-                mottattDato = row.localDateOrNull("MOTTATT_DATO"),
+                stillingXml = row.string("STILLING_XML"),
+                mottattDato = row.localDateTime("MOTTATT_DATO"),
                 behandletDato = row.localDateOrNull("BEHANDLET_DATO"),
                 behandletStatus = row.stringOrNull("BEHANDLET_STATUS"),
                 arbeidsgiver = row.stringOrNull("ARBEIDSGIVER")
@@ -37,17 +38,17 @@ class StillingBatch (
     }
 
 
-    private val fetchbatchQuery = fun(start: Int, count: Int): ListResultQueryAction<Entry> {
-        return queryOf(fetchQuery, start, if(count > 10) 10 else count)
+    private val fetchbatchQuery = fun(mottattDato: LocalDateTime, count: Int): ListResultQueryAction<Entry> {
+        return queryOf(fetchQuery, mottattDato, if(count > 10) 10 else count)
                 .map(toStillingBatchEntry)
                 .asList
     }
 
 
-    fun fetchBatch(start: Int, count: Int): List<StillingBatch.Entry>
+    fun fetchBatch(mottattDato: LocalDateTime, count: Int): List<StillingBatch.Entry>
     {
         return using(sessionOf(HikariCP.dataSource())) { session ->
-            return@using session.run(fetchbatchQuery(start, count))
+            return@using session.run(fetchbatchQuery(mottattDato, count))
         }
     }
 }

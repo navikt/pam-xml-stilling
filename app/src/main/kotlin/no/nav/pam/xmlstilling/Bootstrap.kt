@@ -15,6 +15,8 @@ import mu.KotlinLogging
 import no.nav.pam.xmlstilling.Bootstrap.start
 import no.nav.pam.xmlstilling.legacy.StillingBatch
 import no.nav.pam.xmlstilling.platform.naisApi
+import no.nav.pam.xmlstilling.rest.StillingFeed
+import java.time.LocalDateTime
 
 fun main(args: Array<String>) {
 
@@ -24,7 +26,7 @@ fun main(args: Array<String>) {
 
 }
 
-fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch()) : ApplicationEngine {
+fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch(), feed: StillingFeed = StillingFeed()) : ApplicationEngine {
     return embeddedServer(Netty, port) {
         install(ContentNegotiation) {
             gson { setPrettyPrinting() }
@@ -33,10 +35,18 @@ fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch()) : Ap
             naisApi()
             get("load/{start}/count/{count}") {
                 call.respond(repo.fetchBatch(
-                        start = call.parameters["start"]!!.toInt(),
+                        mottattDato = LocalDateTime.parse(call.parameters["start"]),
                         count = call.parameters["count"]!!.toInt()))
             }
-
+            get("load/{yyyy}/{MM}/{dd}/{HH}/{mm}/{ss}") {
+                call.respond(feed.hentStillinger(LocalDateTime.parse(
+                        call.parameters["yyyy"] + "-"
+                                + call.parameters["MM"] + "-"
+                                + call.parameters["dd"] + "T"
+                                + call.parameters["HH"] + ":"
+                                + call.parameters["mm"] + ":"
+                                + call.parameters["ss"])))
+            }
         }
     }
 }

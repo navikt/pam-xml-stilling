@@ -27,6 +27,7 @@
         <h2.version>1.4.197</h2.version>
         <HikariCP.version>3.2.0</HikariCP.version>
         <prometheus.version>0.5.0</prometheus.version>
+        <jackson.version>2.9.1</jackson.version>
     </properties>
 
 
@@ -144,6 +145,12 @@
                 <groupId>com.oracle</groupId>
                 <artifactId>ojdbc6</artifactId>
                 <version>11.2.0.2.0</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.fasterxml.jackson.core</groupId>
+                <artifactId>jackson-annotations</artifactId>
+                <version>${jackson.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

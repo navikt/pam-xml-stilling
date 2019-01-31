@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/"
+               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <soap:Body>
+        <LeggInnStillinger>
+            <StillingListe>
+                <m0:PositionOpening xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd">
+                    <PositionPostings xmlns="http://ns.hr-xml.org/2007-04-15">
+                        <PositionPosting>
+                            <Id>
+                                <IdValue name="Jobbnorge stillingID">159880</IdValue>
+                            </Id>
+                        </PositionPosting>
+                    </PositionPostings>
+                    <PositionSupplier xmlns="http://ns.hr-xml.org/2007-04-15">
+                        <EntityName>GIFAS</EntityName>
+                    </PositionSupplier>
+                    <PositionProfile xmlns="http://ns.hr-xml.org/2007-04-15">
+                        <ProfileName>Kvalitetsansvarlig</ProfileName>
+                        <PositionDateInfo>
+                            <MaximumStartDate>2018-12-02</MaximumStartDate>
+                            <MaximumEndDate>2018-12-02</MaximumEndDate>
+                        </PositionDateInfo>
+                        <Organization>&lt;p&gt;Gildeskål Forskningsstasjon (GIFAS) er en privateid havbruksstasjon med
+                            base i Gildeskål i Nordland.&lt;/p&gt; &lt;p&gt;GIFAS gjennomførerforskningsprosjekter innen
+                            biologiske og teknologiske problemstillinger både i småskala og full kommersiell skala.&lt;/p&gt;
+                        </Organization>
+                        <PositionDetail>
+                            <PhysicalLocation>
+                                <Name>Gildeskål Marine Center</Name>
+                                <PostalAddress>
+                                    <CountryCode>NO</CountryCode>
+                                    <PostalCode>8140</PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine>Gildeskål Marine Center</AddressLine>
+                                    </DeliveryAddress>
+                                </PostalAddress>
+                            </PhysicalLocation>
+                            <PositionSchedule>Permanent</PositionSchedule>
+                        </PositionDetail>
+                        <FormattedPositionDescription>
+                            <Value>
+                                <![CDATA[Jobbnorge ID: 159880<br><br><h2 style="font-size:16px; margin-bottom: 0; padding-bottom: 0;">Om stillingen</h2><p style="margin-top: 0; padding-top: 0;">Vil du være en del av teamet ved en av Norges største private forskningsstasjoner innen akvakultur?<p style="margin-top: 0; padding-top: 0;">Du blir sentral i å videreutvikle kvalitetssystemet samt tilpasse metoder og dokumentasjon til praktisk og kontinuerlig kvalitetsutvikling. Du vil samarbeide tett med daglig leder og bistår lederne med faglig støtte og opplæring. Vi søker etter deg som virkelig har engasjement for både næring og kvalitetsstyring.<br><br>Video: https://youtu.be/-4OJz9OkQss</p><br><h2 style="font-size:16px; margin-bottom: 0; padding-bottom: 0;">Sentrale arbeidsoppgaver vil være</h2><p style="margin-top: 0; padding-top: 0;">Drift, kontinuerlig oppfølging og forbedring av bedriftens Kvalitets og HMS-system.</p><p style="margin-top: 0; padding-top: 0;">Bistå og veilede produksjonsledere i internkontroll, sertifiseringer, bærekraft og mattrygghet </p><p style="margin-top: 0; padding-top: 0;">Planlegge og gjennomføre interne og eksterne revisjoner. Ansvar for intern opplæring i kvalitetssystem og hygiene. Løpende prosjektarbeid relatert til internkontroll, sertifiseringer og bærekraft/ytre miljø</p><br><h2 style="font-size:16px; margin-bottom: 0; padding-bottom: 0;">Kvalifikasjoner og egenskaper</h2><p style="margin-top: 0; padding-top: 0;">Du har relevant utdanning innen akvakultur, marin biologi, bærekraft/miljø eller kvalitetsledelse. Bakgrunn fra oppdrettsnæringen og erfaring med internkontroll/sertifiseringsarbeid. Du behersker norsk flytende både muntlig og skriftlig, samt beherske engelsk godt. Vi søker deg som er selvgående, initiativrik og positiv, som arbeider systematisk og målrettet, er analytisk, løsningsorientert og har gode samarbeids- og kommunikasjonsevner.</p><br><h2 style="font-size:16px; margin-bottom: 0; padding-bottom: 0;">Vi tilbyr</h2><p style="margin-top: 0; padding-top: 0;">Et godt arbeidsmiljø med dyktige og engasjerte medarbeidere i et uformelt miljø.  Videre tilbyr vi konkurransedyktig lønn og gode pensjons-/forsikringsordninger.</p> <p style="margin-top: 0; padding-top: 0;">Kontorsted vil være Gildeskål Marine Center, Inndyr, men du må også påregne noe reisevirksomhet.</p><p style="margin-top: 0; padding-top: 0;">Stillingen rapporterer til daglig leder  </p><br><h2 style="font-size:16px; margin-bottom: 0; padding-bottom: 0;">Nærmere informasjon</h2><p style="margin-top: 0; padding-top: 0;">Nærmere informasjon gis ved henvendelse til Morten M Lorentsen tlf. 476 01 810 eller Monica Brunsvik tlf. 970 06 077.</p><p style="margin-top: 0; padding-top: 0;">Vi ber om at du registrerer din søknad via link på denne siden. CV, vitnemål og attester lastes opp under "Vedlegg".  </p> <p style="margin-top: 0; padding-top: 0;">Ved spørsmål om utfylling av elektronisk søknadsskjema kan Jobbnorge kontaktes på 755 42 220 eller <a href="mailto:kundeservice@jobbnorge.no">kundeservice@jobbnorge.no</a> på hverdager mellom 08.00-16.00.</p><br><br><br>Se annonsen og søk på stillingen <a href="http://www.jobbnorge.no/ledige-stillinger/stilling/159880">www.jobbnorge.no</a>]]></Value>
+                        </FormattedPositionDescription>
+                        <HowToApply>
+                            <ApplicationMethod>
+                                <InternetWebAddress>https://gifas.no/</InternetWebAddress>
+                            </ApplicationMethod>
+                        </HowToApply>
+                    </PositionProfile>
+                    <NumberToFill xmlns="http://ns.hr-xml.org/2007-04-15">1</NumberToFill>
+                </m0:PositionOpening>
+            </StillingListe>
+        </LeggInnStillinger>
+    </soap:Body>
+</soap:Envelope>

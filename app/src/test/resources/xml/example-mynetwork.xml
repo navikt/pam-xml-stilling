@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/"
+                   xmlns:ns3="http://ns.hr-xml.org/2007-04-15" xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd">
+    <SOAP-ENV:Body>
+        <SOAP-ENV:LeggInnStillinger>
+            <StillingListe>
+                <m0:PositionOpening>
+                    <PositionPostings>
+                        <PositionPosting>
+                            <Id>
+                                <IdValue>240208</IdValue>
+                            </Id>
+                        </PositionPosting>
+                    </PositionPostings>
+                    <PositionSupplier>
+                        <SupplierId>
+                            <IdValue>mynetwork</IdValue>
+                        </SupplierId>
+                        <EntityName>Actic Norge AS - Actic Hamar</EntityName>
+                        <ContactMethod>
+                            <Telephone>
+                                <FormattedNumber></FormattedNumber>
+                            </Telephone>
+                            <Fax>
+                                <FormattedNumber></FormattedNumber>
+                            </Fax>
+                        </ContactMethod>
+                        <Role></Role>
+                    </PositionSupplier>
+                    <PositionProfile>
+                        <ProfileName>Elsker du trening og helse, og vil skape et sunnere Hamar?</ProfileName>
+                        <PositionDateInfo>
+                            <StartAsSoonAsPossible>false</StartAsSoonAsPossible>
+                            <StartDate></StartDate>
+                            <ExpectedEndDate></ExpectedEndDate>
+                            <MaximumStartDate>2018-12-29</MaximumStartDate>
+                            <MaximumEndDate>2018-12-29</MaximumEndDate>
+                        </PositionDateInfo>
+                        <Organization>
+                            <Description></Description>
+                        </Organization>
+                        <PositionDetail>
+                            <Company/>
+                            <PhysicalLocation>
+                                <Name>Brygga 20, 2317 Hamar</Name>
+                                <PostalAddress>
+                                    <CountryCode>NO</CountryCode>
+                                    <PostalCode>2317</PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine>Brygga 20</AddressLine>
+                                    </DeliveryAddress>
+                                    <Recipient>
+                                        <PersonName>
+                                            <FormattedName>Lars Espen Skogvold, 91589200</FormattedName>
+                                        </PersonName>
+                                    </Recipient>
+                                </PostalAddress>
+                            </PhysicalLocation>
+                            <JobCategory>
+                                <CategoryDescription></CategoryDescription>
+                            </JobCategory>
+                            <PositionTitle></PositionTitle>
+                            <PositionClassification></PositionClassification>
+                            <PositionSchedule percentage="100"></PositionSchedule>
+                            <Competency name="" required="false"/>
+                            <JobLevelInfo>
+                                <JobPlan></JobPlan>
+                                <JobGrade></JobGrade>
+                            </JobLevelInfo>
+                        </PositionDetail>
+                        <FormattedPositionDescription>
+                            <Name></Name>
+                            <Value>
+                                <![CDATA[Motiveres du av å hjelpe mennesker med å finne mestring og trenigngsglede? Da bør du lese videre - for vi vil snakke med deg! <br /><br />På Brygga i Hamar sentrum finner du vårt treningssenter. 50 meter fra togstasjonen. Midt i smørøyet, altså! <br /><br />Du kommer til å få hjelp av de beste i bransjen til å lykkes, grundig kursing i salg, coaching og psykologi. Du har ambisjoner/ønske om å jobbe heltid med det du brenner for - nemlig trening. <br /><br />Ville dine venner beskrevet deg som..?<br /><br /> - Du brenner for å hjelpe mennesker <br /> - Du har glimt i øyet, og byr gjerne på deg selv<br /> - Du er flink i det du gjør, særlig treningfaglig<br /><br />Kan du svare &amp;quot;ja&amp;quot; her? Les videre!<br /><br />Vi skal ha god stemning på jobb, og et veldig hyggelig, folkelig og uformelt miljø, der vi skal kjennemedlemmene våre godt, og de oss! Så er du god på å bygge relasjoner, passer du bra i vårt lag!<br /><br />Hva slags bakgrunn har du?<br /><br />Du har PT-utdanning, helst ett-årig, eller er kanskje en treningsinteressert fysioterapeut, eller idrettsfaglig utdannet? Vi vurderer alle søkere individuelt.<br /><br />Enkel søknad!<br /><br />Vi tror på enkle søknadsprosesser, så alt du trenger er din CV, og som søknad kan du svare på følgende tre spørsmål (maks 200 ord)<br /><br /> - Hva du tenker er de viktigste egenskapene hos en personlig trener?<br /> - Hvordan ville du hjulpet en demotivert kunde?<br /> - Hvilke av dine egenskaper tror du er viktigste bidrag til et team?<br />Vår personlig trener og fysio Silje på Holmlia kan du se mer om her!<br /><br />https://www.youtube.com/watch?v=-d0Woplq5vY<br />Gang per uke: 15-30 timer/uka<br /><br /><a href="https://acticnorge.varbi.com/no/what:job/jobID:240208/type:job/where:2/apply:1" target="_blank">Send søknad</a><br />]]></Value>
+                        </FormattedPositionDescription>
+                        <HowToApply>
+                            <PersonName>
+                                <FormattedName>Actic Norge AS - Actic Hamar gjennom MyNetwork Pro</FormattedName>
+                            </PersonName>
+                            <ApplicationMethod>
+                                <Telephone>
+                                    <FormattedNumber></FormattedNumber>
+                                </Telephone>
+                                <InternetEmailAddress></InternetEmailAddress>
+                                <PostalAddress>
+                                    <CountryCode></CountryCode>
+                                    <PostalCode></PostalCode>
+                                    <DeliveryAddress>
+                                        <AddressLine></AddressLine>
+                                        <StreetName></StreetName>
+                                        <PostOfficeBox></PostOfficeBox>
+                                    </DeliveryAddress>
+                                    <Recipient>
+                                        <PersonName>
+                                            <FormattedName></FormattedName>
+                                        </PersonName>
+                                    </Recipient>
+                                </PostalAddress>
+                            </ApplicationMethod>
+                        </HowToApply>
+                    </PositionProfile>
+                    <NumberToFill>2</NumberToFill>
+                </m0:PositionOpening>
+            </StillingListe>
+        </SOAP-ENV:LeggInnStillinger>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>

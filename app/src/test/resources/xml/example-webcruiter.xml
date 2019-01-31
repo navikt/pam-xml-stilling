@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<SOAP-ENV:Envelope xmlns:m0="http://www.nav.no/nav_stilling_typer.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+                   xmlns:SOAP-ENC="http://schemas.xmlsoap.org/soap/encoding/"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xmlns:m="http://www.nav.no/nav_stilling_reg.wsdl" xmlns:m2="http://ns.hr-xml.org/2007-04-15"
+                   xmlns:SOAP-ENV="http://schemas.xmlsoap.org/soap/envelope/">
+    <SOAP-ENV:Body>
+        <m:LeggInnStillinger>
+            <StillingListe>
+                <m0:PositionOpening>
+                    <PositionPostings>
+                        <PositionPosting>
+                            <Id>
+                                <IdValue>3982879632</IdValue>
+                            </Id>
+                        </PositionPosting>
+                    </PositionPostings>
+                    <PositionSupplier>
+                        <SupplierId>
+                            <IdValue>Webcruiter AS</IdValue>
+                        </SupplierId>
+                        <EntityName>Steinkjer kommune, Inn-Trøndelag IKT</EntityName>
+                    </PositionSupplier>
+                    <PositionProfile>
+                        <ProfileName>Fagansvarlig Datasentertjenester</ProfileName>
+                        <PositionDateInfo>
+                            <StartDate/>
+                            <ExpectedEndDate/>
+                            <MaximumStartDate>2018-12-20</MaximumStartDate>
+                            <MaximumEndDate/>
+                            <StartAsSoonAsPossible>false</StartAsSoonAsPossible>
+                        </PositionDateInfo>
+                        <Organization>&lt;br&gt;&lt;br&gt;&lt;p&gt;&lt;span style="color: #000000"&gt;&lt;span
+                            style="font-size: 10pt"&gt;&lt;span style="font-family: Verdana"&gt;Steinkjer er
+                            administrasjonssenteret i Trøndelag. Kommunen ligger 12 mil nord for Trondheim, har ca.
+                            22.000 innbyggere og er Norges geografiske midtpunkt. Visste du at Steinkjer ikke bare er en
+                            av landets største jordbrukskommuner, men også er universitetsby og handelssentrum med et
+                            spennende næringsliv?&lt;br&gt;
+                            Vi er en åpen, lys og glad kommune, med sterke historiske røtter og store
+                            framtidsambisjoner. For tiden satser vi sterkt på kultur, helse og oppvekst.&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/p&gt;&lt;br&gt;&lt;br&gt;&lt;p
+                            style="margin: 0px"&gt;&lt;span style="margin: 0px; color: black; font-family: Verdana;
+                            font-size: 10pt;"&gt;Inn-Trøndelag
+                            IKT er ansvarlig for IKT-tjenester og digital utvikling for kommunene Verran,
+                            Inderøy og Steinkjer. Fra 2020 slås Verran og Steinkjer sammen til en ny
+                            kommune, og Snåsa kommune tilslutter seg IKT- og digitaliseringssamarbeidet.
+                            IKT-enheten har i dag 10 ansatte, og blir 12 medarbeidere i 2019. Vi leverer i
+                            dag digitale verktøy, tjenester og prosjektstøtte til ca. 3000 ansatte og 4000
+                            elever.&lt;/span&gt;&lt;/p&gt;
+                        </Organization>
+                        <PositionDetail>
+                            <Company/>
+                            <PhysicalLocation>
+                                <Name>Steinkjer</Name>
+                                <PostalAddress>
+                                    <PostalCode>7713</PostalCode>
+                                    <Recipient>
+                                        <PersonName>
+                                            <FormattedName/>
+                                        </PersonName>
+                                    </Recipient>
+                                    <DeliveryAddress>
+                                        <AddressLine>Kongensgt.</AddressLine>
+                                    </DeliveryAddress>
+                                </PostalAddress>
+                            </PhysicalLocation>
+                            <PositionSchedule percentage="100"/>
+                        </PositionDetail>
+                        <FormattedPositionDescription>
+                            <Value><![CDATA[Org. nr: 840029212 Stillingsident: 3982879632 Presentasjon av stillingen: <br/>
+Vil du være med og sikre framtidas kommunale tjenester med moderne og innovative IKT-løsninger?<br>Kommunene i Inn-Trøndelag står foran store og spennende utfordringer i arbeidet med å bli mere digitale. Med visjonen «Smartere sammen
+¿ Smartere hverdag» er det etablert ambisiøse planer for tjenesteutvikling og
+digitalisering. Vi trenger flere dyktige medarbeidere for å understøtte denne utviklingen og kan
+tilby en interessant og utfordrende jobb i et hektisk og engasjerende miljø.
+IKT-enheten har nå ledig stilling som fagansvarlig for
+datasentertjenester.<br/>
+<h3>Arbeidsoppgaver</h3><ul><li>Utvikle og ivareta en helhetlig IKT-arkitektur</li><li>Ansvar for datasentertjenester fra ulike leverandører</li><li>Ivareta teknisk arkitektur i prosjekter</li><li>Leverandøroppfølging</li><li>Utarbeide og vedlikeholde dokumentasjon og rutiner</li><li>Delta i og lede ulike prosjekter </li></ul><h3>Kvalifikasjoner</h3><ul><li>Relevant IKT-utdanning
+(universitet-/høgskolenivå)</li><li>Relevant erfaring, kan
+delvis kompensere manglende utdanning</li><li>Kunnskap om datasenter,
+serverløsninger, skyløsninger og hybrid infrastruktur</li><li>Relevante sertifiseringer
+vil være en fordel</li><li>Kjennskap til nasjonale
+IT-arkitekturprinsipper for offentlig sektor</li><li>Kjennskap til nasjonale
+felleskomponenter</li><li>Kjennskap til rammeverk som
+ITIL</li><li>Kjennskap til statens
+standardavtaler  </li><li>Erfaring som prosjektleder </li><li>God skriftlig og muntlig
+framstillingsevne på norsk og engelsk<br></li></ul><h3>Personlige egenskaper</h3><ul><li>Selvstendig, proaktiv og løsningsorientert </li><li>Imøtekommende og serviceorientert </li><li>Gode kommunikasjonsegenskaper </li><li>Evne til å skape engasjement og lede prosesser</li></ul><h3>Vi tilbyr</h3><ul><li>Mulighet til å jobbe for en
+kompleks organisasjon, samarbeide med et bredt spekter av fagområder</li><li>Bidra til endringsreisen for
+fremtidens kommunale tjenesteproduksjon</li><li>Mulighet til å spille en
+sentral rolle i fornyingsarbeidet i Inn-Trøndelagskommunene</li><li>Jobbe i en organisasjon som
+legger vekt på kompetansebygging og utvikling </li><li>Gode tjenestepensjons- og
+forsikringsordninger </li><li>Fleksibel arbeidstidsordning
+</li></ul><h3>Kontaktinformasjon</h3>Vidar Holm,&nbsp;IKT-leder,&nbsp;91311383,&nbsp;vidar.holm@steinkjer.kommune.no<br/>
+<h3>Arbeidssted</h3>Kongensgt.<br/>
+7713&nbsp;Steinkjer<br/>
+<br/>
+Søk på stillingen:<A href="https://candidate.webcruiter.com/cv?advertid=3982879632&language=nb&link_source_id=17">Klikk her</A><br/>
+<h3>Nøkkelinformasjon: </h3>Arbeidsgiver:Inn-Trøndelag (Steinkjer ++)<br><br />Referansenr.:3982879632<br>Stillingsprosent: 100%<br>Søknadsfrist: 20.12.2018<br><br>]]></Value>
+                        </FormattedPositionDescription>
+                        <HowToApply>
+                            <ApplicationMethod>
+                                <InternetWebAddress/>
+                            </ApplicationMethod>
+                        </HowToApply>
+                        <DistributionGuidelines validFrom="2018-11-29"/>
+                    </PositionProfile>
+                    <NumberToFill>1</NumberToFill>
+                </m0:PositionOpening>
+            </StillingListe>
+        </m:LeggInnStillinger>
+    </SOAP-ENV:Body>
+</SOAP-ENV:Envelope>
