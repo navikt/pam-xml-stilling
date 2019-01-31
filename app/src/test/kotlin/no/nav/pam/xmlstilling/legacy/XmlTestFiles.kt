@@ -1,6 +1,5 @@
 package no.nav.pam.xmlstilling.legacy
 
-import java.io.FileInputStream
 import java.io.InputStreamReader
 
 private object XmlTestFiles {
