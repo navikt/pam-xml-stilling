@@ -10,7 +10,7 @@ private object XmlTestFiles {
     init {
         FILE_CONTENT =
             Leverandor.values()
-                    .map { it to InputStreamReader(FileInputStream("src/test/resources/xml/example-" + it.name.toLowerCase() + ".xml")).readText() }
+                    .map { it to InputStreamReader(this.javaClass.getResourceAsStream("/xml/example-" + it.name.toLowerCase() + ".xml")).readText() }
                     .toMap()
     }
 
