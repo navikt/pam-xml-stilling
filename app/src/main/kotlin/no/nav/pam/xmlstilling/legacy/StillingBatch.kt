@@ -6,7 +6,7 @@ import java.time.LocalDateTime
 
 private val oracleFetchQuery = """
     select *
-    from "SIX_KOMP"."STILLING_BATCH
+    from "SIX_KOMP"."STILLING_BATCH"
     where MOTTATT_DATO > ?
     order by STILLING_BATCH_ID
     fetch first ? rows only""".trimIndent()
