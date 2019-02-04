@@ -27,6 +27,7 @@ class HrXmlStilingParserTest {
         assertThat(hrXmlStilling.stillingsProsent).isEqualTo(100.0f)
         assertThat(hrXmlStilling.kontaktPerson).matches("Oivin Robberstad")
         assertThat(hrXmlStilling.kontaktPersonTlfnr).matches("90 89 39 04")
+        assertThat(hrXmlStilling.kontaktEpost).matches("a@b.com")
         assertThat(hrXmlStilling.publiseresFra).isNull()
         assertThat(hrXmlStilling.sistePubliseringsdato).isNotNull().isEqualTo(LocalDate.parse("2010-11-21"))
         assertThat(hrXmlStilling.soknadsFrist).isNotNull().isEqualTo(LocalDate.parse("2009-02-22"))

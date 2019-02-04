@@ -16,7 +16,16 @@ object StillingMapper {
                 makeExternalId(hrXmlStilling),
                 hrXmlStilling.publiseresFra?.atStartOfDay(),
                 hrXmlStilling.sistePubliseringsdato?.atStartOfDay(),
-                hrXmlStilling.mottatt
+                hrXmlStilling.mottatt,
+                hrXmlStilling.antallStillinger,
+                hrXmlStilling.arbeidssted,
+                hrXmlStilling.stillingsProsent,
+                hrXmlStilling.kontaktPerson,
+                hrXmlStilling.kontaktPersonTlfnr,
+                hrXmlStilling.kontaktEpost,
+                hrXmlStilling.arbeidsgiverAdresse,
+                hrXmlStilling.arbeidsgiverPostNr,
+                hrXmlStilling.url
         )
     }
 

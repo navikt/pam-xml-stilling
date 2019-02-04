@@ -16,8 +16,6 @@ object HrXmlStilingParser {
     fun parse(xml: String, mottatt: LocalDateTime, eksternBrukerRef: String): HrXmlStilling {
         val document: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml.byteInputStream(StandardCharsets.UTF_8))
 
-        println(xml)
-
         val stillingId: String = getString("""//Id/IdValue""", document)
         val arbeidsgiver: String = getString("""//EntityName""", document)
         val stillingsTittel: String = getString("""//ProfileName""", document)
@@ -34,9 +32,9 @@ object HrXmlStilingParser {
         val arbeidsgiverAdresse: String = getString("""//PhysicalLocation//AddressLine""", document)
         val arbeidsgiverPostNr: String = getString("""//PhysicalLocation//PostalCode""", document)
         val url: String = getString("""//InternetWebAddress""", document)
+        val kontaktEpost: String = getString("""//HowToApply//InternetEmailAddress""", document)
 
         // Avklare om disse skal inkluderes
-        val kontaktEpost: String = getString("""//HowToApply//InternetWebAddress""", document)
         val startSaaSnartSomMulig: String = getString("""//StartAsSoonAsPossible""", document)
         val ledigTil: String = getString("""//ExpectedEndDate""", document)
 
@@ -52,6 +50,7 @@ object HrXmlStilingParser {
                 stillingsProsent,
                 kontaktPerson,
                 kontaktPersonTlfnr,
+                kontaktEpost,
                 getLocalDate(publiseresFra),
                 getLocalDate(sistePubliseringsdato),
                 getLocalDate(soknadsFrist),

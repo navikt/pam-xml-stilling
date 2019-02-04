@@ -15,6 +15,7 @@ data class HrXmlStilling (
     val stillingsProsent: Float?,
     val kontaktPerson: String,
     val kontaktPersonTlfnr: String,
+    val kontaktEpost: String,
     val publiseresFra: LocalDate?,
     val sistePubliseringsdato: LocalDate?,
     val soknadsFrist: LocalDate?,
