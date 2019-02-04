@@ -1,6 +1,7 @@
 package no.nav.pam.xmlstilling
 
 import com.google.gson.GsonBuilder
+import com.google.gson.JsonDeserializer
 import com.google.gson.reflect.TypeToken
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.cio.CIO
@@ -14,11 +15,17 @@ import no.nav.pam.xmlstilling.legacy.*
 import no.nav.pam.xmlstilling.rest.StillingFeed
 import no.nav.pam.xmlstilling.rest.XmlStillingDto
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.ZonedDateTimeAssert
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
 import java.net.ServerSocket
+import java.time.Instant
+import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
 
 class ApiTest {
@@ -31,7 +38,10 @@ class ApiTest {
     val stillingBatch = StillingBatch(h2FetchQuerySql)
     val application = webApplication(randomPort, stillingBatch, StillingFeed(stillingBatch))
     val client = HttpClient(CIO)
-    val gson = GsonBuilder().create()
+    val gson = GsonBuilder().registerTypeAdapter(LocalDateTime::class.java,
+            JsonDeserializer<LocalDateTime> {
+                element, type, context -> LocalDateTime.ofInstant(Instant.parse(element.asString), ZoneId.systemDefault())
+            }).create()
     val forsteJan2018 = "2018-01-01T00:00:00"
 
     val mapJsonToEntry: (HttpResponse) -> List<StillingBatch.Entry> = { response ->
@@ -52,49 +62,6 @@ class ApiTest {
                 .also { loadBasicTestData() }
                 .also { loadExtendedTestData() }
         application.start()
-    }
-
-    @Test
-    fun testLoadFirstBatch() {
-        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/$forsteJan2018/count/5") }
-                .also { assertEquals(HttpStatusCode.OK, it.status) }
-                .let(mapJsonToEntry)
-                .also { list ->
-                    assertThat(list.size).isEqualTo(5)
-                    assertThat(list.map { entry -> entry.mottattDato }).containsAll(mottattDatoer.subList(0, 4))
-                }
-    }
-
-    @Test
-    fun testLoadNextBatch() {
-        val fraTidspunkt = mottattDatoer[4].toString()
-        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/$fraTidspunkt/count/5") }
-                .also { assertEquals(HttpStatusCode.OK, it.status) }
-                .let(mapJsonToEntry)
-                .also { list ->
-                    assertThat(list.size).isEqualTo(5)
-                    assertThat(list.map { entry -> entry.mottattDato }).containsAll(mottattDatoer.subList(5, 9))
-                }
-    }
-
-    @Test
-    fun testLastBatch() {
-        val fraTidspunkt = mottattDatoer[mottattDatoer.lastIndex - 2].toString()
-        println(mottattDatoer.lastIndex)
-        println(mottattDatoer.size)
-        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/$fraTidspunkt/count/5") }
-                .also { assertEquals(HttpStatusCode.OK, it.status) }
-                .let(mapJsonToEntry)
-                .also { list -> assertThat(list.size).isEqualTo(2) }
-    }
-
-    @Test
-    fun testEmptyBatch() {
-        val fraTidspunkt = mottattDatoer.last().toString()
-        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/$fraTidspunkt/count/5") }
-                .also { assertEquals(HttpStatusCode.OK, it.status) }
-                .let(mapJsonToEntry)
-                .also { list -> assertThat(list.size).isEqualTo(0) }
     }
 
     @Test

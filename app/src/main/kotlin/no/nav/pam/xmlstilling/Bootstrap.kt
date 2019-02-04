@@ -42,11 +42,6 @@ fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch(), feed
         }
         routing {
             naisApi()
-            get("load/{start}/count/{count}") {
-                call.respond(repo.fetchBatch(
-                        mottattDato = LocalDateTime.parse(call.parameters["start"]),
-                        count = call.parameters["count"]!!.toInt()))
-            }
             get("load/{yyyy}/{MM}/{dd}/{HH}/{mm}/{ss}") {
                 call.respond(feed.hentStillinger(LocalDateTime.parse(
                         call.parameters["yyyy"] + "-"
