@@ -12,7 +12,7 @@ data class HrXmlStilling (
     val antallStillinger: Int,
     val bedriftspresentasjon: String,
     val arbeidssted: String,
-    val stillingsProsent: Float,
+    val stillingsProsent: Float?,
     val kontaktPerson: String,
     val kontaktPersonTlfnr: String,
     val publiseresFra: LocalDate?,

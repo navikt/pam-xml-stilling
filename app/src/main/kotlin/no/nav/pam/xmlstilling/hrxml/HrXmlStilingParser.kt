@@ -16,6 +16,8 @@ object HrXmlStilingParser {
     fun parse(xml: String, mottatt: LocalDateTime, eksternBrukerRef: String): HrXmlStilling {
         val document: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml.byteInputStream(StandardCharsets.UTF_8))
 
+        println(xml)
+
         val stillingId: String = getString("""//Id/IdValue""", document)
         val arbeidsgiver: String = getString("""//EntityName""", document)
         val stillingsTittel: String = getString("""//ProfileName""", document)
@@ -23,7 +25,7 @@ object HrXmlStilingParser {
         val antallStillinger: Int = getString("""//NumberToFill""", document).toInt()
         val bedriftspresentasjon: String = getString("""//Organization""", document)
         val arbeidssted: String = getString("""//PhysicalLocation/Name""", document)
-        val stillingsProsent: Float = getString("""//PositionSchedule/@percentage""", document).toFloat()
+        val stillingsProsent: Float? = getString("""//PositionSchedule/@percentage""", document).toFloatOrNull()
         val kontaktPerson: String = getString("""//FormattedName""", document)
         val kontaktPersonTlfnr: String = getString("""//HowToApply//FormattedNumber""", document)
         val publiseresFra: String? = getString("""//DistributionGuidelines""", document)

@@ -57,7 +57,7 @@ val mottattDatoer = (0L..13).map { i ->  forsteMottattDato.plusDays(i) }
 
 val loadBasicTestData = {
     using(sessionOf(HikariCP.dataSource())) { session ->
-        session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", Leverandor.GLOBESOFT.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
+        session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", Leverandor.JOBBNORGE.xml(), "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
         session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", Leverandor.WEBCRUITER.xml(), "2018-01-24", "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
     }
 }
