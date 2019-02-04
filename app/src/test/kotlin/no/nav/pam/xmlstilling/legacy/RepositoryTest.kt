@@ -67,13 +67,12 @@ class RepositoryTest {
     @Test
     fun testNullMappingsOfNullables() {
         using(sessionOf(HikariCP.dataSource())) {session ->
-            session.run(queryOf(insertStillingBatchSql, 193164, null, minimalXML, "2018-01-23", null, null, null).asUpdate)
+            session.run(queryOf(insertStillingBatchSql, 193164, "karriereno", minimalXML, "2018-01-23", null, null, null).asUpdate)
         }
 
         val entry = StillingBatch(h2FetchQuerySql).fetchBatch(forsteJan2018, 10).first()
 
         assertThat(entry.stillingBatchId).isEqualTo(193164)
-        assertThat(entry.eksternBrukerRef).isNull()
         assertThat(entry.behandletDato).isNull()
         assertThat(entry.behandletStatus).isNull()
         assertThat(entry.arbeidsgiver).isNull()

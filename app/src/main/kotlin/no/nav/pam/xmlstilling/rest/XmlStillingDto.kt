@@ -7,7 +7,7 @@ data class XmlStillingDto (
 
     val employer: String?,
 
-    val externalUser: String?, // EKSTERN_BRUKER_REF - Mappes til Medium
+    val externalUser: String, // EKSTERN_BRUKER_REF - Mappes til Medium
 
     val employerDescription: String?,
 

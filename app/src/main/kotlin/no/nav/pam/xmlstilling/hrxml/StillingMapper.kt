@@ -8,7 +8,7 @@ object StillingMapper {
     fun toStillingDto(hrXmlStilling: HrXmlStilling): XmlStillingDto {
         return XmlStillingDto(
                 hrXmlStilling.arbeidsgiver,
-                null,
+                hrXmlStilling.eksternBrukerRef,
                 hrXmlStilling.bedriftspresentasjon,
                 hrXmlStilling.stillingsBeskrivelse,
                 hrXmlStilling.stillingsTittel,
@@ -21,12 +21,12 @@ object StillingMapper {
     }
 
     fun makeExternalId(hrXmlStilling: HrXmlStilling): String {
-        return hrXmlStilling.stillingId + "_" + hrXmlStilling.arbeidsgiver + "_" + hrXmlStilling.leverandor
+        return hrXmlStilling.stillingId + "_" + hrXmlStilling.arbeidsgiver + "_" + hrXmlStilling.eksternBrukerRef
     }
 
     fun toStillingDtos(stillingBatchEntries: List<StillingBatch.Entry>): List<XmlStillingDto> {
         return stillingBatchEntries
-                .map { entry -> HrXmlStilingParser.parse(entry.stillingXml, entry.mottattDato) }
+                .map { entry -> HrXmlStilingParser.parse(entry.stillingXml, entry.mottattDato, entry.eksternBrukerRef) }
                 .map { hrXmlStilling -> toStillingDto(hrXmlStilling) }
     }
 }

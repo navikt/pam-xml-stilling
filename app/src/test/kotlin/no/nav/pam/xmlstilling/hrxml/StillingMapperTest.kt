@@ -23,7 +23,7 @@ class StillingMapperTest {
         val stillingBatchEntries: MutableList<StillingBatch.Entry> = ArrayList()
         stillingBatchEntries.add(StillingBatch.Entry(
                 100,
-                null,
+                "jobbnorge",
                 xml,
                 LocalDateTime.now(),
                 LocalDate.now(),
@@ -32,7 +32,7 @@ class StillingMapperTest {
         ))
         stillingBatchEntries.add(StillingBatch.Entry(
                 200,
-                null,
+                "webcruiter",
                 xml,
                 time,
                 LocalDate.now(),
@@ -44,5 +44,7 @@ class StillingMapperTest {
 
         assertThat(stillingDtos[0].title).matches("Avdelingsleder prosjekt")
         assertThat(stillingDtos[1].received).isEqualTo(dateAndTime)
+        assertThat(stillingDtos[0].externalUser).isEqualTo("jobbnorge")
+        assertThat(stillingDtos[1].externalUser).isEqualTo("webcruiter")
     }
 }

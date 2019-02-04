@@ -15,9 +15,9 @@ class HrXmlStilingParserTest {
         val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/ok__stillinger_for_ws-innsending_x1.xml"))
         val xml: String = reader.readText()
 
-        val hrXmlStilling: HrXmlStilling = HrXmlStilingParser.parse(xml, LocalDateTime.now())
+        val hrXmlStilling: HrXmlStilling = HrXmlStilingParser.parse(xml, LocalDateTime.now(), "webcruiter")
         assertThat(hrXmlStilling.stillingId).matches("275307656")
-        assertThat(hrXmlStilling.leverandor).matches("Webcruiter")
+        assertThat(hrXmlStilling.eksternBrukerRef).matches("webcruiter")
         assertThat(hrXmlStilling.arbeidsgiver).matches("YIT Building Systems AS")
         assertThat(hrXmlStilling.stillingsTittel).matches("Avdelingsleder prosjekt")
         assertThat(hrXmlStilling.stillingsBeskrivelse).matches("Stillingsbeskrivelse")

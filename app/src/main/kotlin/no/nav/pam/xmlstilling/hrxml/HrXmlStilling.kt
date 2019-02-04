@@ -5,7 +5,7 @@ import java.time.LocalDateTime
 
 data class HrXmlStilling (
     val stillingId: String?,
-    val leverandor: String,
+    val eksternBrukerRef: String,
     val arbeidsgiver: String,
     val stillingsTittel: String,
     val stillingsBeskrivelse: String,

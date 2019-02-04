@@ -13,11 +13,10 @@ object HrXmlStilingParser {
 
     private val xPath: XPath = XPathFactory.newInstance().newXPath()
 
-    fun parse(xml: String, mottatt: LocalDateTime): HrXmlStilling {
+    fun parse(xml: String, mottatt: LocalDateTime, eksternBrukerRef: String): HrXmlStilling {
         val document: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml.byteInputStream(StandardCharsets.UTF_8))
 
         val stillingId: String = getString("""//Id/IdValue""", document)
-        val leverandor: String = getString("""//SupplierId/IdValue""", document)
         val arbeidsgiver: String = getString("""//EntityName""", document)
         val stillingsTittel: String = getString("""//ProfileName""", document)
         val stillingsBeskrivelse: String = getString("""//FormattedPositionDescription/Value""", document)
@@ -34,9 +33,14 @@ object HrXmlStilingParser {
         val arbeidsgiverPostNr: String = getString("""//PhysicalLocation//PostalCode""", document)
         val url: String = getString("""//InternetWebAddress""", document)
 
+        // Avklare om disse skal inkluderes
+        val kontaktEpost: String = getString("""//HowToApply//InternetWebAddress""", document)
+        val startSaaSnartSomMulig: String = getString("""//StartAsSoonAsPossible""", document)
+        val ledigTil: String = getString("""//ExpectedEndDate""", document)
+
         return HrXmlStilling(
                 stillingId,
-                leverandor,
+                eksternBrukerRef,
                 arbeidsgiver,
                 stillingsTittel,
                 stillingsBeskrivelse,
