@@ -1,5 +1,7 @@
 package no.nav.pam.xmlstilling
 
+import com.google.gson.JsonPrimitive
+import com.google.gson.JsonSerializer
 import io.ktor.application.call
 import io.ktor.application.install
 import io.ktor.features.ContentNegotiation
@@ -17,6 +19,8 @@ import no.nav.pam.xmlstilling.legacy.StillingBatch
 import no.nav.pam.xmlstilling.platform.naisApi
 import no.nav.pam.xmlstilling.rest.StillingFeed
 import java.time.LocalDateTime
+import java.time.ZoneId
+import java.time.format.DateTimeFormatter.ISO_INSTANT
 
 fun main(args: Array<String>) {
 
@@ -26,10 +30,15 @@ fun main(args: Array<String>) {
 
 }
 
-fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch(), feed: StillingFeed = StillingFeed()) : ApplicationEngine {
+fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch(), feed: StillingFeed = StillingFeed()): ApplicationEngine {
     return embeddedServer(Netty, port) {
         install(ContentNegotiation) {
-            gson { setPrettyPrinting() }
+            gson {
+                setPrettyPrinting()
+                registerTypeAdapter(LocalDateTime::class.java, JsonSerializer<LocalDateTime> { localDateTime, type, context ->
+                    JsonPrimitive(ISO_INSTANT.format(localDateTime.atZone(ZoneId.systemDefault()).toInstant()))
+                })
+            }
         }
         routing {
             naisApi()
@@ -53,7 +62,7 @@ fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch(), feed
 
 object Bootstrap {
 
-    private val log = KotlinLogging.logger {  }
+    private val log = KotlinLogging.logger { }
 
     fun initializeDatabase(env: Environment) {
         log.debug("Initializing database connection pool")
