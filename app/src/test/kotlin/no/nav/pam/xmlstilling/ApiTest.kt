@@ -15,7 +15,6 @@ import no.nav.pam.xmlstilling.legacy.*
 import no.nav.pam.xmlstilling.rest.StillingFeed
 import no.nav.pam.xmlstilling.rest.XmlStillingDto
 import org.assertj.core.api.Assertions.assertThat
-import org.assertj.core.api.ZonedDateTimeAssert
 import org.junit.jupiter.api.AfterEach
 import org.junit.jupiter.api.Assertions.assertEquals
 import org.junit.jupiter.api.BeforeEach
@@ -24,8 +23,6 @@ import java.net.ServerSocket
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
 
 class ApiTest {
@@ -90,7 +87,7 @@ class ApiTest {
                 .let { mapJsonToXmlStillingDto(it) }
                 .also { list ->
                     assertThat(list.size).isEqualTo(5)
-                    assertThat(list.asSequence().all { stilling -> !stilling.externalId.isNullOrEmpty() }).isTrue()
+                    assertThat(list.asSequence().all { stilling -> !stilling.eksternId.isNullOrEmpty() }).isTrue()
                 }
     }
 
