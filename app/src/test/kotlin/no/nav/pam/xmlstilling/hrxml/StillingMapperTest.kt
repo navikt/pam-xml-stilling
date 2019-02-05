@@ -42,9 +42,9 @@ class StillingMapperTest {
 
         val stillingDtos = StillingMapper.toStillingDtos(stillingBatchEntries)
 
-        assertThat(stillingDtos[0].title).matches("Avdelingsleder prosjekt")
-        assertThat(stillingDtos[1].received).isEqualTo(dateAndTime)
-        assertThat(stillingDtos[0].externalUser).isEqualTo("jobbnorge")
-        assertThat(stillingDtos[1].externalUser).isEqualTo("webcruiter")
+        assertThat(stillingDtos[0].stillingstittel).matches("Avdelingsleder prosjekt")
+        assertThat(stillingDtos[1].mottattTidspunkt).isEqualTo(dateAndTime)
+        assertThat(stillingDtos[0].eksternBrukerRef).isEqualTo("jobbnorge")
+        assertThat(stillingDtos[1].eksternBrukerRef).isEqualTo("webcruiter")
     }
 }

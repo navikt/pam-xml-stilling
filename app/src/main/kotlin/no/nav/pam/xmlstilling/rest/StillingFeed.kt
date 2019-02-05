@@ -13,8 +13,7 @@ class StillingFeed (
 
     fun hentStillinger(mottattDato: LocalDateTime): List<XmlStillingDto> {
         return hent(mottattDato, 5)
-                .map { entry -> HrXmlStilingParser.parse(entry.stillingXml, entry.mottattDato, entry.eksternBrukerRef) }
-                .map { hrXmlStilling -> StillingMapper.toStillingDto(hrXmlStilling) }
+                .map { entry -> StillingMapper.toStillingDto(HrXmlStilingParser.parse(entry.stillingXml), entry.mottattDato, entry.eksternBrukerRef) }
     }
 
     private val hent = fun(mottattDato: LocalDateTime, count: Int): List<StillingBatch.Entry> {

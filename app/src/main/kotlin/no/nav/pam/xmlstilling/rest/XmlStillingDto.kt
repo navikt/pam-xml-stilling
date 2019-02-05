@@ -4,24 +4,24 @@ import java.time.LocalDateTime
 
 
 data class XmlStillingDto (
+        val arbeidsgiver: String,
+        val eksternBrukerRef: String,
+        val arbeidsgiverBedriftspresentasjon: String?,
+        val stillingsbeskrivelse: String?,
+        val stillingstittel: String,
+        val soknadsfrist: LocalDateTime?,
+        val eksternId: String?,
+        val publiseresFra: LocalDateTime?,
+        val sistePubliseringsdato: LocalDateTime?,
+        val mottattTidspunkt: LocalDateTime,
+        val antallStillinger: Int,
+        val arbeidssted: String,
+        val stillingsprosent: Float?,
+        val kontaktinfoPerson: String,
+        val kontaktinfoTelefon: String,
+        val kontaktinfoEpost: String,
+        val arbeidsgiverAdresse: String,
+        val arbeidsgiverPostnummer: String,
+        val arbeidsgiverWebadresse: String
 
-    val employer: String?,
-
-    val externalUser: String, // EKSTERN_BRUKER_REF - Mappes til Medium
-
-    val employerDescription: String?,
-
-    val jobDescription: String?,
-
-    val title: String?,
-
-    val dueDate: LocalDateTime?,
-
-    val externalId: String?,
-
-    val published: LocalDateTime?,
-
-    val expires: LocalDateTime?,
-
-    val received: LocalDateTime
 )
