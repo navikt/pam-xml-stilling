@@ -1,23 +1,26 @@
-name: pam-xml-stilling
-team: teampam
-image: repo.adeo.no:5443/pam-xml-stilling
-replicas:
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: pam-xml-stilling
+  namespace: default
+  labels:
+    team: teampam
+spec:
+  image: repo.adeo.no:5443/pam-xml-stilling:naiserator1
+  port: 9020
+  replicas:
     min: 2
     max: 4
     cpuThresholdPercentage: 50
-prometheus:
+  liveness:
+    initialDelay: 20
+    path: /isAlive
+  readiness:
+    initialDelay: 20
+    path: /isAlive
+  prometheus:
     enabled: true
     path: /prometheus
-port: 9020
-healthcheck:
-    liveness:
-      initialDelay: 20
-      path: /isAlive
-    readiness:
-      initialDelay: 20
-      path: /isAlive
-webproxy: true
-fasitResources:
-  used:
-    - alias: aetatnoXmlStillingAdminDS
-      resourceType: datasource
+  webproxy: true
+  vault:
+    enabled: true
