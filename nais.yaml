@@ -6,7 +6,7 @@ metadata:
   labels:
     team: teampam
 spec:
-  image: repo.adeo.no:5443/pam-xml-stilling:naiserator1
+  image: repo.adeo.no:5443/pam-xml-stilling
   port: 9020
   replicas:
     min: 2
