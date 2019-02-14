@@ -13,10 +13,10 @@ spec:
     max: 4
     cpuThresholdPercentage: 50
   liveness:
-    initialDelay: 20
+    initialDelay: 10
     path: /isAlive
   readiness:
-    initialDelay: 20
+    initialDelay: 10
     path: /isAlive
   prometheus:
     enabled: true
