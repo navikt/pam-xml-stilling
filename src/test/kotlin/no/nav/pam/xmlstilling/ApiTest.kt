@@ -23,6 +23,7 @@ import java.net.ServerSocket
 import java.time.Instant
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.format.DateTimeFormatter
 import java.util.concurrent.TimeUnit
 
 class ApiTest {
@@ -82,13 +83,46 @@ class ApiTest {
 
     @Test
     fun testStillingFeed() {
-        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/2017/01/20/13/30/20") }
+        runBlocking<HttpResponse> { client.get("http://localhost:$randomPort/load/2017/1/20/13/30/20") }
                 .also { assertEquals(HttpStatusCode.OK, it.status) }
                 .let { mapJsonToXmlStillingDto(it) }
                 .also { list ->
-                    assertThat(list.size).isEqualTo(5)
                     assertThat(list.asSequence().all { stilling -> !stilling.eksternId.isNullOrEmpty() }).isTrue()
                 }
+
+    }
+
+    @Test
+    fun testFetchMultipleBatches() {
+        var nextDateTime = LocalDateTime.of(2017, 1, 20, 13, 30, 20)
+
+        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
+                .also { list -> assertThat(list.size).isEqualTo(2) }
+                .let { it.last().mottattTidspunkt }
+
+        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
+                .also { list ->
+                    assertThat(list.size).isEqualTo(3) }
+                .let { it.last().mottattTidspunkt }
+
+        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
+                .also { list -> assertThat(list.size).isEqualTo(2) }
+                .let { it.last().mottattTidspunkt }
+
+        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
+                .also { list -> assertThat(list.size).isEqualTo(1) }
+                .let { it.last().mottattTidspunkt }
+
+        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
+                .also { list -> assertThat(list.size).isEqualTo(6) }
+                .let { it.last().mottattTidspunkt }
+
+        mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
+                .also { list -> assertThat(list.size).isEqualTo(0) }
+    }
+
+    fun urlFrom(dateTime: LocalDateTime): String {
+        return "http://localhost:$randomPort/load/${dateTime.year}/${dateTime.monthValue}/${dateTime.dayOfMonth}/${dateTime.hour}/${dateTime.minute}/${dateTime.second}"
     }
 
     @AfterEach

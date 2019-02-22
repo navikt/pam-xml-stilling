@@ -4,7 +4,7 @@ import no.nav.pam.xmlstilling.legacy.*
 import no.nav.pam.xmlstilling.rest.StillingFeed
 
 val testEnvironment = Environment(
-        xmlStillingDataSourceUrl = "jdbc:h2:mem:test",
+        xmlStillingDataSourceUrl = "jdbc:h2:mem:test;TRACE_LEVEL_FIle=4",
         username = "user",
         password = "pass"
 )

@@ -6,10 +6,14 @@ import java.time.LocalDateTime
 
 private val oracleFetchQuery = """
     select *
-    from "SIX_KOMP"."STILLING_BATCH"
-    where MOTTATT_DATO > ?
-    order by STILLING_BATCH_ID
-    fetch first ? rows only""".trimIndent()
+        from "SIX_KOMP"."STILLING_BATCH"
+        where MOTTATT_DATO > ?
+        and MOTTATT_DATO < (
+    	    select trunc(min(MOTTATT_DATO) + 1, 'DD') as NEXT_DAY
+    	    from "SIX_KOMP"."STILLING_BATCH"
+    	    where MOTTATT_DATO > ?)
+        order by STILLING_BATCH_ID;
+""".trimIndent()
 
 class StillingBatch (
         fetchQuery: String = oracleFetchQuery
@@ -38,17 +42,17 @@ class StillingBatch (
     }
 
 
-    private val fetchbatchQuery = fun(mottattDato: LocalDateTime, count: Int): ListResultQueryAction<Entry> {
-        return queryOf(fetchQuery, mottattDato, if(count > 10) 10 else count)
+    private val fetchbatchQuery = fun(mottattDato: LocalDateTime): ListResultQueryAction<Entry> {
+        return queryOf(fetchQuery, mottattDato, mottattDato)
                 .map(toStillingBatchEntry)
                 .asList
     }
 
 
-    fun fetchBatch(mottattDato: LocalDateTime, count: Int): List<StillingBatch.Entry>
+    fun fetchBatch(mottattDato: LocalDateTime): List<StillingBatch.Entry>
     {
         return using(sessionOf(HikariCP.dataSource())) { session ->
-            return@using session.run(fetchbatchQuery(mottattDato, count))
+            return@using session.run(fetchbatchQuery(mottattDato))
         }
     }
 }

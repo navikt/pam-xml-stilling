@@ -42,14 +42,15 @@ fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch(), feed
         }
         routing {
             naisApi()
-            get("load/{yyyy}/{MM}/{dd}/{HH}/{mm}/{ss}") {
-                call.respond(feed.hentStillinger(LocalDateTime.parse(
-                        call.parameters["yyyy"] + "-"
-                                + call.parameters["MM"] + "-"
-                                + call.parameters["dd"] + "T"
-                                + call.parameters["HH"] + ":"
-                                + call.parameters["mm"] + ":"
-                                + call.parameters["ss"])))
+            get("load/{year}/{month}/{day}/{hour}/{minute}/{second}") {
+                var year = call.parameters["yyyy"]?.toInt();
+                call.respond(feed.hentStillinger(LocalDateTime.of(
+                        call.parameters["year"]!!.toInt(),
+                        call.parameters["month"]!!.toInt(),
+                        call.parameters["day"]!!.toInt(),
+                        call.parameters["hour"]!!.toInt(),
+                        call.parameters["minute"]!!.toInt(),
+                        call.parameters["second"]!!.toInt())))
             }
         }
     }

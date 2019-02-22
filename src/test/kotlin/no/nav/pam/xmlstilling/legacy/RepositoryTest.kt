@@ -42,8 +42,7 @@ class RepositoryTest {
         }
 
         assertThat(StillingBatch(h2FetchQuerySql).fetchBatch(
-                forsteJan2018,
-                10).size)
+                forsteJan2018).size)
                 .isEqualTo(1)
     }
 
@@ -53,7 +52,7 @@ class RepositoryTest {
             session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", minimalXML, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
         }
 
-        val entry = StillingBatch(h2FetchQuerySql).fetchBatch(forsteJan2018, 10).first()
+        val entry = StillingBatch(h2FetchQuerySql).fetchBatch(forsteJan2018).first()
 
         assertThat(entry.stillingBatchId).isEqualTo(193164)
         assertThat(entry.eksternBrukerRef).isEqualTo("jobbnorge")
@@ -70,7 +69,7 @@ class RepositoryTest {
             session.run(queryOf(insertStillingBatchSql, 193164, "karriereno", minimalXML, "2018-01-23", null, null, null).asUpdate)
         }
 
-        val entry = StillingBatch(h2FetchQuerySql).fetchBatch(forsteJan2018, 10).first()
+        val entry = StillingBatch(h2FetchQuerySql).fetchBatch(forsteJan2018).first()
 
         assertThat(entry.stillingBatchId).isEqualTo(193164)
         assertThat(entry.behandletDato).isNull()
