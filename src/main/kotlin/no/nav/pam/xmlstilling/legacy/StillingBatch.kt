@@ -17,16 +17,6 @@ private val oracleFetchQuery = """
     	    where MOTTATT_DATO > ?)
         order by STILLING_BATCH_ID
 """.trimIndent()
-//private val oracleFetchQuery = """
-//    select *
-//        from "SIX_KOMP"."STILLING_BATCH"
-//        where MOTTATT_DATO > TO_DATE(?, 'YYYYMMDD HH:MI:SS')
-//        and MOTTATT_DATO < (
-//    	    select trunc(min(MOTTATT_DATO) + 1, 'DD') as NEXT_DAY
-//    	    from "SIX_KOMP"."STILLING_BATCH"
-//    	    where MOTTATT_DATO > TO_DATE(?, 'YYYYMMDD HH:MI:SS'))
-//        order by STILLING_BATCH_ID;
-//""".trimIndent()
 
 class StillingBatch (
         fetchQuery: String = oracleFetchQuery
@@ -58,11 +48,8 @@ class StillingBatch (
 
 
     private val fetchbatchQuery = fun(mottattDato: LocalDateTime): ListResultQueryAction<Entry> {
-        log.debug("Fetching xml-stillinger etter: {} ", Timestamp.valueOf(mottattDato) )
-        val formattedDate = DateTimeFormatter.ofPattern("yyyyMMdd HH:mm:ss").format(mottattDato)
-        val query = queryOf(fetchQuery,
-                mottattDato,
-                mottattDato)
+        log.debug("Henter xml-stillinger etter: {} ", mottattDato)
+        val query = queryOf(fetchQuery, mottattDato, mottattDato)
         log.debug("""query: "{}"""", query.statement)
 
         return query.map(toStillingBatchEntry).asList
