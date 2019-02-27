@@ -33,7 +33,7 @@ class ApiTest {
     }
 
     val randomPort = ServerSocket(0).use { it.localPort }
-    val stillingBatch = StillingBatch(h2FetchQuerySql)
+    val stillingBatch = StillingBatch()
     val application = webApplication(randomPort, stillingBatch, StillingFeed(stillingBatch))
     val client = HttpClient(CIO)
     val gson = GsonBuilder().registerTypeAdapter(LocalDateTime::class.java,

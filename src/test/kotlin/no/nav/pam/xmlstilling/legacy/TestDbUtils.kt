@@ -38,16 +38,16 @@ val dropStillingBatchSql: String = """
     Drop table "SIX_KOMP"."STILLING_BATCH"
 """.trimIndent()
 
-val h2FetchQuerySql = """
-        select *
-        from "SIX_KOMP"."STILLING_BATCH"
-        where MOTTATT_DATO > ?
-        and MOTTATT_DATO < (
-    	    select trunc(min(MOTTATT_DATO) + 1, 'DD') as NEXT_DAY
-    	    from "SIX_KOMP"."STILLING_BATCH"
-    	    where MOTTATT_DATO > ?)
-        order by STILLING_BATCH_ID;
-        """.trimIndent()
+//val h2FetchQuerySql = """
+//        select *
+//        from "SIX_KOMP"."STILLING_BATCH"
+//        where MOTTATT_DATO > ?
+//        and MOTTATT_DATO < (
+//    	    select trunc(min(MOTTATT_DATO) + 1, 'DD') as NEXT_DAY
+//    	    from "SIX_KOMP"."STILLING_BATCH"
+//    	    where MOTTATT_DATO > ?)
+//        order by STILLING_BATCH_ID;
+//        """.trimIndent()
 
 val createStillingBatchTable = {
     using(sessionOf(HikariCP.dataSource())) { session ->

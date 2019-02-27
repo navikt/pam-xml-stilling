@@ -11,7 +11,7 @@ val testEnvironment = Environment(
 
 fun main(args: Array<String>) {
 
-    val batch = StillingBatch(fetchQuery = h2FetchQuerySql)
+    val batch = StillingBatch()
 
     Bootstrap.initializeDatabase(testEnvironment)
             .run { createStillingBatchTable() }
