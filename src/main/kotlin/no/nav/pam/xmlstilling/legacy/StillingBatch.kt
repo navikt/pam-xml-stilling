@@ -2,6 +2,7 @@ package no.nav.pam.xmlstilling.legacy
 
 import kotliquery.*
 import kotliquery.action.ListResultQueryAction
+import java.sql.Timestamp
 import java.time.LocalDateTime
 
 private val oracleFetchQuery = """
@@ -43,7 +44,7 @@ class StillingBatch (
 
 
     private val fetchbatchQuery = fun(mottattDato: LocalDateTime): ListResultQueryAction<Entry> {
-        return queryOf(fetchQuery, mottattDato, mottattDato)
+        return queryOf(fetchQuery, Timestamp.valueOf(mottattDato), Timestamp.valueOf(mottattDato))
                 .map(toStillingBatchEntry)
                 .asList
     }
