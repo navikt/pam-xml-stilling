@@ -47,6 +47,7 @@ class StillingBatch (
 
 
     private val fetchbatchQuery = fun(mottattDato: LocalDateTime): ListResultQueryAction<Entry> {
+        log.debug("Henter xml-stillinger etter: {} ", Timestamp.valueOf(mottattDato) )
         val query = queryOf(fetchQuery,
                 Parameter(Timestamp.valueOf(mottattDato), Timestamp::class.java),
                 Parameter(Timestamp.valueOf(mottattDato), Timestamp::class.java))
