@@ -5,6 +5,7 @@ import kotliquery.action.ListResultQueryAction
 import mu.KotlinLogging
 import java.sql.Timestamp
 import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
 
 private val oracleFetchQuery = """
     select *
@@ -14,8 +15,18 @@ private val oracleFetchQuery = """
     	    select trunc(min(MOTTATT_DATO) + 1, 'DD') as NEXT_DAY
     	    from "SIX_KOMP"."STILLING_BATCH"
     	    where MOTTATT_DATO > ?)
-        order by STILLING_BATCH_ID;
+        order by STILLING_BATCH_ID
 """.trimIndent()
+//private val oracleFetchQuery = """
+//    select *
+//        from "SIX_KOMP"."STILLING_BATCH"
+//        where MOTTATT_DATO > TO_DATE(?, 'YYYYMMDD HH:MI:SS')
+//        and MOTTATT_DATO < (
+//    	    select trunc(min(MOTTATT_DATO) + 1, 'DD') as NEXT_DAY
+//    	    from "SIX_KOMP"."STILLING_BATCH"
+//    	    where MOTTATT_DATO > TO_DATE(?, 'YYYYMMDD HH:MI:SS'))
+//        order by STILLING_BATCH_ID;
+//""".trimIndent()
 
 class StillingBatch (
         fetchQuery: String = oracleFetchQuery
@@ -47,10 +58,11 @@ class StillingBatch (
 
 
     private val fetchbatchQuery = fun(mottattDato: LocalDateTime): ListResultQueryAction<Entry> {
-        log.debug("Henter xml-stillinger etter: {} ", Timestamp.valueOf(mottattDato) )
+        log.debug("Fetching xml-stillinger etter: {} ", Timestamp.valueOf(mottattDato) )
+        val formattedDate = DateTimeFormatter.ofPattern("yyyyMMdd HH:mm:ss").format(mottattDato)
         val query = queryOf(fetchQuery,
-                Parameter(Timestamp.valueOf(mottattDato), Timestamp::class.java),
-                Parameter(Timestamp.valueOf(mottattDato), Timestamp::class.java))
+                mottattDato,
+                mottattDato)
         log.debug("""query: "{}"""", query.statement)
 
         return query.map(toStillingBatchEntry).asList
