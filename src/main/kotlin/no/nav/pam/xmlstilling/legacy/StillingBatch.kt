@@ -39,7 +39,7 @@ class StillingBatch (
                 stillingBatchId = row.int("STILLING_BATCH_ID"),
                 eksternBrukerRef = row.string("EKSTERN_BRUKER_REF"),
                 stillingXml = row.string("STILLING_XML"),
-                mottattDato = row.localDateTime("MOTTATT_DATO"),
+                mottattDato = row.zonedDateTime("MOTTATT_DATO").toLocalDateTime(),
                 behandletDato = row.localDateOrNull("BEHANDLET_DATO"),
                 behandletStatus = row.stringOrNull("BEHANDLET_STATUS"),
                 arbeidsgiver = row.stringOrNull("ARBEIDSGIVER")

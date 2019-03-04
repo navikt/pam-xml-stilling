@@ -10,29 +10,29 @@ object StillingMapper {
 
     fun toStillingDto(hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String>, mottatt: LocalDateTime, eksternBrukerRef: String): XmlStillingDto {
         return XmlStillingDto(
-                hrXmlValues.getValue(ARBEIDSGIVER),
-                eksternBrukerRef,
-                hrXmlValues.get(ARBEIDSGIVER_BEDRIFTSPRESENTASJON),
-                hrXmlValues.get(STILLINGSBESKRIVELSE),
-                hrXmlValues.getValue(STILLINGSTITTEL),
-                getLocalDate(hrXmlValues.get(SOKNADSFRIST)),
-                arrayOf(
+                arbeidsgiver = hrXmlValues.getValue(ARBEIDSGIVER),
+                eksternBrukerRef = eksternBrukerRef,
+                arbeidsgiverBedriftspresentasjon = hrXmlValues.get(ARBEIDSGIVER_BEDRIFTSPRESENTASJON),
+                stillingsbeskrivelse = hrXmlValues.get(STILLINGSBESKRIVELSE),
+                stillingstittel = hrXmlValues.getValue(STILLINGSTITTEL),
+                soknadsfrist = getLocalDate(hrXmlValues.get(SOKNADSFRIST)),
+                eksternId = arrayOf(
                         hrXmlValues.get(STILLING_ID),
                         hrXmlValues.get(ARBEIDSGIVER),
                         eksternBrukerRef)
                         .joinToString("_"),
-                getLocalDate(hrXmlValues.get(PUBLISERES_FRA)),
-                getLocalDate(hrXmlValues.get(SISTE_PUBLISERINGSDATO)),
-                mottatt,
-                hrXmlValues.getValue(ANTALL_STILLINGER).toInt(),
-                hrXmlValues.getValue(ARBEIDSSTED),
-                hrXmlValues.getValue(STILLINGSPROSENT).toFloatOrNull(),
-                hrXmlValues.getValue(KONTAKTINFO_PERSON),
-                hrXmlValues.getValue(KONTAKTINFO_TELEFON),
-                hrXmlValues.getValue(KONTAKTINFO_EPOST),
-                hrXmlValues.getValue(ARBEIDSGIVER_ADRESSE),
-                hrXmlValues.getValue(ARBEIDSGIVER_POSTNR),
-                hrXmlValues.getValue(ARBEIDSGIVER_WEBADRESSE)
+                publiseresFra = getLocalDate(hrXmlValues.get(PUBLISERES_FRA)),
+                sistePubliseringsdato = getLocalDate(hrXmlValues.get(SISTE_PUBLISERINGSDATO)),
+                mottattTidspunkt = mottatt,
+                antallStillinger = hrXmlValues.getValue(ANTALL_STILLINGER).toInt(),
+                arbeidssted = hrXmlValues.getValue(ARBEIDSSTED),
+                stillingsprosent = hrXmlValues.getValue(STILLINGSPROSENT).toFloatOrNull(),
+                kontaktinfoPerson = hrXmlValues.getValue(KONTAKTINFO_PERSON),
+                kontaktinfoTelefon = hrXmlValues.getValue(KONTAKTINFO_TELEFON),
+                kontaktinfoEpost = hrXmlValues.getValue(KONTAKTINFO_EPOST),
+                arbeidsgiverAdresse = hrXmlValues.getValue(ARBEIDSGIVER_ADRESSE),
+                arbeidsgiverPostnummer = hrXmlValues.getValue(ARBEIDSGIVER_POSTNR),
+                arbeidsgiverWebadresse = hrXmlValues.getValue(ARBEIDSGIVER_WEBADRESSE)
         )
     }
 
