@@ -20,6 +20,7 @@ import no.nav.pam.xmlstilling.platform.naisApi
 import no.nav.pam.xmlstilling.rest.StillingFeed
 import java.time.LocalDateTime
 import java.time.ZoneId
+import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter.ISO_INSTANT
 
 fun main(args: Array<String>) {
@@ -36,7 +37,7 @@ fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch(), feed
             gson {
                 setPrettyPrinting()
                 registerTypeAdapter(LocalDateTime::class.java, JsonSerializer<LocalDateTime> { localDateTime, type, context ->
-                    JsonPrimitive(ISO_INSTANT.format(localDateTime.atZone(ZoneId.systemDefault()).toInstant()))
+                    JsonPrimitive(ISO_INSTANT.format(localDateTime.atOffset(ZoneOffset.UTC).toInstant()))
                 })
             }
         }
