@@ -1,12 +1,16 @@
 package no.nav.pam.xmlstilling.hrxml
 
+import mu.KotlinLogging
 import no.nav.pam.xmlstilling.hrxml.HrXmlStilingParser.HrXmlValue.*
 import no.nav.pam.xmlstilling.legacy.StillingBatch
 import no.nav.pam.xmlstilling.rest.XmlStillingDto
 import java.time.LocalDate
 import java.time.LocalDateTime
+import java.time.format.DateTimeParseException
 
 object StillingMapper {
+
+    private val log = KotlinLogging.logger { }
 
     fun toStillingDto(hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String>, mottatt: LocalDateTime, eksternBrukerRef: String): XmlStillingDto {
         return XmlStillingDto(
@@ -37,9 +41,14 @@ object StillingMapper {
     }
 
     private fun getLocalDate(date: String?): LocalDateTime? {
-        return if (date.isNullOrBlank()) null else LocalDate.parse(date).atStartOfDay()
+        return if (date.isNullOrBlank()) null else
+            try { LocalDate.parse(date).atStartOfDay() } catch (e: DateTimeParseException) {
+                log.error(e.message, e)
+                null
+            }
     }
 
+    // TODO Fjern denne - den brukes for øyeblikket bare i test. Men det krever omskrivning av test
     fun toStillingDtos(stillingBatchEntries: List<StillingBatch.Entry>): List<XmlStillingDto> {
         return stillingBatchEntries
                 .map { entry -> toStillingDto(HrXmlStilingParser.parse(entry.stillingXml), entry.mottattDato, entry.eksternBrukerRef) }
