@@ -36,4 +36,28 @@ class HrXmlStilingParserTest {
         assertThat(hrXmlValues.get(ARBEIDSGIVER_WEBADRESSE)).matches("http://www.a.com")
     }
 
+    @Test
+    fun testParseIncomingHrXmlWithEncodingSpecifiedAsIso8859_1() {
+        val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/example-jobbnorge.xml"))
+        val xml: String = reader.readText()
+        val hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(xml)
+        assertThat(hrXmlValues.get(ARBEIDSGIVER_BEDRIFTSPRESENTASJON)).contains("Gildeskål")
+    }
+
+    @Test
+    fun testParseIncomingHrXmllWithEncodingSpecifiedAsUtf_8() {
+        val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/example-stepstone.xml"))
+        val xml: String = reader.readText()
+        val hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(xml)
+        assertThat(hrXmlValues.get(ARBEIDSGIVER_BEDRIFTSPRESENTASJON)).contains("nærmiljø")
+    }
+
+    @Test
+    fun testParseIncomingHrXmllWithoutEncodingSpecified() {
+        val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/example-globesoft.xml"))
+        val xml: String = reader.readText()
+        val hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(xml)
+        assertThat(hrXmlValues.get(STILLINGSTITTEL)).contains("samfunnsøkonom")
+    }
+
 }
