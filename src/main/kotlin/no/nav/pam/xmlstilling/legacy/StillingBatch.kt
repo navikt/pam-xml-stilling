@@ -3,9 +3,7 @@ package no.nav.pam.xmlstilling.legacy
 import kotliquery.*
 import kotliquery.action.ListResultQueryAction
 import mu.KotlinLogging
-import java.sql.Timestamp
 import java.time.LocalDateTime
-import java.time.format.DateTimeFormatter
 
 private val oracleFetchQuery = """
     select *

@@ -12,7 +12,7 @@ object StillingMapper {
 
     private val log = KotlinLogging.logger { }
 
-    fun toStillingDto(hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String>, mottatt: LocalDateTime, eksternBrukerRef: String): XmlStillingDto {
+    fun toStillingDto(hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String>, mottatt: LocalDateTime, eksternBrukerRef: String, arenaId: Int?): XmlStillingDto {
         return XmlStillingDto(
                 arbeidsgiver = hrXmlValues.getValue(ARBEIDSGIVER),
                 eksternBrukerRef = eksternBrukerRef,
@@ -36,7 +36,8 @@ object StillingMapper {
                 kontaktinfoEpost = hrXmlValues.getValue(KONTAKTINFO_EPOST),
                 arbeidsgiverAdresse = hrXmlValues.getValue(ARBEIDSGIVER_ADRESSE),
                 arbeidsgiverPostnummer = hrXmlValues.getValue(ARBEIDSGIVER_POSTNR),
-                arbeidsgiverWebadresse = hrXmlValues.getValue(ARBEIDSGIVER_WEBADRESSE)
+                arbeidsgiverWebadresse = hrXmlValues.getValue(ARBEIDSGIVER_WEBADRESSE),
+                arenaId = arenaId
         )
     }
 
@@ -51,6 +52,6 @@ object StillingMapper {
     // TODO Fjern denne - den brukes for øyeblikket bare i test. Men det krever omskrivning av test
     fun toStillingDtos(stillingBatchEntries: List<StillingBatch.Entry>): List<XmlStillingDto> {
         return stillingBatchEntries
-                .map { entry -> toStillingDto(HrXmlStilingParser.parse(entry.stillingXml), entry.mottattDato, entry.eksternBrukerRef) }
+                .map { entry -> toStillingDto(HrXmlStilingParser.parse(entry.stillingXml), entry.mottattDato, entry.eksternBrukerRef, null) }
     }
 }

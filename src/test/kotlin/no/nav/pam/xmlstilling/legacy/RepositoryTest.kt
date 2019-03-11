@@ -28,10 +28,7 @@ class RepositoryTest {
 
     @BeforeEach
     fun setup() {
-        using(sessionOf(HikariCP.dataSource())) { session ->
-            session.run(queryOf(createSchemaSql).asExecute)
-            session.run(queryOf(createStillingBatchTableSql).asExecute)
-        }
+        createStillingBatchTable()
     }
 
     @Test
@@ -75,6 +72,25 @@ class RepositoryTest {
         assertThat(entry.behandletDato).isNull()
         assertThat(entry.behandletStatus).isNull()
         assertThat(entry.arbeidsgiver).isNull()
+    }
+
+    @Test
+    fun testFetchArenaIdNotExisting() {
+        loadBasicTestData()
+        assertThat(StillingIdMapping()
+                .fetchArenaId("foo", "bar", "foobar"))
+                .isNull()
+    }
+
+    @Test
+    fun testFetchExistingArenaId() {
+        using(sessionOf(HikariCP.dataSource())) {session ->
+            session.run(queryOf(insertStillingIdMappingSql, 100, 200, "123", "webcruiter", "oslo kommune", 300).asUpdate)
+        }
+
+        assertThat(StillingIdMapping()
+                .fetchArenaId("123", "webcruiter", "oslo kommune"))
+                .isEqualTo(200)
     }
 
 

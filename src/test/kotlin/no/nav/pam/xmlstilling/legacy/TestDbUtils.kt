@@ -4,6 +4,8 @@ import kotliquery.HikariCP
 import kotliquery.queryOf
 import kotliquery.sessionOf
 import kotliquery.using
+import no.nav.pam.xmlstilling.hrxml.HrXmlStilingParser
+import no.nav.pam.xmlstilling.hrxml.HrXmlStilingParser.HrXmlValue.*
 import java.time.LocalDateTime
 
 val createSchemaSql: String = """
@@ -22,6 +24,17 @@ val createStillingBatchTableSql: String = """
         CONSTRAINT "PK_STILLING_BATCH" PRIMARY KEY ("STILLING_BATCH_ID"));
 """.trimIndent()
 
+val createStillingIdMappingTableSql: String = """
+    CREATE TABLE "SIX_KOMP"."STILLING_ID_MAPPING"
+    (   "ID" NUMBER NOT NULL,
+        "ARENA_STILLING_ID" NUMBER,
+        "EKSTERN_STILLING_ID" VARCHAR(150 BYTE) NOT NULL,
+        "EKSTERN_AKTOR_NAVN" VARCHAR(150 BYTE) NOT NULL,
+        "ARBEIDSGIVER" VARCHAR(150 BYTE) NOT NULL,
+        "STILLING_LOGG_ID" NUMBER NOT NULL,
+        CONSTRAINT "ID_MAPPING" PRIMARY KEY ("ID"));
+""".trimIndent()
+
 val insertStillingBatchSql: String = """
     Insert into "SIX_KOMP"."STILLING_BATCH" (
         STILLING_BATCH_ID,
@@ -34,8 +47,23 @@ val insertStillingBatchSql: String = """
     values (?, ?, ?, ?, ?, ?, ?);
 """.trimIndent()
 
+val insertStillingIdMappingSql: String = """
+    Insert into "SIX_KOMP"."STILLING_ID_MAPPING" (
+        ID,
+        ARENA_STILLING_ID,
+        EKSTERN_STILLING_ID,
+        EKSTERN_AKTOR_NAVN,
+        ARBEIDSGIVER,
+        STILLING_LOGG_ID)
+    values (?, ?, ?, ?, ?, ?);
+""".trimIndent()
+
 val dropStillingBatchSql: String = """
     Drop table "SIX_KOMP"."STILLING_BATCH"
+""".trimIndent()
+
+val dropStillingIdMappingSql: String = """
+    Drop table "SIX_KOMP"."STILLING_ID_MAPPING"
 """.trimIndent()
 
 //val h2FetchQuerySql = """
@@ -53,6 +81,7 @@ val createStillingBatchTable = {
     using(sessionOf(HikariCP.dataSource())) { session ->
         session.run(queryOf(createSchemaSql).asExecute)
         session.run(queryOf(createStillingBatchTableSql).asExecute)
+        session.run(queryOf(createStillingIdMappingTableSql).asExecute)
     }
 }
 
@@ -63,6 +92,8 @@ val loadBasicTestData = {
     using(sessionOf(HikariCP.dataSource())) { session ->
         session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", Leverandor.JOBBNORGE.xml(), forsteMottattDato, "2018-01-23", "5", "Coop Nordland").asUpdate)
         session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", Leverandor.WEBCRUITER.xml(), forsteMottattDato.plusDays(1), "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
+        session.run(queryOf(insertStillingIdMappingSql, *idMappingParams(1, 10, "jobbnorge", Leverandor.JOBBNORGE.xml(), 2)).asUpdate)
+        session.run(queryOf(insertStillingIdMappingSql, *idMappingParams(2, 20, "webcruiter", Leverandor.WEBCRUITER.xml(), 3)).asUpdate)
     }
 }
 
@@ -87,5 +118,11 @@ val loadExtendedTestData = {
 val dropStillingBatch = {
     using(sessionOf(HikariCP.dataSource())) { session ->
         session.run(queryOf(dropStillingBatchSql).asExecute)
+        session.run(queryOf(dropStillingIdMappingSql).asExecute)
     }
+}
+
+fun idMappingParams(id: Number, arenaId: Number, eksternAktoer: String, xml: String, stillingLoggId: Number): Array<kotlin.Any> {
+    val xmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(xml)
+    return arrayOf(id, arenaId, xmlValues.getValue(STILLING_ID), eksternAktoer, xmlValues.getValue(ARBEIDSGIVER), stillingLoggId)
 }
