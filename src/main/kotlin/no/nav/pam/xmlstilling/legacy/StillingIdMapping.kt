@@ -1,17 +1,19 @@
 package no.nav.pam.xmlstilling.legacy
 
-import kotliquery.*
-import kotliquery.action.ListResultQueryAction
+import kotliquery.HikariCP
 import kotliquery.action.NullableResultQueryAction
+import kotliquery.queryOf
+import kotliquery.sessionOf
+import kotliquery.using
 import mu.KotlinLogging
-import java.time.LocalDateTime
 
 private val oracleFetchQuery = """
-    select ARENA_STILLING_ID
+    select max(ARENA_STILLING_ID) as ARENA_STILLING_ID
         from "SIX_KOMP"."STILLING_ID_MAPPING"
         where EKSTERN_STILLING_ID = ?
         and EKSTERN_AKTOR_NAVN = ?
         and ARBEIDSGIVER = ?
+        and ARENA_STILLING_ID is not null
 """.trimIndent()
 
 class StillingIdMapping (
@@ -23,7 +25,7 @@ class StillingIdMapping (
 
     private val fetchArenaIdQuery = fun(eksternStillingId: String, eksternAktorNavn: String, arbeidsgiver: String): NullableResultQueryAction<Int> {
         val query = queryOf(fetchQuery, eksternStillingId, eksternAktorNavn, arbeidsgiver)
-        return query.map{row -> row.int("ARENA_STILLING_ID")}.asSingle
+        return query.map{row -> row.intOrNull("ARENA_STILLING_ID")}.asSingle
     }
 
     fun fetchArenaId(eksternStillingId: String, eksternAktorNavn: String, arbeidsgiver: String): Int? {

@@ -66,17 +66,6 @@ val dropStillingIdMappingSql: String = """
     Drop table "SIX_KOMP"."STILLING_ID_MAPPING"
 """.trimIndent()
 
-//val h2FetchQuerySql = """
-//        select *
-//        from "SIX_KOMP"."STILLING_BATCH"
-//        where MOTTATT_DATO > ?
-//        and MOTTATT_DATO < (
-//    	    select trunc(min(MOTTATT_DATO) + 1, 'DD') as NEXT_DAY
-//    	    from "SIX_KOMP"."STILLING_BATCH"
-//    	    where MOTTATT_DATO > ?)
-//        order by STILLING_BATCH_ID;
-//        """.trimIndent()
-
 val createStillingBatchTable = {
     using(sessionOf(HikariCP.dataSource())) { session ->
         session.run(queryOf(createSchemaSql).asExecute)
@@ -86,7 +75,6 @@ val createStillingBatchTable = {
 }
 
 val forsteMottattDato = LocalDateTime.of(2018, 1, 23, 0, 0 ,0)
-val mottattDatoer = (0L..13).map { i ->  forsteMottattDato.plusDays(i) }
 
 val loadBasicTestData = {
     using(sessionOf(HikariCP.dataSource())) { session ->
@@ -96,7 +84,6 @@ val loadBasicTestData = {
         session.run(queryOf(insertStillingIdMappingSql, *idMappingParams(2, 20, "webcruiter", Leverandor.WEBCRUITER.xml(), 3)).asUpdate)
     }
 }
-
 
 val loadExtendedTestData = {
     using(sessionOf(HikariCP.dataSource())) { session ->
