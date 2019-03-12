@@ -28,10 +28,7 @@ class RepositoryTest {
 
     @BeforeEach
     fun setup() {
-        using(sessionOf(HikariCP.dataSource())) { session ->
-            session.run(queryOf(createSchemaSql).asExecute)
-            session.run(queryOf(createStillingBatchTableSql).asExecute)
-        }
+        createStillingBatchTable()
     }
 
     @Test
@@ -75,6 +72,48 @@ class RepositoryTest {
         assertThat(entry.behandletDato).isNull()
         assertThat(entry.behandletStatus).isNull()
         assertThat(entry.arbeidsgiver).isNull()
+    }
+
+    @Test
+    fun testFetchArenaIdNotExisting() {
+        loadBasicTestData()
+        assertThat(StillingIdMapping()
+                .fetchArenaId("foo", "bar", "foobar"))
+                .isNull()
+    }
+
+    @Test
+    fun testFetchNullArenaId() {
+        using(sessionOf(HikariCP.dataSource())) {session ->
+            session.run(queryOf(insertStillingIdMappingSql, 100, null, "123", "webcruiter", "oslo kommune", 300).asUpdate)
+        }
+
+        assertThat(StillingIdMapping()
+                .fetchArenaId("123", "webcruiter", "oslo kommune"))
+                .isNull()
+    }
+
+    @Test
+    fun testFetchExistingArenaId() {
+        using(sessionOf(HikariCP.dataSource())) {session ->
+            session.run(queryOf(insertStillingIdMappingSql, 100, 10003975, "123", "webcruiter", "oslo kommune", 300).asUpdate)
+        }
+
+        assertThat(StillingIdMapping()
+                .fetchArenaId("123", "webcruiter", "oslo kommune"))
+                .isEqualTo(10003975)
+    }
+
+    @Test
+    fun testFetchMaxExistingArenaId() {
+        using(sessionOf(HikariCP.dataSource())) {session ->
+            session.run(queryOf(insertStillingIdMappingSql, 100, 10003975, "123", "webcruiter", "oslo kommune", 300).asUpdate)
+            session.run(queryOf(insertStillingIdMappingSql, 101, 10003976, "123", "webcruiter", "oslo kommune", 301).asUpdate)
+        }
+
+        assertThat(StillingIdMapping()
+                .fetchArenaId("123", "webcruiter", "oslo kommune"))
+                .isEqualTo(10003976)
     }
 
 
