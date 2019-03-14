@@ -37,6 +37,13 @@ class HrXmlStilingParserTest {
     }
 
     @Test
+    fun testParseNonHrXml() {
+        val xml = "<html><foo>bar</foo></html>"
+        val hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(xml)
+        assertThat(hrXmlValues.values.asSequence().all { value -> value.isEmpty() }).isTrue()
+    }
+
+    @Test
     fun testParseIncomingHrXmlWithEncodingSpecifiedAsIso8859_1() {
         val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/example-jobbnorge.xml"))
         val xml: String = reader.readText()
