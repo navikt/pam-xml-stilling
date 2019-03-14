@@ -39,12 +39,25 @@ class StillingMapperTest {
                 "7",
                 "FINN"
         ))
+        stillingBatchEntries.add(StillingBatch.Entry(
+                300,
+                "webcruiter",
+                "<html></html>",
+                time,
+                LocalDate.now(),
+                "0",
+                "VY"
+        ))
+
+        //NumberToFill
 
         val stillingDtos = StillingMapper.toStillingDtos(stillingBatchEntries)
 
+        assertThat(stillingDtos.size).isEqualTo(3)
         assertThat(stillingDtos[0].stillingstittel).matches("Avdelingsleder prosjekt")
         assertThat(stillingDtos[1].mottattTidspunkt).isEqualTo(dateAndTime)
         assertThat(stillingDtos[0].eksternBrukerRef).isEqualTo("jobbnorge")
         assertThat(stillingDtos[1].eksternBrukerRef).isEqualTo("webcruiter")
+        assertThat(stillingDtos[2].antallStillinger).isNull()
     }
 }

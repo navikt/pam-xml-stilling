@@ -16,8 +16,8 @@ object StillingMapper {
         return XmlStillingDto(
                 arbeidsgiver = hrXmlValues.getValue(ARBEIDSGIVER),
                 eksternBrukerRef = eksternBrukerRef,
-                arbeidsgiverBedriftspresentasjon = hrXmlValues.get(ARBEIDSGIVER_BEDRIFTSPRESENTASJON),
-                stillingsbeskrivelse = hrXmlValues.get(STILLINGSBESKRIVELSE),
+                arbeidsgiverBedriftspresentasjon = hrXmlValues.getValue(ARBEIDSGIVER_BEDRIFTSPRESENTASJON),
+                stillingsbeskrivelse = hrXmlValues.getValue(STILLINGSBESKRIVELSE),
                 stillingstittel = hrXmlValues.getValue(STILLINGSTITTEL),
                 soknadsfrist = getLocalDate(hrXmlValues.get(SOKNADSFRIST)),
                 eksternId = arrayOf(
@@ -28,7 +28,7 @@ object StillingMapper {
                 publiseresFra = getLocalDate(hrXmlValues.get(PUBLISERES_FRA)),
                 sistePubliseringsdato = getLocalDate(hrXmlValues.get(SISTE_PUBLISERINGSDATO)),
                 mottattTidspunkt = mottatt,
-                antallStillinger = hrXmlValues.getValue(ANTALL_STILLINGER).toInt(),
+                antallStillinger = hrXmlValues.getValue(ANTALL_STILLINGER).toIntOrNull(),
                 arbeidssted = hrXmlValues.getValue(ARBEIDSSTED),
                 stillingsprosent = hrXmlValues.getValue(STILLINGSPROSENT).toFloatOrNull(),
                 kontaktinfoPerson = hrXmlValues.getValue(KONTAKTINFO_PERSON),
