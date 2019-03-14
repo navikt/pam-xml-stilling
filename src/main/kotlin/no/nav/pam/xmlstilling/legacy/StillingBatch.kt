@@ -1,5 +1,6 @@
 package no.nav.pam.xmlstilling.legacy
 
+import io.prometheus.client.Counter
 import kotliquery.*
 import kotliquery.action.ListResultQueryAction
 import mu.KotlinLogging
@@ -18,7 +19,7 @@ private val oracleFetchQuery = """
 """.trimIndent()
 
 class StillingBatch (
-        fetchQuery: String = oracleFetchQuery
+        private val fetchQuery: String = oracleFetchQuery
 ) {
 
     private val log = KotlinLogging.logger { }
@@ -46,7 +47,7 @@ class StillingBatch (
     }
 
 
-    private val fetchbatchQuery = fun(mottattDato: LocalDateTime): ListResultQueryAction<Entry> {
+    fun fetchbatchQuery(mottattDato: LocalDateTime): ListResultQueryAction<Entry> {
         log.debug("Henter xml-stillinger etter: {} ", mottattDato)
         val query = queryOf(fetchQuery, mottattDato, mottattDato)
         log.debug("""query: "{}"""", query.statement)

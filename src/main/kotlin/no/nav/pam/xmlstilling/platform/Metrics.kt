@@ -12,26 +12,10 @@ import io.prometheus.client.exporter.common.TextFormat
 import io.prometheus.client.hotspot.DefaultExports
 
 
-fun Routing.naisApi(
-        ready: () -> Boolean = { true },
-        alive: () -> Boolean = { true },
+fun Routing.metrics(
         collectorRegistry: CollectorRegistry = CollectorRegistry.defaultRegistry
 ) {
     DefaultExports.initialize()
-    get("isReady") {
-        if (ready())
-            call.respondText("Ready")
-        else
-            call.respondText("Wait, not ready yet!", status = HttpStatusCode.InternalServerError)
-
-    }
-
-    get("isAlive") {
-        if (alive())
-            call.respondText("Alive and kicking")
-        else
-            call.respondText("Dead!", status = HttpStatusCode.InternalServerError)
-    }
 
     get("/prometheus") {
         val names = call.request.queryParameters.getAll("name[]")?.toSet() ?: setOf()

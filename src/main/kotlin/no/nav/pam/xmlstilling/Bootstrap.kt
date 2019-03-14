@@ -16,10 +16,10 @@ import kotliquery.HikariCP
 import mu.KotlinLogging
 import no.nav.pam.xmlstilling.Bootstrap.start
 import no.nav.pam.xmlstilling.legacy.StillingBatch
-import no.nav.pam.xmlstilling.platform.naisApi
+import no.nav.pam.xmlstilling.platform.health
+import no.nav.pam.xmlstilling.platform.metrics
 import no.nav.pam.xmlstilling.rest.StillingFeed
 import java.time.LocalDateTime
-import java.time.ZoneId
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter.ISO_INSTANT
 
@@ -31,18 +31,19 @@ fun main(args: Array<String>) {
 
 }
 
-fun webApplication(port: Int = 9020, repo: StillingBatch = StillingBatch(), feed: StillingFeed = StillingFeed()): ApplicationEngine {
+fun webApplication(port: Int = 9020, feed: StillingFeed = StillingFeed()): ApplicationEngine {
     return embeddedServer(Netty, port) {
         install(ContentNegotiation) {
             gson {
                 setPrettyPrinting()
-                registerTypeAdapter(LocalDateTime::class.java, JsonSerializer<LocalDateTime> { localDateTime, type, context ->
+                registerTypeAdapter(LocalDateTime::class.java, JsonSerializer<LocalDateTime> { localDateTime, _, _ ->
                     JsonPrimitive(ISO_INSTANT.format(localDateTime.atOffset(ZoneOffset.UTC).toInstant()))
                 })
             }
         }
         routing {
-            naisApi()
+            health()
+            metrics()
             get("load/{year}/{month}/{day}/{hour}/{minute}/{second}") {
                 call.respond(feed.hentStillinger(LocalDateTime.of(
                         call.parameters["year"]!!.toInt(),

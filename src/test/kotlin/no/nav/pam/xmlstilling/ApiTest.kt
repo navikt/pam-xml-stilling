@@ -4,11 +4,13 @@ import com.google.gson.GsonBuilder
 import com.google.gson.JsonDeserializer
 import com.google.gson.reflect.TypeToken
 import io.ktor.client.HttpClient
+import io.ktor.client.engine.apache.Apache
 import io.ktor.client.engine.cio.CIO
 import io.ktor.client.request.get
 import io.ktor.client.response.HttpResponse
 import io.ktor.client.response.readText
 import io.ktor.http.HttpStatusCode
+import io.prometheus.client.hotspot.DefaultExports
 import kotlinx.coroutines.runBlocking
 import kotliquery.HikariCP
 import no.nav.pam.xmlstilling.legacy.*
@@ -33,11 +35,11 @@ class ApiTest {
 
     val randomPort = ServerSocket(0).use { it.localPort }
     val stillingBatch = StillingBatch()
-    val application = webApplication(randomPort, stillingBatch, StillingFeed(stillingBatch))
-    val client = HttpClient(CIO)
+    val application = webApplication(randomPort, StillingFeed(stillingBatch))
+    val client = HttpClient(Apache)
     val gson = GsonBuilder().registerTypeAdapter(LocalDateTime::class.java,
             JsonDeserializer<LocalDateTime> {
-                element, type, context -> LocalDateTime.ofInstant(Instant.parse(element.asString), ZoneId.systemDefault())
+                element, _, _ -> LocalDateTime.ofInstant(Instant.parse(element.asString), ZoneId.systemDefault())
             }).create()
     val forsteJan2018 = "2018-01-01T00:00:00"
 
@@ -128,6 +130,7 @@ class ApiTest {
     fun after() {
         application.stop(0, 0, TimeUnit.MILLISECONDS)
         dropStillingBatch()
+        DefaultExports.initialize()
     }
 
 }
