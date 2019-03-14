@@ -28,7 +28,7 @@ class StillingIdMapping (
         return query.map{row -> row.intOrNull("ARENA_STILLING_ID")}.asSingle
     }
 
-    fun fetchArenaId(eksternStillingId: String, eksternAktorNavn: String, arbeidsgiver: String): Int? {
+    val fetchArenaId = fun(eksternStillingId: String, eksternAktorNavn: String, arbeidsgiver: String): Int? {
         return using(sessionOf(HikariCP.dataSource())) { session ->
             return@using session.run(fetchArenaIdQuery(eksternStillingId, eksternAktorNavn, arbeidsgiver))
         }

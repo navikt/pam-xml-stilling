@@ -18,6 +18,6 @@ fun main(args: Array<String>) {
             .also { loadBasicTestData() }
             .also { loadExtendedTestData() }
 
-    Bootstrap.start(webApplication(repo = batch, feed = StillingFeed(batch)))
+    Bootstrap.start(webApplication(feed = StillingFeed(batch)))
 
 }
