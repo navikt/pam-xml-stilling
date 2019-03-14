@@ -14,6 +14,16 @@ class StillingFeed (
         private val arenaIdProvider: (String, String, String) -> Int? = StillingIdMapping().fetchArenaId
 ) {
 
+    companion object {
+        val fetchedStillingerCounter = Counter
+                .build()
+                .namespace("pam_stilling")
+                .name("xml_stilling_loaded")
+                .help("Number of stillinger loaded from xmlstilling database")
+                .register()
+    }
+
+
     private val log = KotlinLogging.logger { }
 
     fun hentStillinger(mottattDato: LocalDateTime): List<XmlStillingDto> {
@@ -23,6 +33,8 @@ class StillingFeed (
                     val hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(entry.stillingXml)
                     val arenaId: Int? = arenaIdProvider(hrXmlValues.getValue(STILLING_ID), entry.eksternBrukerRef, hrXmlValues.getValue(ARBEIDSGIVER))
                     StillingMapper.toStillingDto(hrXmlValues, entry.mottattDato, entry.eksternBrukerRef, arenaId)
+                }.also {
+                    results -> fetchedStillingerCounter.inc(results.size.toDouble())
                 }
     }
 
