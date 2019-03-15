@@ -8,7 +8,8 @@ import java.time.LocalDateTime
 private val oracleFetchQuery = """
     select *
         from "SIX_KOMP"."STILLING_BATCH"
-        where MOTTATT_DATO > ?
+        where BEHANDLET_STATUS != '-1'
+        and MOTTATT_DATO > ?
         and MOTTATT_DATO < (
     	    select trunc(min(MOTTATT_DATO) + 1, 'DD') as NEXT_DAY
     	    from "SIX_KOMP"."STILLING_BATCH"
