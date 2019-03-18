@@ -63,15 +63,26 @@ class RepositoryTest {
     @Test
     fun testNullMappingsOfNullables() {
         using(sessionOf(HikariCP.dataSource())) {session ->
-            session.run(queryOf(insertStillingBatchSql, 193164, "karriereno", minimalXML, "2018-01-23", null, null, null).asUpdate)
+            session.run(queryOf(insertStillingBatchSql, 193164, "karriereno", minimalXML, "2018-01-23", null, "0", null).asUpdate)
         }
 
         val entry = StillingBatch().fetchBatch(forsteJan2018).first()
 
         assertThat(entry.stillingBatchId).isEqualTo(193164)
         assertThat(entry.behandletDato).isNull()
-        assertThat(entry.behandletStatus).isNull()
         assertThat(entry.arbeidsgiver).isNull()
+    }
+
+    @Test
+    fun testFilterOutInvalidBatches() {
+        using(sessionOf(HikariCP.dataSource())) {session ->
+            session.run(queryOf(insertStillingBatchSql, 193164, "karriereno", minimalXML, "2018-01-23", null, "-1", null).asUpdate)
+            session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", minimalXML, "2018-01-23", null, "0", null).asUpdate)
+        }
+
+        val stillinger = StillingBatch().fetchBatch(forsteJan2018)
+        assertThat(stillinger.size).isEqualTo(1)
+        assertThat(stillinger.first().stillingBatchId).isEqualTo(193165)
     }
 
     @Test
