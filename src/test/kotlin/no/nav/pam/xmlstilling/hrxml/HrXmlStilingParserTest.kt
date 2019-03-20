@@ -52,7 +52,7 @@ class HrXmlStilingParserTest {
     }
 
     @Test
-    fun testParseIncomingHrXmllWithEncodingSpecifiedAsUtf_8() {
+    fun testParseIncomingHrXmlWithEncodingSpecifiedAsUtf_8() {
         val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/example-stepstone.xml"))
         val xml: String = reader.readText()
         val hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(xml)
@@ -60,11 +60,19 @@ class HrXmlStilingParserTest {
     }
 
     @Test
-    fun testParseIncomingHrXmllWithoutEncodingSpecified() {
+    fun testParseIncomingHrXmlWithoutEncodingSpecified() {
         val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/example-globesoft.xml"))
         val xml: String = reader.readText()
         val hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(xml)
         assertThat(hrXmlValues.get(STILLINGSTITTEL)).contains("samfunnsøkonom")
+    }
+
+    @Test
+    fun testParseIncomingHrXmlMedPubliseresFra() {
+        val reader: Reader = InputStreamReader(FileInputStream("src/test/resources/xml/example-webcruiter.xml"))
+        val xml: String = reader.readText()
+        val hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String> = HrXmlStilingParser.parse(xml)
+        assertThat(hrXmlValues.get(PUBLISERES_FRA)).matches("2018-11-29")
     }
 
 }
