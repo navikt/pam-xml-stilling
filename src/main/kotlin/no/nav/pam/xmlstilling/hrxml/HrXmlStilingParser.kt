@@ -32,7 +32,7 @@ object HrXmlStilingParser {
         STILLINGSPROSENT("""//PositionSchedule/@percentage"""),
         ANTALL_STILLINGER("""//NumberToFill"""),
         ARBEIDSSTED("""//PhysicalLocation/Name"""),
-        PUBLISERES_FRA("""//DistributionGuidelines"""),
+        PUBLISERES_FRA("""//DistributionGuidelines/@validFrom"""),
         SISTE_PUBLISERINGSDATO("""//MaximumEndDate"""),
         SOKNADSFRIST("""//MaximumStartDate"""),
         KONTAKTINFO_PERSON("""//FormattedName"""),
