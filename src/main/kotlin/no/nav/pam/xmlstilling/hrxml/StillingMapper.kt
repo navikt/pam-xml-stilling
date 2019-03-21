@@ -21,14 +21,14 @@ object StillingMapper {
                 arbeidsgiverBedriftspresentasjon = hrXmlValues.getValue(ARBEIDSGIVER_BEDRIFTSPRESENTASJON),
                 stillingsbeskrivelse = hrXmlValues.getValue(STILLINGSBESKRIVELSE),
                 stillingstittel = hrXmlValues.getValue(STILLINGSTITTEL),
-                soknadsfrist = if (_soknadsfrist != null) _soknadsfrist else _sistePubliseringsdato,
+                soknadsfrist = _soknadsfrist ?: _sistePubliseringsdato,
                 eksternId = arrayOf(
                         hrXmlValues.get(STILLING_ID),
                         hrXmlValues.get(ARBEIDSGIVER),
                         eksternBrukerRef)
                         .joinToString("_"),
                 publiseresFra = getLocalDate(hrXmlValues.get(PUBLISERES_FRA)),
-                sistePubliseringsdato = if (_sistePubliseringsdato != null) _sistePubliseringsdato else _soknadsfrist,
+                sistePubliseringsdato = _sistePubliseringsdato ?: _soknadsfrist,
                 mottattTidspunkt = mottatt,
                 antallStillinger = hrXmlValues.getValue(ANTALL_STILLINGER).toIntOrNull(),
                 arbeidssted = hrXmlValues.getValue(ARBEIDSSTED),
