@@ -13,20 +13,22 @@ object StillingMapper {
     private val log = KotlinLogging.logger { }
 
     fun toStillingDto(hrXmlValues: Map<HrXmlStilingParser.HrXmlValue, String>, mottatt: LocalDateTime, eksternBrukerRef: String, arenaId: Int?): XmlStillingDto {
+        val _soknadsfrist = getLocalDate(hrXmlValues.get(SOKNADSFRIST))
+        val _sistePubliseringsdato = getLocalDate(hrXmlValues.get(SISTE_PUBLISERINGSDATO))
         return XmlStillingDto(
                 arbeidsgiver = hrXmlValues.getValue(ARBEIDSGIVER),
                 eksternBrukerRef = eksternBrukerRef,
                 arbeidsgiverBedriftspresentasjon = hrXmlValues.getValue(ARBEIDSGIVER_BEDRIFTSPRESENTASJON),
                 stillingsbeskrivelse = hrXmlValues.getValue(STILLINGSBESKRIVELSE),
                 stillingstittel = hrXmlValues.getValue(STILLINGSTITTEL),
-                soknadsfrist = getLocalDate(hrXmlValues.get(SOKNADSFRIST)),
+                soknadsfrist = if (_soknadsfrist != null) _soknadsfrist else _sistePubliseringsdato,
                 eksternId = arrayOf(
                         hrXmlValues.get(STILLING_ID),
                         hrXmlValues.get(ARBEIDSGIVER),
                         eksternBrukerRef)
                         .joinToString("_"),
                 publiseresFra = getLocalDate(hrXmlValues.get(PUBLISERES_FRA)),
-                sistePubliseringsdato = getLocalDate(hrXmlValues.get(SISTE_PUBLISERINGSDATO)),
+                sistePubliseringsdato = if (_sistePubliseringsdato != null) _sistePubliseringsdato else _soknadsfrist,
                 mottattTidspunkt = mottatt,
                 antallStillinger = hrXmlValues.getValue(ANTALL_STILLINGER).toIntOrNull(),
                 arbeidssted = hrXmlValues.getValue(ARBEIDSSTED),
