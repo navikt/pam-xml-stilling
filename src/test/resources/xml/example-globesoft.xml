@@ -39,6 +39,8 @@
                             <StartAsSoonAsPossible>
                                 true
                             </StartAsSoonAsPossible>
+                            <StartDate>2019-02-01</StartDate>
+                            <ExpectedEndDate></ExpectedEndDate>
                         </PositionDateInfo>
                         <Organization/>
                         <PositionDetail>

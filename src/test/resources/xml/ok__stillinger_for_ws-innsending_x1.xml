@@ -33,7 +33,9 @@
               <ExpectedEndDate>2011-12-12</ExpectedEndDate>
               <MaximumStartDate>2009-02-22</MaximumStartDate>
               <MaximumEndDate>2010-11-21</MaximumEndDate>
-              <StartAsSoonAsPossible>false</StartAsSoonAsPossible>
+              <StartAsSoonAsPossible>
+                true
+              </StartAsSoonAsPossible>
             </PositionDateInfo>
             <Organization>YIT er Norges ledende leverandoer av tekniske bygginstallasjoner.</Organization>
             <PositionDetail>

@@ -17,6 +17,7 @@ object HrXmlStilingParser {
 
         return HrXmlValue.values()
                 .map{ it to xPath.compile(it.xpathExpression).evaluate(document, XPathConstants.STRING) as String }
+                .map{ it.first to it.second.trim() }
                 .toMap()
     }
 
@@ -33,6 +34,9 @@ object HrXmlStilingParser {
         ANTALL_STILLINGER("""//NumberToFill"""),
         ARBEIDSSTED("""//PhysicalLocation/Name"""),
         PUBLISERES_FRA("""//DistributionGuidelines/@validFrom"""),
+        LEDIG_SNAREST("""//StartAsSoonAsPossible"""),
+        LEDIG_FRA("""//StartDate"""),
+        LEDIG_TIL("""//ExpectedEndDate"""),
         SISTE_PUBLISERINGSDATO("""//MaximumEndDate"""),
         SOKNADSFRIST("""//MaximumStartDate"""),
         KONTAKTINFO_PERSON("""//FormattedName"""),

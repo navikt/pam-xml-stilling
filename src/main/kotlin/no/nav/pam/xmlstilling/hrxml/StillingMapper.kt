@@ -28,6 +28,9 @@ object StillingMapper {
                         eksternBrukerRef)
                         .joinToString("_"),
                 publiseresFra = getLocalDate(hrXmlValues.get(PUBLISERES_FRA)),
+                ledigSnarest = hrXmlValues.getValue(LEDIG_SNAREST).toBoolean(),
+                ledigFra = getLocalDate(hrXmlValues.get(LEDIG_FRA)),
+                ledigTil = getLocalDate(hrXmlValues.get(LEDIG_TIL)),
                 sistePubliseringsdato = _sistePubliseringsdato ?: _soknadsfrist,
                 mottattTidspunkt = mottatt,
                 antallStillinger = hrXmlValues.getValue(ANTALL_STILLINGER).toIntOrNull(),
