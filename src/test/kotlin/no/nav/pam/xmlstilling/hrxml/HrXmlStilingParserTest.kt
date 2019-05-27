@@ -78,4 +78,13 @@ class HrXmlStilingParserTest {
         assertThat(hrXmlValues.get(PUBLISERES_FRA)).matches("2018-11-29")
     }
 
+    @Test
+    fun testStripEncoding() {
+        assertThat("<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>".stripEncoding).isEqualTo("<?xml version=\"1.0\"?>")
+        assertThat("<?xml version=\"1.0\" EncoDING=\"isO-8859-1\"?><b a=\"c\">".stripEncoding).isEqualTo("<?xml version=\"1.0\"?><b a=\"c\">")
+        assertThat("<?xml version=\"1.0\" encoding=\"utf-8\"?>".stripEncoding).isEqualTo("<?xml version=\"1.0\"?>")
+        assertThat("<?xml version=\"1.0\" encoding=\"Windows-1252\"?>".stripEncoding).isEqualTo("<?xml version=\"1.0\"?>")
+        assertThat("\n\n<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n\n<foo>bar</foo>".stripEncoding)
+                .isEqualTo("\n\n<?xml version=\"1.0\"?>\n\n<foo>bar</foo>")
+    }
 }

@@ -1,8 +1,8 @@
 package no.nav.pam.xmlstilling.hrxml
 
-import no.nav.pam.xmlstilling.utils.stripEncoding
 import org.w3c.dom.Document
 import java.nio.charset.StandardCharsets
+import java.util.regex.Pattern
 import javax.xml.parsers.DocumentBuilderFactory
 import javax.xml.xpath.XPath
 import javax.xml.xpath.XPathConstants
@@ -13,7 +13,7 @@ object HrXmlStilingParser {
     private val xPath: XPath = XPathFactory.newInstance().newXPath()
 
     fun parse(xml: String): Map<HrXmlValue, String> {
-        val document: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(stripEncoding(xml).byteInputStream(StandardCharsets.UTF_8))
+        val document: Document = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(xml.stripEncoding.byteInputStream(StandardCharsets.UTF_8))
 
         return HrXmlValue.values()
                 .map{ it to xPath.compile(it.xpathExpression).evaluate(document, XPathConstants.STRING) as String }
@@ -44,3 +44,7 @@ object HrXmlStilingParser {
         KONTAKTINFO_EPOST("""//HowToApply//InternetEmailAddress""")
     }
 }
+
+internal val String.stripEncoding get() =
+    Pattern.compile("\\sencoding=\"[^\"]+\"", Pattern.MULTILINE or Pattern.CASE_INSENSITIVE)
+            .matcher(this).replaceAll("")
