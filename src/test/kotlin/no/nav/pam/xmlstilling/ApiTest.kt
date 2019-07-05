@@ -5,7 +5,6 @@ import com.google.gson.JsonDeserializer
 import com.google.gson.reflect.TypeToken
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.apache.Apache
-import io.ktor.client.engine.cio.CIO
 import io.ktor.client.request.get
 import io.ktor.client.response.HttpResponse
 import io.ktor.client.response.readText
