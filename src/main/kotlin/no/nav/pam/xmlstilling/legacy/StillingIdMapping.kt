@@ -29,7 +29,7 @@ class StillingIdMapping (
     }
 
     val fetchArenaId = fun(eksternStillingId: String, eksternAktorNavn: String, arbeidsgiver: String): Int? {
-        return using(sessionOf(HikariCP.dataSource())) { session ->
+        return using(sessionOf(DatasourceProvider.get())) { session ->
             return@using session.run(fetchArenaIdQuery(eksternStillingId, eksternAktorNavn, arbeidsgiver))
         }
     }

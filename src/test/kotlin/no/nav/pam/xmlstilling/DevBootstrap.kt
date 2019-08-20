@@ -1,23 +1,25 @@
 package no.nav.pam.xmlstilling
 
+import kotliquery.HikariCP
 import no.nav.pam.xmlstilling.legacy.*
 import no.nav.pam.xmlstilling.rest.StillingFeed
 
 val testEnvironment = Environment(
-        xmlStillingDataSourceUrl = "jdbc:h2:mem:test;",
-        username = "user",
-        password = "pass"
+        jdbcUrl = "jdbc:h2:mem:test;",
+        dbName = "",
+        mountPath = ""
 )
 
 fun main(args: Array<String>) {
 
     val batch = StillingBatch()
 
-    Bootstrap.initializeDatabase(testEnvironment)
-            .run { createStillingBatchTable() }
-            .also { loadBasicTestData() }
-            .also { loadExtendedTestData() }
+    DatasourceProvider.init(HikariCP.default(testEnvironment.jdbcUrl, "user", "pass"))
 
-    Bootstrap.start(webApplication(feed = StillingFeed(batch)))
+    createStillingBatchTable()
+    loadBasicTestData()
+    loadExtendedTestData()
+
+    webApplication(feed = StillingFeed(batch)).start(wait = true)
 
 }

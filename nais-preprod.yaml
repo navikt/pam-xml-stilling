@@ -25,4 +25,11 @@ spec:
   vault:
     enabled: true
   ingresses:
-  - https://pam-xml-stilling.nais.oera-q.local
+    - https://pam-xml-stilling.nais.oera-q.local
+  env:
+    - name: JDBC_URL
+      value: jdbc:postgresql://b27dbvl007.preprod.local/xmlstilling-ws-preprod
+    - name: DB_NAME
+      value: xmlstilling-ws-preprod
+    - name: VAULT_MOUNT_PATH
+      value: postgresql/preprod-fss

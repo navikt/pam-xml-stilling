@@ -12,10 +12,8 @@ import io.ktor.routing.routing
 import io.ktor.server.engine.ApplicationEngine
 import io.ktor.server.engine.embeddedServer
 import io.ktor.server.netty.Netty
-import kotliquery.HikariCP
 import mu.KotlinLogging
-import no.nav.pam.xmlstilling.Bootstrap.start
-import no.nav.pam.xmlstilling.legacy.StillingBatch
+import no.nav.pam.xmlstilling.legacy.DatasourceProvider
 import no.nav.pam.xmlstilling.platform.health
 import no.nav.pam.xmlstilling.platform.metrics
 import no.nav.pam.xmlstilling.rest.StillingFeed
@@ -23,11 +21,14 @@ import java.time.LocalDateTime
 import java.time.ZoneOffset
 import java.time.format.DateTimeFormatter.ISO_INSTANT
 
+private val log = KotlinLogging.logger { }
+
 fun main(args: Array<String>) {
 
-    Bootstrap.initializeDatabase(Environment())
+    val env = Environment()
+    DatasourceProvider.initPostgresDataSource(env.jdbcUrl, env.mountPath, env.dbName)
 
-    start(webApplication())
+    webApplication().start(wait = true)
 
 }
 
@@ -57,17 +58,3 @@ fun webApplication(port: Int = 9020, feed: StillingFeed = StillingFeed()): Appli
     }
 }
 
-object Bootstrap {
-
-    private val log = KotlinLogging.logger { }
-
-    fun initializeDatabase(env: Environment) {
-        log.debug("Initializing database connection pool")
-        HikariCP.default(env.xmlStillingDataSourceUrl, env.username, env.password)
-    }
-
-    fun start(webApplication: ApplicationEngine) {
-        log.debug("Starting weg application")
-        webApplication.start(wait = true)
-    }
-}

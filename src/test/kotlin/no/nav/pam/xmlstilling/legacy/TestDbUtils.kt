@@ -1,11 +1,11 @@
 package no.nav.pam.xmlstilling.legacy
 
-import kotliquery.HikariCP
 import kotliquery.queryOf
 import kotliquery.sessionOf
 import kotliquery.using
 import no.nav.pam.xmlstilling.hrxml.HrXmlStilingParser
-import no.nav.pam.xmlstilling.hrxml.HrXmlStilingParser.HrXmlValue.*
+import no.nav.pam.xmlstilling.hrxml.HrXmlStilingParser.HrXmlValue.ARBEIDSGIVER
+import no.nav.pam.xmlstilling.hrxml.HrXmlStilingParser.HrXmlValue.STILLING_ID
 import java.time.LocalDateTime
 
 val createSchemaSql: String = """
@@ -67,7 +67,7 @@ val dropStillingIdMappingSql: String = """
 """.trimIndent()
 
 val createStillingBatchTable = {
-    using(sessionOf(HikariCP.dataSource())) { session ->
+    using(sessionOf(DatasourceProvider.get())) { session ->
         session.run(queryOf(createSchemaSql).asExecute)
         session.run(queryOf(createStillingBatchTableSql).asExecute)
         session.run(queryOf(createStillingIdMappingTableSql).asExecute)
@@ -77,7 +77,7 @@ val createStillingBatchTable = {
 val forsteMottattDato = LocalDateTime.of(2018, 1, 23, 0, 0 ,0)
 
 val loadBasicTestData = {
-    using(sessionOf(HikariCP.dataSource())) { session ->
+    using(sessionOf(DatasourceProvider.get())) { session ->
         session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", Leverandor.JOBBNORGE.xml(), forsteMottattDato, "2018-01-23", "5", "Coop Nordland").asUpdate)
         session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", Leverandor.WEBCRUITER.xml(), forsteMottattDato.plusDays(1), "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
         session.run(queryOf(insertStillingIdMappingSql, *idMappingParams(1, 10, "jobbnorge", Leverandor.JOBBNORGE.xml(), 2)).asUpdate)
@@ -86,7 +86,7 @@ val loadBasicTestData = {
 }
 
 val loadExtendedTestData = {
-    using(sessionOf(HikariCP.dataSource())) { session ->
+    using(sessionOf(DatasourceProvider.get())) { session ->
         session.run(queryOf(insertStillingBatchSql, 193166, "jobbnorge",  Leverandor.MYNETWORK.xml(),  forsteMottattDato.plusSeconds(4), "2018-01-23", "5", "Coop Nordland").asUpdate)
         session.run(queryOf(insertStillingBatchSql, 193167, "webcruiter", Leverandor.HRMANAGER.xml(),  forsteMottattDato.plusDays(1), "2018-01-23", "5", "Evje og Hornnes kommune").asUpdate)
         session.run(queryOf(insertStillingBatchSql, 193168, "jobbnorge",  Leverandor.STEPSTONE.xml(),  forsteMottattDato.plusDays(1).plusMinutes(40), "2018-01-23", "5", "Coop Nordland").asUpdate)
@@ -103,7 +103,7 @@ val loadExtendedTestData = {
 }
 
 val dropStillingBatch = {
-    using(sessionOf(HikariCP.dataSource())) { session ->
+    using(sessionOf(DatasourceProvider.get())) { session ->
         session.run(queryOf(dropStillingBatchSql).asExecute)
         session.run(queryOf(dropStillingIdMappingSql).asExecute)
     }

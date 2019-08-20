@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit
 class ApiTest {
 
     init {
-        HikariCP.default(testEnvironment.xmlStillingDataSourceUrl, testEnvironment.username, testEnvironment.password)
+        DatasourceProvider.init(HikariCP.default(testEnvironment.jdbcUrl, "user", "pass"))
     }
 
     val randomPort = ServerSocket(0).use { it.localPort }

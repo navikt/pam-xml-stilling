@@ -33,7 +33,7 @@ class RepositoryTest {
 
     @Test
     fun testFetchAll() {
-        using(sessionOf(HikariCP.dataSource())) {session ->
+        using(sessionOf(DatasourceProvider.get())) {session ->
             session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", minimalXML, "2017-11-05", "2018-01-23", "5", "Coop Nordland").asUpdate)
             session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", minimalXML, "2018-01-23", "2018-10-23", "5", "Evje og Hornnes kommune").asUpdate)
         }
@@ -45,7 +45,7 @@ class RepositoryTest {
 
     @Test
     fun testMapping() {
-        using(sessionOf(HikariCP.dataSource())) {session ->
+        using(sessionOf(DatasourceProvider.get())) {session ->
             session.run(queryOf(insertStillingBatchSql, 193164, "jobbnorge", minimalXML, "2018-01-23", "2018-01-23", "5", "Coop Nordland").asUpdate)
         }
 
@@ -62,7 +62,7 @@ class RepositoryTest {
 
     @Test
     fun testNullMappingsOfNullables() {
-        using(sessionOf(HikariCP.dataSource())) {session ->
+        using(sessionOf(DatasourceProvider.get())) {session ->
             session.run(queryOf(insertStillingBatchSql, 193164, "karriereno", minimalXML, "2018-01-23", null, "0", null).asUpdate)
         }
 
@@ -75,7 +75,7 @@ class RepositoryTest {
 
     @Test
     fun testFilterOutInvalidBatches() {
-        using(sessionOf(HikariCP.dataSource())) {session ->
+        using(sessionOf(DatasourceProvider.get())) {session ->
             session.run(queryOf(insertStillingBatchSql, 193164, "karriereno", minimalXML, "2018-01-23", null, "-1", null).asUpdate)
             session.run(queryOf(insertStillingBatchSql, 193165, "webcruiter", minimalXML, "2018-01-23", null, "0", null).asUpdate)
         }
@@ -95,7 +95,7 @@ class RepositoryTest {
 
     @Test
     fun testFetchNullArenaId() {
-        using(sessionOf(HikariCP.dataSource())) {session ->
+        using(sessionOf(DatasourceProvider.get())) {session ->
             session.run(queryOf(insertStillingIdMappingSql, 100, null, "123", "webcruiter", "oslo kommune", 300).asUpdate)
         }
 
@@ -106,7 +106,7 @@ class RepositoryTest {
 
     @Test
     fun testFetchExistingArenaId() {
-        using(sessionOf(HikariCP.dataSource())) {session ->
+        using(sessionOf(DatasourceProvider.get())) {session ->
             session.run(queryOf(insertStillingIdMappingSql, 100, 10003975, "123", "webcruiter", "oslo kommune", 300).asUpdate)
         }
 
@@ -117,7 +117,7 @@ class RepositoryTest {
 
     @Test
     fun testFetchMaxExistingArenaId() {
-        using(sessionOf(HikariCP.dataSource())) {session ->
+        using(sessionOf(DatasourceProvider.get())) {session ->
             session.run(queryOf(insertStillingIdMappingSql, 100, 10003975, "123", "webcruiter", "oslo kommune", 300).asUpdate)
             session.run(queryOf(insertStillingIdMappingSql, 101, 10003976, "123", "webcruiter", "oslo kommune", 301).asUpdate)
         }

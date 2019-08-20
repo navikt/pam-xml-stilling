@@ -26,3 +26,10 @@ spec:
     enabled: true
   ingresses:
     - https://pam-xml-stilling.nais.oera.no
+  env:
+    - name: JDBC_URL
+      value: jdbc:postgresql://fsspgdb.adeo.no/xmlstilling-ws
+    - name: DB_NAME
+      value: xmlstilling-ws
+    - name: VAULT_MOUNT_PATH
+      value: postgresql/prod-fss

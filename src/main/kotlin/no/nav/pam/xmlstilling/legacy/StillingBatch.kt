@@ -1,6 +1,5 @@
 package no.nav.pam.xmlstilling.legacy
 
-import io.prometheus.client.Counter
 import kotliquery.*
 import kotliquery.action.ListResultQueryAction
 import mu.KotlinLogging
@@ -58,7 +57,7 @@ class StillingBatch (
 
     fun fetchBatch(mottattDato: LocalDateTime): List<StillingBatch.Entry>
     {
-        return using(sessionOf(HikariCP.dataSource())) { session ->
+        return using(sessionOf(DatasourceProvider.get())) { session ->
             return@using session.run(fetchbatchQuery(mottattDato))
         }
     }
