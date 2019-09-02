@@ -12,6 +12,7 @@
 
     <logger name="no.nav" level="DEBUG"/>
     <logger name="io.netty" level="INFO"/>
+    <logger name="com.zaxxer.hikari" level="INFO"/>
 
     <root level="debug">
         <appender-ref ref="CONSOLE"/>
