@@ -13,7 +13,7 @@ val createSchemaSql: String = """
 """.trimIndent()
 
 val createStillingBatchTableSql: String = """
-    CREATE TABLE "STILLING_BATCH"
+    CREATE TABLE STILLING_BATCH
     (	"STILLING_BATCH_ID" NUMBER NOT NULL,
         "EKSTERN_BRUKER_REF" VARCHAR2(150 BYTE),
         "STILLING_XML" CLOB,
@@ -36,7 +36,7 @@ val createStillingIdMappingTableSql: String = """
 """.trimIndent()
 
 val insertStillingBatchSql: String = """
-    Insert into "STILLING_BATCH" (
+    Insert into STILLING_BATCH (
         STILLING_BATCH_ID,
         EKSTERN_BRUKER_REF,
         STILLING_XML,
@@ -59,7 +59,7 @@ val insertStillingIdMappingSql: String = """
 """.trimIndent()
 
 val dropStillingBatchSql: String = """
-    Drop table "STILLING_BATCH"
+    Drop table STILLING_BATCH
 """.trimIndent()
 
 val dropStillingIdMappingSql: String = """
