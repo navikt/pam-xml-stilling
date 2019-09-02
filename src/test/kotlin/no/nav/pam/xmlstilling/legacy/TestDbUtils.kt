@@ -13,7 +13,7 @@ val createSchemaSql: String = """
 """.trimIndent()
 
 val createStillingBatchTableSql: String = """
-    CREATE TABLE "SIX_KOMP"."STILLING_BATCH"
+    CREATE TABLE "STILLING_BATCH"
     (	"STILLING_BATCH_ID" NUMBER NOT NULL,
         "EKSTERN_BRUKER_REF" VARCHAR2(150 BYTE),
         "STILLING_XML" CLOB,
@@ -25,7 +25,7 @@ val createStillingBatchTableSql: String = """
 """.trimIndent()
 
 val createStillingIdMappingTableSql: String = """
-    CREATE TABLE "SIX_KOMP"."STILLING_ID_MAPPING"
+    CREATE TABLE "STILLING_ID_MAPPING"
     (   "ID" NUMBER NOT NULL,
         "ARENA_STILLING_ID" NUMBER,
         "EKSTERN_STILLING_ID" VARCHAR(150 BYTE) NOT NULL,
@@ -36,7 +36,7 @@ val createStillingIdMappingTableSql: String = """
 """.trimIndent()
 
 val insertStillingBatchSql: String = """
-    Insert into "SIX_KOMP"."STILLING_BATCH" (
+    Insert into "STILLING_BATCH" (
         STILLING_BATCH_ID,
         EKSTERN_BRUKER_REF,
         STILLING_XML,
@@ -48,7 +48,7 @@ val insertStillingBatchSql: String = """
 """.trimIndent()
 
 val insertStillingIdMappingSql: String = """
-    Insert into "SIX_KOMP"."STILLING_ID_MAPPING" (
+    Insert into "STILLING_ID_MAPPING" (
         ID,
         ARENA_STILLING_ID,
         EKSTERN_STILLING_ID,
@@ -59,11 +59,11 @@ val insertStillingIdMappingSql: String = """
 """.trimIndent()
 
 val dropStillingBatchSql: String = """
-    Drop table "SIX_KOMP"."STILLING_BATCH"
+    Drop table "STILLING_BATCH"
 """.trimIndent()
 
 val dropStillingIdMappingSql: String = """
-    Drop table "SIX_KOMP"."STILLING_ID_MAPPING"
+    Drop table "STILLING_ID_MAPPING"
 """.trimIndent()
 
 val createStillingBatchTable = {

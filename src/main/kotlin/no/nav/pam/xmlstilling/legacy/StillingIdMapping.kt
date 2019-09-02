@@ -9,7 +9,7 @@ import mu.KotlinLogging
 
 private val oracleFetchQuery = """
     select max(ARENA_STILLING_ID) as ARENA_STILLING_ID
-        from "SIX_KOMP"."STILLING_ID_MAPPING"
+        from "STILLING_ID_MAPPING"
         where EKSTERN_STILLING_ID = ?
         and EKSTERN_AKTOR_NAVN = ?
         and ARBEIDSGIVER = ?
