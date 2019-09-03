@@ -93,7 +93,7 @@ class StillingMapperTest {
         values.put(SOKNADSFRIST, dateString)
         values.put(SISTE_PUBLISERINGSDATO, dateString2)
 
-        var stillingDto = StillingMapper.toStillingDto(values, LocalDateTime.now(), "", null)
+        var stillingDto = StillingMapper.toStillingDto(values, LocalDateTime.now(), "")
         assertThat(stillingDto.soknadsfrist).isEqualTo(date)
         assertThat(stillingDto.sistePubliseringsdato).isEqualTo(date2)
     }
@@ -123,6 +123,6 @@ class StillingMapperTest {
         val _values: MutableMap<HrXmlStilingParser.HrXmlValue, String> =
                 HashMap<HrXmlStilingParser.HrXmlValue, String>().withDefault { key -> "" }
         if (value != null) _values.put(key, value)
-        return StillingMapper.toStillingDto(_values, LocalDateTime.now(), "", null)
+        return StillingMapper.toStillingDto(_values, LocalDateTime.now(), "")
     }
 }

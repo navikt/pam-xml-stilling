@@ -25,7 +25,6 @@ data class XmlStillingDto (
         val kontaktinfoEpost: String,
         val arbeidsgiverAdresse: String,
         val arbeidsgiverPostnummer: String,
-        val arbeidsgiverWebadresse: String,
-        val arenaId: Int?
+        val arbeidsgiverWebadresse: String
 
 )

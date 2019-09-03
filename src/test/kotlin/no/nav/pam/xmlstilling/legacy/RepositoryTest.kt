@@ -85,49 +85,6 @@ class RepositoryTest {
         assertThat(stillinger.first().stillingBatchId).isEqualTo(193165)
     }
 
-    @Test
-    fun testFetchArenaIdNotExisting() {
-        loadBasicTestData()
-        assertThat(StillingIdMapping()
-                .fetchArenaId("foo", "bar", "foobar"))
-                .isNull()
-    }
-
-    @Test
-    fun testFetchNullArenaId() {
-        using(sessionOf(DatasourceProvider.get())) {session ->
-            session.run(queryOf(insertStillingIdMappingSql, 100, null, "123", "webcruiter", "oslo kommune", 300).asUpdate)
-        }
-
-        assertThat(StillingIdMapping()
-                .fetchArenaId("123", "webcruiter", "oslo kommune"))
-                .isNull()
-    }
-
-    @Test
-    fun testFetchExistingArenaId() {
-        using(sessionOf(DatasourceProvider.get())) {session ->
-            session.run(queryOf(insertStillingIdMappingSql, 100, 10003975, "123", "webcruiter", "oslo kommune", 300).asUpdate)
-        }
-
-        assertThat(StillingIdMapping()
-                .fetchArenaId("123", "webcruiter", "oslo kommune"))
-                .isEqualTo(10003975)
-    }
-
-    @Test
-    fun testFetchMaxExistingArenaId() {
-        using(sessionOf(DatasourceProvider.get())) {session ->
-            session.run(queryOf(insertStillingIdMappingSql, 100, 10003975, "123", "webcruiter", "oslo kommune", 300).asUpdate)
-            session.run(queryOf(insertStillingIdMappingSql, 101, 10003976, "123", "webcruiter", "oslo kommune", 301).asUpdate)
-        }
-
-        assertThat(StillingIdMapping()
-                .fetchArenaId("123", "webcruiter", "oslo kommune"))
-                .isEqualTo(10003976)
-    }
-
-
     @AfterEach
     fun cleanup() {
         dropStillingBatch()
