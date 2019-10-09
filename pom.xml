@@ -5,7 +5,7 @@
 
     <groupId>no.nav.pam</groupId>
     <artifactId>pam-xml-stilling</artifactId>
-    <version>0.12-SNAPSHOT</version>
+    <version>0.13-SNAPSHOT</version>
     <packaging>jar</packaging>
 
 

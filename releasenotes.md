@@ -1,3 +1,6 @@
+## RELEASE - 0.12.91-f0020a0
+#### New in this release: 
++ 2019-08-20 [Migrert til postgres, same database som pam-xmlstilling-ws]
 ## RELEASE - 0.8.77-6b55638
 #### New in this release: 
 + 2019-07-05 [Updated to java 12, and bumped dependency versions. Removed unused and unnecessary dependencies]
