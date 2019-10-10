@@ -11,7 +11,7 @@ private val oracleFetchQuery = """
         where BEHANDLET_STATUS != '-1'
         and MOTTATT_DATO > ?
         and MOTTATT_DATO < (
-            select date_trunc('day', min(MOTTATT_DATO)) + interval '1' day as NEXT_DAY
+            select date_trunc('day', min(MOTTATT_DATO)) + interval '2' day as NEXT_DAY
             from STILLING_BATCH
             where MOTTATT_DATO > ?)
         order by STILLING_BATCH_ID
