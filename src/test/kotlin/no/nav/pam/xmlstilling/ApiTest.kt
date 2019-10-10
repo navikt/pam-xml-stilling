@@ -29,7 +29,7 @@ import java.util.concurrent.TimeUnit
 class ApiTest {
 
     init {
-        DatasourceProvider.init(HikariCP.default(testEnvironment.jdbcUrl, "user", "pass"))
+        DatasourceProvider.init(HikariCP.default("jdbc:h2:mem:test;MODE=PostgreSQL", "user", "pass"))
     }
 
     val randomPort = ServerSocket(0).use { it.localPort }
@@ -40,14 +40,8 @@ class ApiTest {
             JsonDeserializer<LocalDateTime> {
                 element, _, _ -> LocalDateTime.ofInstant(Instant.parse(element.asString), ZoneId.systemDefault())
             }).create()
-    val forsteJan2018 = "2018-01-01T00:00:00"
 
-    val mapJsonToEntry: (HttpResponse) -> List<StillingBatch.Entry> = { response ->
-        val turnsType = object : TypeToken<List<StillingBatch.Entry>>() {}.type
-        gson.fromJson<List<StillingBatch.Entry>>(runBlocking { response.readText() }, turnsType)
-    }
-
-    fun mapJsonToXmlStillingDto(httpResponse: HttpResponse): List<XmlStillingDto> {
+    private fun mapJsonToXmlStillingDto(httpResponse: HttpResponse): List<XmlStillingDto> {
         val turnsType = object : TypeToken<List<XmlStillingDto>>() {}.type
         return gson.fromJson<List<XmlStillingDto>>(
                 runBlocking { httpResponse.readText() },
@@ -87,38 +81,19 @@ class ApiTest {
                 .also { assertEquals(HttpStatusCode.OK, it.status) }
                 .let { mapJsonToXmlStillingDto(it) }
                 .also { list ->
-                    assertThat(list.asSequence().all { stilling -> !stilling.eksternId.isNullOrEmpty() }).isTrue()
+                    assertThat(list.asSequence().all { stilling -> stilling.eksternId.isNotEmpty() }).isTrue()
                 }
 
     }
 
     @Test
-    fun testFetchMultipleBatches() {
+    fun testFetchNextBatch() {
         var nextDateTime = LocalDateTime.of(2017, 1, 20, 13, 30, 20)
 
         nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
-                .also { list -> assertThat(list.size).isEqualTo(2) }
+                .also { list -> assertThat(list.size).isEqualTo(14) }
                 .let { it.last().mottattTidspunkt }
 
-        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
-                .also { list ->
-                    assertThat(list.size).isEqualTo(3) }
-                .let { it.last().mottattTidspunkt }
-
-        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
-                .also { list -> assertThat(list.size).isEqualTo(2) }
-                .let { it.last().mottattTidspunkt }
-
-        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
-                .also { list -> assertThat(list.size).isEqualTo(1) }
-                .let { it.last().mottattTidspunkt }
-
-        nextDateTime = mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
-                .also { list -> assertThat(list.size).isEqualTo(6) }
-                .let { it.last().mottattTidspunkt }
-
-        mapJsonToXmlStillingDto(runBlocking<HttpResponse> { client.get(urlFrom(nextDateTime)) })
-                .also { list -> assertThat(list.size).isEqualTo(0) }
     }
 
     fun urlFrom(dateTime: LocalDateTime): String {

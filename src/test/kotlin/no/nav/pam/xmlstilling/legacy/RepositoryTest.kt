@@ -22,7 +22,7 @@ class RepositoryTest {
         @BeforeAll
         @JvmStatic
         fun setupMemDb() {
-            DatasourceProvider.init(HikariCP.default("jdbc:h2:mem:test", "user", "pass"))
+            DatasourceProvider.init(HikariCP.default("jdbc:h2:mem:test;MODE=PostgreSQL", "user", "pass"))
         }
     }
 

@@ -9,12 +9,9 @@ private val oracleFetchQuery = """
     select *
         from STILLING_BATCH
         where BEHANDLET_STATUS != '-1'
-        and MOTTATT_DATO > ?
-        and MOTTATT_DATO < (
-            select date_trunc('day', min(MOTTATT_DATO)) + interval '2' day as NEXT_DAY
-            from STILLING_BATCH
-            where MOTTATT_DATO > ?)
+        and MOTTATT_DATO >= ?
         order by STILLING_BATCH_ID
+        limit 1000
 """.trimIndent()
 
 class StillingBatch (
@@ -48,7 +45,7 @@ class StillingBatch (
 
     fun fetchbatchQuery(mottattDato: LocalDateTime): ListResultQueryAction<Entry> {
         log.debug("Henter xml-stillinger etter: {} ", mottattDato)
-        val query = queryOf(fetchQuery, mottattDato, mottattDato)
+        val query = queryOf(fetchQuery, mottattDato)
         log.debug("""query: "{}"""", query.statement)
 
         return query.map(toStillingBatchEntry).asList
