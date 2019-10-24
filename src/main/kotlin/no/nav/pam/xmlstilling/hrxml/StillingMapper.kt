@@ -48,7 +48,7 @@ object StillingMapper {
     private fun getLocalDate(date: String?): LocalDateTime? {
         return if (date.isNullOrBlank()) null else
             try { LocalDate.parse(date).atStartOfDay() } catch (e: DateTimeParseException) {
-                log.error(e.message, e)
+                log.info("Found ad with unparsable date", e)
                 null
             }
     }
