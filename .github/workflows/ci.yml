@@ -7,9 +7,8 @@ on:
       - "LICENCE"
       - "CODEOWNERS"
     branches:
-      # - '*'
-      # - '!master'
-        - 'github_actions'
+      - '*'
+
 jobs:
   security:
     runs-on: ubuntu-latest
@@ -28,7 +27,7 @@ jobs:
     - uses: actions/checkout@v1
     - uses: actions/setup-java@v1
       with:
-        java-version: '12.x'  
+        java-version: '12.x'
     - uses: actions/cache@v1
       with:
         path: ~/.m2/repository

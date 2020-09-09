@@ -1,0 +1,37 @@
+apiVersion: "nais.io/v1alpha1"
+kind: "Application"
+metadata:
+  name: pam-xml-stilling
+  namespace: default
+  labels:
+    team: teampam
+spec:
+  image: {{ image }}
+  port: 9020
+  replicas:
+    min: 1
+    max: 1
+    cpuThresholdPercentage: 50
+  liveness:
+    initialDelay: 10
+    path: /isAlive
+  readiness:
+    initialDelay: 10
+    path: /isAlive
+  prometheus:
+    enabled: true
+    path: /prometheus
+  webproxy: true
+  vault:
+    enabled: true
+  ingresses:
+  {{#each ingress as |url|}}
+     - {{url}}
+  {{/each}}
+  env:
+    - name: JDBC_URL
+      value: {{ jdbc_url }}
+    - name: DB_NAME
+      value: xmlstilling-ws
+    - name: VAULT_MOUNT_PATH
+      value: postgresql/prod-fss
