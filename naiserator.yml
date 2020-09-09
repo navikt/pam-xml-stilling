@@ -34,4 +34,4 @@ spec:
     - name: DB_NAME
       value: {{ db_name }}
     - name: VAULT_MOUNT_PATH
-      value: postgresql/prod-fss
+      value: {{ vault_mount_path }}

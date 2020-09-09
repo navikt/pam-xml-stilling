@@ -1,5 +1,6 @@
 {
   "ingress": ["https://pam-xml-stilling.nais.oera.no"],
   "jdbc_url": "jdbc:postgresql://fsspgdb.adeo.no/xmlstilling-ws",
-  "db_name": "xmlstilling-ws"
+  "db_name": "xmlstilling-ws",
+  "vault_mount_path": "postgresql/prod-fss"
 }
