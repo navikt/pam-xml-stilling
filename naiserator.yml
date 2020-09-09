@@ -32,6 +32,6 @@ spec:
     - name: JDBC_URL
       value: {{ jdbc_url }}
     - name: DB_NAME
-      value: xmlstilling-ws
+      value: {{ db_name }}
     - name: VAULT_MOUNT_PATH
       value: postgresql/prod-fss
