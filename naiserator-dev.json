@@ -1,5 +1,5 @@
 {
-  "ingress": ["https://pam-xml-stilling.nais.oera-q.local"],
+  "ingress": ["https://pam-xml-stilling.nais.oera-q.local", "https://pam-xml-stilling.dev-sbs.nais.io"],
   "jdbc_url": "jdbc:postgresql://b27dbvl007.preprod.local/xmlstilling-ws-preprod",
   "db_name": "xmlstilling-ws-preprod",
   "vault_mount_path": "postgresql/preprod-fss"
